@@ -9,17 +9,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body class="font-open-sans"> 
+<body class="font-open-sans">
     <div class="container max-w-3xl mx-auto my-8 md:my-20 p-8 md:p-12 rounded-xl border-primary-accent"
           style="
             /* Background gradient for depth, mimicking a magical portal or old library interior */
-            background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-dark) 100%);
+            background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-light) 100%);
             /* Complex box-shadow for a 'magic door' or ancient tome effect: outer glow + inner depth */
             box-shadow:
-                0 0 30px var(--color-shadow-dark), /* General dark shadow for overall depth */
-                0 0 60px rgba(0, 0, 0, 0.5), /* Wider, softer dark shadow for a more pronounced lift */
-                inset 0 0 20px rgba(255, 255, 255, 0.05), /* Subtle inner glow from within the container */
-                inset 0 0 40px rgba(0, 0, 0, 0.8); /* Deep inner darkness for a sense of enclosure */
+                0 0 30px var(--color-shadow-light), /* General light shadow for overall depth */
+                0 0 60px rgba(0, 0, 0, 0.1), /* Wider, softer light shadow for a more pronounced lift */
+                inset 0 0 20px rgba(0, 0, 0, 0.05), /* Subtle inner darkness from within the container */
+                inset 0 0 40px rgba(255, 255, 255, 0.8); /* Deep inner lightness for a sense of enclosure */
             /* Border to frame the content, like an ornate book cover or door frame */
             border: 3px solid var(--color-primary-accent);
             border-left-width: 15px; /* Thicker left border for emphasis, suggesting a spine or a heavy door frame */
@@ -31,9 +31,9 @@
             style="
                 /* Box shadow for the profile picture, giving it a subtle magical glow and depth */
                 box-shadow: 0 0 15px var(--color-primary-accent), /* Subtle magical glow around the image */
-                                0 0 30px rgba(0, 0, 0, 0.8); /* Deeper shadow for added depth and prominence */
+                                0 0 30px rgba(0, 0, 0, 0.1); /* Lighter shadow for added depth and prominence */
             "
-            onerror="this.onerror=null;this.src='https://placehold.co/160x160/2B2B2B/E0E0E0?text=Sannaan';"
+            onerror="this.onerror=null;this.src='https://placehold.co/160x160/E0E0E0/333333?text=Sannaan';"
         />
 
         <h1 class="font-merriweather font-bold text-4xl md:text-5xl mb-1 text-headline-text text-center tracking-wide">
