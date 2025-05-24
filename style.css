@@ -5,13 +5,13 @@
 
 /* Dark Academia (Harry Potter-inspired) Color Palette */
 :root {
-    --color-bg-dark: #2F3C3C; /* Deep forest green / very dark teal for overall background */
-    --color-container-bg: #3D4A4A; /* Slightly lighter, muted dark green for content box */
-    --color-primary-accent: #C69C6D; /* Muted antique gold for accents */
-    --color-headline-text: #E8D9B9; /* Warm, aged parchment color for headline */
-    --color-body-text: #DDC8A6; /* Slightly darker warm cream for body text */
-    --color-strong-text: #FFD700; /* Brighter gold for emphasis */
-    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth */
+    --color-bg-dark: #2F3C3C; /* Deep forest green / very dark teal for overall background, reminiscent of old libraries */
+    --color-container-bg: #3D4A4A; /* Slightly lighter, muted dark green for content box, providing subtle contrast */
+    --color-primary-accent: #C69C6D; /* Muted antique gold for accents, like aged brass or old parchment highlights */
+    --color-headline-text: #E8D9B9; /* Warm, aged parchment color for headlines, evoking old manuscripts */
+    --color-body-text: #DDC8A6; /* Slightly darker warm cream for body text, ensuring readability on dark backgrounds */
+    --color-strong-text: #FFD700; /* Brighter gold for emphasis, drawing attention to key terms */
+    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth, adding to the mysterious feel */
 }
 
 html {
@@ -19,27 +19,27 @@ html {
 }
 
 body {
-    /* Apply dark background and default text color */
+    /* Apply dark background and default text color from the defined variables */
     background: var(--color-bg-dark);
     color: var(--color-body-text);
-    line-height: 1.7;
-    font-family: 'Open Sans', sans-serif; /* Default body font */
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    line-height: 1.7; /* Improved readability for body text */
+    font-family: 'Open Sans', sans-serif; /* Default body font, clean and readable */
+    min-height: 100vh; /* Ensure body takes full viewport height for proper centering */
     display: flex; /* Use flexbox for centering content vertically */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    padding: 2rem 0; /* Add some vertical padding */
+    align-items: center; /* Center content vertically within the viewport */
+    justify-content: center; /* Center content horizontally within the viewport */
+    padding: 2rem 0; /* Add some vertical padding to prevent content from touching edges */
 }
 
-/* Custom styles for the headline underline, mimicking the ::after pseudo-element */
+/* Custom styles for the headline underline, mimicking a decorative element */
 .headline-underline {
-    content: '';
-    display: block;
-    width: 90px;
-    height: 4px;
-    background: var(--color-primary-accent);
-    margin: 0.5em auto 1.8em auto;
-    border-radius: 3px;
+    content: ''; /* Required for pseudo-elements, though not strictly needed here as it's a div */
+    display: block; /* Ensures it takes up its own line */
+    width: 90px; /* Fixed width for the underline */
+    height: 4px; /* Thickness of the underline */
+    background: var(--color-primary-accent); /* Color of the underline, matching accents */
+    margin: 0.5em auto 1.8em auto; /* Centering the underline and providing vertical spacing */
+    border-radius: 3px; /* Slightly rounded corners for a softer look */
 }
 
 /* Tailwind JIT config for custom colors and fonts */
@@ -47,8 +47,8 @@ body {
     theme: {
         extend: {
             fontFamily: {
-                'merriweather': ['Merriweather', 'serif'],
-                'open-sans': ['Open Sans', 'sans-serif'],
+                'merriweather': ['Merriweather', 'serif'], /* Merriweather for headlines, classic and elegant */
+                'open-sans': ['Open Sans', 'sans-serif'], /* Open Sans for body, modern and readable */
             },
             colors: {
                 'bg-dark': 'var(--color-bg-dark)',
