@@ -3,15 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark Academia (Harry Potter-inspired) - Black and White Palette */
+/* Light Academia (Harry Potter-inspired) - White and Black Palette */
 :root {
-    --color-bg-dark: #1A1A1A; /* Very dark grey, almost black, for overall background */
-    --color-container-bg: #2B2B2B; /* Slightly lighter dark grey for content boxes, subtle contrast */
-    --color-primary-accent: #E0E0E0; /* Light grey for subtle accents, like aged paper or faint shine */
-    --color-headline-text: #FFFFFF; /* Pure white for headlines, stark and clear */
-    --color-body-text: #CCCCCC; /* Light grey for body text, ensuring readability on dark backgrounds */
-    --color-strong-text: #FFFFFF; /* Pure white for emphasis, drawing attention to key terms */
-    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth */
+    --color-bg-light: #F5F5F5; /* Very light grey, almost white, for overall background */
+    --color-container-bg: #E0E0E0; /* Slightly darker light grey for content boxes, subtle contrast */
+    --color-primary-accent: #555555; /* Dark grey for subtle accents, like ink or aged parchment */
+    --color-headline-text: #000000; /* Pure black for headlines, stark and clear */
+    --color-body-text: #333333; /* Dark grey for body text, ensuring readability on light backgrounds */
+    --color-strong-text: #000000; /* Pure black for emphasis, drawing attention to key terms */
+    --color-shadow-light: rgba(0, 0, 0, 0.2); /* Lighter, subtle shadows for depth */
 }
 
 html {
@@ -19,8 +19,8 @@ html {
 }
 
 body {
-    /* Apply dark background and default text color from the defined variables */
-    background: var(--color-bg-dark);
+    /* Apply light background and default text color from the defined variables */
+    background: var(--color-bg-light);
     color: var(--color-body-text);
     line-height: 1.7; /* Improved readability for body text */
     font-family: 'Open Sans', sans-serif; /* Default body font, clean and readable */
@@ -51,7 +51,7 @@ body {
                 'open-sans': ['Open Sans', 'sans-serif'], /* Open Sans for body, modern and readable */
             },
             colors: {
-                'bg-dark': 'var(--color-bg-dark)',
+                'bg-light': 'var(--color-bg-light)',
                 'container-bg': 'var(--color-container-bg)',
                 'primary-accent': 'var(--color-primary-accent)',
                 'headline-text': 'var(--color-headline-text)',
