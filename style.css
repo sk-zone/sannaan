@@ -3,15 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark Academia (Harry Potter-inspired) Color Palette */
+/* Dark Academia (Harry Potter-inspired) - Black and White Palette */
 :root {
-    --color-bg-dark: #2F3C3C; /* Deep forest green / very dark teal for overall background, reminiscent of old libraries */
-    --color-container-bg: #3D4A4A; /* Slightly lighter, muted dark green for content box, providing subtle contrast */
-    --color-primary-accent: #C69C6D; /* Muted antique gold for accents, like aged brass or old parchment highlights */
-    --color-headline-text: #E8D9B9; /* Warm, aged parchment color for headlines, evoking old manuscripts */
-    --color-body-text: #DDC8A6; /* Slightly darker warm cream for body text, ensuring readability on dark backgrounds */
-    --color-strong-text: #FFD700; /* Brighter gold for emphasis, drawing attention to key terms */
-    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth, adding to the mysterious feel */
+    --color-bg-dark: #1A1A1A; /* Very dark grey, almost black, for overall background */
+    --color-container-bg: #2B2B2B; /* Slightly lighter dark grey for content boxes, subtle contrast */
+    --color-primary-accent: #E0E0E0; /* Light grey for subtle accents, like aged paper or faint shine */
+    --color-headline-text: #FFFFFF; /* Pure white for headlines, stark and clear */
+    --color-body-text: #CCCCCC; /* Light grey for body text, ensuring readability on dark backgrounds */
+    --color-strong-text: #FFFFFF; /* Pure white for emphasis, drawing attention to key terms */
+    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth */
 }
 
 html {
