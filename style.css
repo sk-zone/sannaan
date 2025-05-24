@@ -1,82 +1,63 @@
-/* Google Fonts Import - add this inside <head> in your HTML:
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-*/
+/* Custom Tailwind Configuration for fonts and colors */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Reset + base */
+/* Dark Academia (Harry Potter-inspired) Color Palette */
+:root {
+    --color-bg-dark: #2F3C3C; /* Deep forest green / very dark teal for overall background */
+    --color-container-bg: #3D4A4A; /* Slightly lighter, muted dark green for content box */
+    --color-primary-accent: #C69C6D; /* Muted antique gold for accents */
+    --color-headline-text: #E8D9B9; /* Warm, aged parchment color for headline */
+    --color-body-text: #DDC8A6; /* Slightly darker warm cream for body text */
+    --color-strong-text: #FFD700; /* Brighter gold for emphasis */
+    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Darker, more pronounced shadows for depth */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for potential future navigation */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif; /* clean modern sans-serif for body */
-    background: linear-gradient(135deg, #e8f1f2 0%, #ffffff 100%);
-    color: #2b3e50;
+    /* Apply dark background and default text color */
+    background: var(--color-bg-dark);
+    color: var(--color-body-text);
     line-height: 1.7;
-    text-align: left; /* text left aligned */
+    font-family: 'Open Sans', sans-serif; /* Default body font */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex; /* Use flexbox for centering content vertically */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding: 2rem 0; /* Add some vertical padding */
 }
 
-/* Container */
-.container {
-    max-width: 720px;
-    margin: 5em auto;
-    padding: 3em 3em 4em;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 12px 28px rgba(43, 62, 80, 0.12);
-    border-left: 6px solid #00796b; /* subtle teal accent bar */
-}
-
-/* Profile Picture */
-.profile-pic {
-    display: block;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #00796b;
-    box-shadow: 0 6px 16px rgba(0, 121, 107, 0.25);
-    margin: 0 auto 2em auto;
-    transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 24px rgba(0, 121, 107, 0.4);
-}
-
-/* Headline */
-h1 {
-    font-family: 'Merriweather', serif; /* elegant serif for headline */
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 0.25em;
-    color: #004d40;
-    text-align: center; /* center headline */
-    letter-spacing: 0.03em;
-}
-
-/* Accent line under headline */
-h1::after {
+/* Custom styles for the headline underline, mimicking the ::after pseudo-element */
+.headline-underline {
     content: '';
     display: block;
     width: 90px;
     height: 4px;
-    background: #00796b;
+    background: var(--color-primary-accent);
     margin: 0.5em auto 1.8em auto;
     border-radius: 3px;
 }
 
-/* Bio Paragraph */
-p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.15rem;
-    max-width: 670px;
-    margin: 0 auto;
-    color: #37474f;
-    line-height: 1.85;
-    padding: 0 0.25em;
-    text-align: left;
-}
-
-/* Optional subtle emphasis on key phrases inside <p> */
-p strong {
-    color: #00796b;
+/* Tailwind JIT config for custom colors and fonts */
+@config {
+    theme: {
+        extend: {
+            fontFamily: {
+                'merriweather': ['Merriweather', 'serif'],
+                'open-sans': ['Open Sans', 'sans-serif'],
+            },
+            colors: {
+                'bg-dark': 'var(--color-bg-dark)',
+                'container-bg': 'var(--color-container-bg)',
+                'primary-accent': 'var(--color-primary-accent)',
+                'headline-text': 'var(--color-headline-text)',
+                'body-text': 'var(--color-body-text)',
+                'strong-text': 'var(--color-strong-text)',
+            },
+        }
+    }
 }
