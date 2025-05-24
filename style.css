@@ -1,71 +1,82 @@
+/* Google Fonts Import - add this inside <head> in your HTML:
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+*/
+
 /* Reset + base */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Merriweather', serif; /* serif for main text for a scholarly feel */
-    background-color: #ffffff;
-    color: #222;
-    line-height: 1.75;
-    text-align: center;
+    font-family: 'Open Sans', sans-serif; /* clean modern sans-serif for body */
+    background: linear-gradient(135deg, #e8f1f2 0%, #ffffff 100%);
+    color: #2b3e50;
+    line-height: 1.7;
+    text-align: left; /* text left aligned */
 }
 
 /* Container */
 .container {
-    max-width: 680px;
-    margin: 4em auto;
-    padding: 2em 2em 3em;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-    background-color: #fafafa;
+    max-width: 720px;
+    margin: 5em auto;
+    padding: 3em 3em 4em;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(43, 62, 80, 0.12);
+    border-left: 6px solid #00796b; /* subtle teal accent bar */
 }
 
 /* Profile Picture */
 .profile-pic {
+    display: block;
     width: 160px;
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #2c3e50; /* subtle navy border */
-    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
-    margin-bottom: 1.8em;
+    border: 4px solid #00796b;
+    box-shadow: 0 6px 16px rgba(0, 121, 107, 0.25);
+    margin: 0 auto 2em auto;
     transition: transform 0.3s ease;
 }
 
 .profile-pic:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.3);
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px rgba(0, 121, 107, 0.4);
 }
 
 /* Headline */
 h1 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* clean sans-serif for contrast */
+    font-family: 'Merriweather', serif; /* elegant serif for headline */
     font-weight: 700;
-    font-size: 2.8rem;
-    margin-bottom: 0.4em;
-    color: #2c3e50;
+    font-size: 3rem;
+    margin-bottom: 0.25em;
+    color: #004d40;
+    text-align: center; /* center headline */
+    letter-spacing: 0.03em;
+}
+
+/* Accent line under headline */
+h1::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 4px;
+    background: #00796b;
+    margin: 0.5em auto 1.8em auto;
+    border-radius: 3px;
 }
 
 /* Bio Paragraph */
 p {
-    font-family: 'Merriweather', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.15rem;
-    max-width: 600px;
+    max-width: 670px;
     margin: 0 auto;
-    padding: 0 0.5em;
-    color: #444;
+    color: #37474f;
+    line-height: 1.85;
+    padding: 0 0.25em;
     text-align: left;
-    line-height: 1.8;
 }
 
-/* Optional subtle accent line under the heading */
-h1::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: #2c3e50;
-    margin: 0.5em auto 1.5em;
-    border-radius: 2px;
+/* Optional subtle emphasis on key phrases inside <p> */
+p strong {
+    color: #00796b;
 }
-
