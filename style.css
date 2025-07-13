@@ -1,200 +1,151 @@
-/* Custom Tailwind Configuration for fonts and colors - Gothic Palette */
+/* Custom Tailwind Configuration for fonts and colors */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Gothic Academia Palette - Deep, rich, and mysterious */
+/* Gothic Academia / Dark Academia Theme */
 :root {
-    --color-bg-dark: #1A1A1A; /* Deep charcoal background */
-    --color-container-bg: #2B2B2B; /* Darker grey for content boxes */
-    --color-primary-accent: #8B0000; /* Deep Maroon for primary highlights (like ancient wax seals) */
-    --color-secondary-accent: #4A4A4A; /* Muted dark grey for subtle details/borders */
-    --color-text-light: #E0E0E0; /* Light grey for body text, ensuring readability */
-    --color-headline-text: #F0F0F0; /* Off-white for headlines, stark contrast */
-    --color-strong-text: #FFD700; /* Aged Gold for strong emphasis, like illuminated manuscript details */
-    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Pronounced, dark shadows */
-    --color-shadow-inner: rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
-    --color-interactive-hover: #A52A2A; /* Slightly brighter maroon for hover states */
+    --color-bg-dark: #1A1C1D; /* Very dark charcoal/near black for overall background */
+    --color-container-bg: #2C3032; /* Slightly lighter deep grey for content boxes */
+    --color-primary-accent: #A68C65; /* Aged Brass/Gold for primary accents */
+    --color-secondary-accent: #454A4D; /* Muted dark grey for subtle details/borders */
+    --color-headline-text: #F0F0F0; /* Near white for headlines */
+    --color-body-text: #D0D0D0; /* Light grey for body text, ensuring readability */
+    --color-strong-text: #FFFFFF; /* Pure white for strong emphasis */
+    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Deep, rich shadows */
+    --color-interactive-hover: #C6A477; /* Brighter aged brass for hover states */
+    --color-border-subtle: #3A4042; /* Even lighter dark grey for subtle borders */
 }
-
-/* Importing a more gothic-suitable font for body if desired, otherwise Open Sans */
-/* I'll stick with Merriweather for headlines and Open Sans for body for now,
-   as it balances elegance with readability on dark backgrounds.
-   If you want more 'gothic' body text, consider:
-   - 'Cinzel Decorative' (ornate, but less readable for long blocks)
-   - 'Fauna One' (classic serif, better readability)
-   For now, sticking to readable: Merriweather and Open Sans are a good combo.
-*/
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap');
-
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: var(--color-bg-dark); /* Dark background */
-    color: var(--color-text-light); /* Light text on dark background */
-    line-height: 1.8; /* Increased line height for readability on dark */
+    background-color: var(--color-bg-dark); /* Apply dark background */
+    color: var(--color-body-text);
+    line-height: 1.7;
     font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem 0;
-    overflow-x: hidden;
-    position: relative; /* For potential background patterns */
-}
-
-/* Optional: Subtle background pattern for gothic feel */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* You could use a subtle dark pattern here, e.g.,
-       background-image: url('path/to/dark-gothic-texture.png');
-       background-size: cover;
-       opacity: 0.05; */
-    z-index: -1;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex; /* Use flexbox to center content initially, then allow scroll */
+    flex-direction: column; /* Allows content to stack vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top, allowing it to scroll */
+    padding: 2rem 1rem; /* Add horizontal padding for smaller screens */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 /* Main Container - The Ancient Tome / Portal */
 .main-container {
-    background: radial-gradient(circle at center, var(--color-container-bg) 0%, #1F1F1F 100%); /* Deep inner glow */
+    background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-dark) 100%);
     box-shadow:
         0 8px 30px var(--color-shadow-dark), /* Main shadow for lift */
-        0 0 60px rgba(0, 0, 0, 0.3), /* Wider, softer glow */
-        inset 0 0 25px var(--color-shadow-inner); /* Subtle inner darkness */
-    border: 1px solid var(--color-secondary-accent);
-    border-left: 10px solid var(--color-primary-accent); /* Thicker, deeper left border */
-    transition: all 0.4s ease-in-out; /* Slower, more deliberate transition */
+        0 0 60px rgba(0, 0, 0, 0.15), /* Wider, softer glow */
+        inset 0 0 25px rgba(0, 0, 0, 0.1); /* Subtle inner darkness for depth */
+    border: 1px solid var(--color-border-subtle); /* A subtle, almost invisible border */
+    border-left: 10px solid var(--color-primary-accent); /* Thicker left border, like a book spine */
+    transition: all 0.4s ease-in-out; /* Smooth transitions for hover */
+    max-width: 900px; /* Constrain max width for readability */
+    width: 100%; /* Ensure it takes full width on small screens */
+    margin: 2rem auto; /* Adjusted margin for better vertical spacing */
+    padding: 2.5rem; /* Increased padding inside */
+    border-radius: 12px; /* Slightly more rounded corners */
 }
 
 .main-container:hover {
     box-shadow:
         0 12px 40px var(--color-shadow-dark),
-        0 0 80px rgba(0, 0, 0, 0.4),
-        inset 0 0 35px var(--color-shadow-inner);
-    border-left: 15px solid var(--color-interactive-hover); /* More vibrant on hover */
+        0 0 80px rgba(0, 0, 0, 0.2),
+        inset 0 0 35px rgba(0, 0, 0, 0.15);
+    border-left: 18px solid var(--color-interactive-hover); /* More pronounced left border on hover */
     transform: translateY(-3px); /* Slight lift */
 }
 
-/* Profile Picture - Gilded Medallion Effect */
+/* Profile Picture - Glimmering Aura */
 .profile-pic {
-    border-color: var(--color-strong-text); /* Gilded border */
-    box-shadow: 0 0 15px var(--color-strong-text), /* Subtle golden glow */
-                0 0 35px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+    box-shadow: 0 0 15px var(--color-primary-accent), /* Gentle glow */
+                0 0 35px rgba(0, 0, 0, 0.25); /* Deeper shadow for depth */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-out; /* Smoother, more nuanced transition */
 }
 
 .profile-pic:hover {
-    transform: scale(1.1) rotate(-3deg); /* More pronounced, slightly mystic rotate */
-    box-shadow: 0 0 25px var(--color-strong-text),
-                0 0 50px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1) rotate(3deg); /* More dynamic hover */
+    box-shadow: 0 0 25px var(--color-interactive-hover),
+                0 0 50px rgba(0, 0, 0, 0.35);
 }
 
-/* Headline Underline - Ancient Scroll Divider */
+/* Headline Underline - Elegant Mark */
 .headline-underline {
-    content: '';
     display: block;
-    width: 150px; /* Wider for impact */
-    height: 2px; /* Thinner for elegance */
-    background: linear-gradient(to right, var(--color-primary-accent), var(--color-strong-text), var(--color-primary-accent)); /* Gradient for ancient feel */
-    margin: 1em auto 3em auto; /* More spacing */
-    border-radius: 1px;
-    opacity: 0.7;
-    animation: fadeInUnderline 2s ease-out forwards; /* Slower animation */
+    width: 150px; /* Wider and more prominent */
+    height: 3px;
+    background: linear-gradient(to right, var(--color-primary-accent), var(--color-secondary-accent));
+    margin: 0.8em auto 2.5em auto;
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: fadeInUnderline 1.5s ease-out forwards;
 }
 
-/* Section Title Styling - Chiseled Stone / Engraving */
+/* Section Title Styling - Chapter Heading */
 .section-title {
     font-family: 'Merriweather', serif;
     color: var(--color-headline-text);
     text-align: center;
-    margin-top: 3.5rem; /* More spacing */
-    margin-bottom: 1.8rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
     position: relative;
-    padding-bottom: 0.8rem;
-    font-size: 2.5rem; /* Larger titles */
-    letter-spacing: 1px; /* Slight letter spacing for formality */
+    padding-bottom: 0.5rem;
+    font-size: 2.5rem; /* Larger font size for impact */
+    letter-spacing: 0.05em; /* Subtle letter spacing */
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 80px; /* Wider accent */
-    height: 1px; /* Very thin line */
-    background: var(--color-strong-text); /* Gold accent */
-    margin: 0.6rem auto 0;
-    border-radius: 0; /* Sharp edges */
+    width: 80px; /* Wider underline */
+    height: 2px;
+    background: var(--color-primary-accent);
+    margin: 0.5rem auto 0;
+    border-radius: 1px;
+    opacity: 0.7;
 }
 
-/* Interactive Elements (Buttons/Links) - Aged Metal or Leather */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--color-primary-accent);
-    color: var(--color-headline-text); /* Lighter text on dark button */
-    padding: 0.8rem 1.8rem;
-    border-radius: 3px; /* Sharper corners */
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--color-primary-accent);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Button shadow */
-}
-
-.btn-primary:hover {
-    background-color: var(--color-interactive-hover);
-    transform: translateY(-4px); /* More pronounced lift */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-}
-
-.link-academic {
-    color: var(--color-strong-text); /* Golden link */
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-secondary-accent); /* Muted underline */
-    transition: all 0.3s ease;
-}
-
-.link-academic:hover {
-    color: var(--color-interactive-hover); /* Maroon hover */
-    border-bottom: 1px solid var(--color-interactive-hover);
-    padding-bottom: 3px; /* More padding */
-}
-
-/* Publication/Expertise Cards - Darker, more substantial */
-.card-item {
-    background-color: var(--color-container-bg);
-    border: 1px solid var(--color-secondary-accent);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+/* Interactive Icons for Contact - Glowing Orbs */
+.contact-icon {
+    font-size: 2.8rem; /* Larger icons */
+    color: var(--color-primary-accent);
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Subtle shadow for depth */
 }
 
-.card-item:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.1);
+.contact-icon:hover {
+    color: var(--color-interactive-hover);
+    transform: translateY(-4px) scale(1.1); /* Lift and slightly enlarge */
+    text-shadow: 0 0 15px var(--color-interactive-hover), 0 0 25px rgba(255,215,0,0.2); /* More pronounced glow */
+}
+
+/* Pills for Research Areas */
+.research-pill {
+    display: inline-block;
+    background-color: var(--color-secondary-accent);
+    color: var(--color-body-text);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px; /* Pill shape */
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-border-subtle);
+    transition: all 0.3s ease;
+    cursor: default; /* Not clickable */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); /* Inner shadow for depth */
+}
+
+.research-pill:hover {
+    background-color: var(--color-primary-accent);
+    color: var(--color-container-bg); /* Text color changes to match container bg */
     transform: translateY(-2px);
-    border-color: var(--color-primary-accent);
-}
-
-/* Icons in Expertise Section */
-.expertise-icon {
-    color: var(--color-strong-text); /* Golden icons */
-    margin-right: 0.75rem;
-}
-
-/* Social Icons */
-.social-icon {
-    color: var(--color-strong-text); /* Golden social icons */
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.social-icon:hover {
-    color: var(--color-interactive-hover); /* Maroon on hover */
-    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* Animations */
@@ -205,18 +156,18 @@ body::before {
     }
     to {
         width: 150px;
-        opacity: 0.7;
+        opacity: 0.8;
     }
 }
 
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: scale(0.98);
+        transform: scale(0.98) translateY(10px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 }
 
@@ -233,10 +184,11 @@ body::before {
                 'container-bg': 'var(--color-container-bg)',
                 'primary-accent': 'var(--color-primary-accent)',
                 'secondary-accent': 'var(--color-secondary-accent)',
-                'text-light': 'var(--color-text-light)',
                 'headline-text': 'var(--color-headline-text)',
+                'body-text': 'var(--color-body-text)',
                 'strong-text': 'var(--color-strong-text)',
                 'interactive-hover': 'var(--color-interactive-hover)',
+                'border-subtle': 'var(--color-border-subtle)',
             },
         }
     }
@@ -247,16 +199,16 @@ body::before {
     .main-container {
         padding: 1.5rem;
         margin: 1rem auto;
-        border-left: 8px solid var(--color-primary-accent);
+        border-left: 5px solid var(--color-primary-accent);
     }
 
     .main-container:hover {
-        border-left: 12px solid var(--color-interactive-hover);
+        border-left: 10px solid var(--color-interactive-hover);
     }
 
     .headline-underline {
         width: 100px;
-        margin-bottom: 2em;
+        margin-bottom: 1.5em;
     }
 
     .profile-pic {
@@ -266,26 +218,30 @@ body::before {
 
     .section-title {
         font-size: 2rem;
-        margin-top: 2.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
     }
 
-    .btn-primary {
-        padding: 0.6rem 1.2rem;
+    .research-pill {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-icon {
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 480px) {
+    .main-container {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
     .profile-pic {
         width: 100px;
         height: 100px;
-    }
-    h1 {
-        font-size: 3rem !important; /* Tailwind's default 4xl might be too big */
-    }
-    p {
-        font-size: 1rem !important;
-    }
-    .headline-underline {
-        width: 80px;
     }
 }
