@@ -5,366 +5,339 @@
 
 /* Royal Roman Academia Theme Palette */
 :root {
-    --color-bg-primary: #FDFDF6; /* Very light parchment/cream */
-    --color-bg-secondary: #EFEBE0; /* Slightly richer, warm off-white for containers */
-    --color-accent-gold: #A58133; /* Deep, muted gold for luxury */
-    --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue (used sparingly now) */
-    --color-accent-bronze: #8D5A32; /* Rich bronze for decorative elements */
-    --color-text-dark: #2F323A; /* Very dark grey for main body text */
-    --color-text-light: #FDFDF6; /* Light text for contrast */
-    --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Gentle shadow */
-    --color-shadow-deep: rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-    --color-interactive-hover: #CBAA5F; /* Brighter gold for interactive elements */
-    --color-section-heading: #5A4A3E; /* A sophisticated, muted brown/sepia for headings */
-    --color-subtitle-text: #6B5B5B; /* A softer, more aged tone for the subtitle */
+    --color-bg-primary: #FDFDF6; /* Very light parchment/cream */
+    --color-bg-secondary: #EFEBE0; /* Slightly richer, warm off-white for containers */
+    --color-accent-gold: #A58133; /* Deep, muted gold for luxury */
+    --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue (used sparingly now) */
+    --color-accent-bronze: #8D5A32; /* Rich bronze for decorative elements */
+    --color-text-dark: #2F323A; /* Very dark grey for main body text */
+    --color-text-light: #FDFDF6; /* Light text for contrast */
+    --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Gentle shadow */
+    --color-shadow-deep: rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+    --color-interactive-hover: #CBAA5F; /* Brighter gold for interactive elements */
+    --color-section-heading: #5A4A3E; /* A sophisticated, muted brown/sepia for headings */
+    --color-subtitle-text: #6B5B5B; /* A softer, more aged tone for the subtitle */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-    background: var(--color-bg-primary);
-    color: var(--color-text-dark);
-    line-height: 1.7;
-    font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 3rem 0; /* More vertical padding for breathing room */
-    overflow-x: hidden;
+    background: var(--color-bg-primary);
+    color: var(--color-text-dark);
+    line-height: 1.7;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 0; /* More vertical padding for breathing room */
+    overflow-x: hidden;
 }
 
 /* Main Container - The "Royal Book" or "Chiseled Stone Block" */
 .main-container {
-    background: var(--color-bg-secondary);
-    border: 2px solid var(--color-accent-gold); /* Thinner gold border */
-    border-radius: 8px; /* Slightly less rounded edges */
-    box-shadow:
-        0 10px 30px var(--color-shadow-deep), /* Less intense shadow */
-        0 0 60px rgba(0, 0, 0, 0.05), /* Softer ambient glow */
-        inset 0 0 20px rgba(0, 0, 0, 0.03); /* Softer inner depth */
-    transition: all 0.4s ease-in-out; /* Slightly faster transition */
-    position: relative;
-    /* Adding subtle linear gradient overlay for more depth, like aged parchment */
-    background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%);
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-accent-gold); /* Thinner gold border */
+    border-radius: 8px; /* Slightly less rounded edges */
+    box-shadow:
+        0 10px 30px var(--color-shadow-deep), /* Less intense shadow */
+        0 0 60px rgba(0, 0, 0, 0.05), /* Softer ambient glow */
+        inset 0 0 20px rgba(0, 0, 0, 0.03); /* Softer inner depth */
+    transition: all 0.4s ease-in-out; /* Slightly faster transition */
+    position: relative;
+    /* Adding subtle linear gradient overlay for more depth, like aged parchment */
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%);
 }
 
 .main-container::before {
-    content: '';
-    position: absolute;
-    top: -5px; /* Closer to the container */
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border: 1px solid var(--color-accent-bronze); /* An additional, finer bronze frame */
-    border-radius: 10px; /* Matches container radius + padding */
-    pointer-events: none; /* Allows clicks to pass through */
+    content: '';
+    position: absolute;
+    top: -5px; /* Closer to the container */
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid var(--color-accent-bronze); /* An additional, finer bronze frame */
+    border-radius: 10px; /* Matches container radius + padding */
+    pointer-events: none; /* Allows clicks to pass through */
 }
 
 .main-container:hover {
-    box-shadow:
-        0 15px 40px var(--color-shadow-deep),
-        0 0 80px rgba(0, 0, 0, 0.1),
-        inset 0 0 30px rgba(0, 0, 0, 0.08);
-    transform: translateY(-5px); /* Less pronounced lift on hover */
-    border-color: var(--color-interactive-hover); /* Gold brightens */
+    box-shadow:
+        0 15px 40px var(--color-shadow-deep),
+        0 0 80px rgba(0, 0, 0, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px); /* Less pronounced lift on hover */
+    border-color: var(--color-interactive-hover); /* Gold brightens */
 }
 
 /* Profile Picture - Royal Seal */
 .profile-pic {
-    box-shadow: 0 0 15px var(--color-accent-gold), /* Softer golden glow */
-        0 0 30px rgba(0, 0, 0, 0.1); /* Less pronounced depth */
-    border-color: var(--color-accent-bronze); /* Bronze inner border */
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+    box-shadow: 0 0 15px var(--color-accent-gold), /* Softer golden glow */
+        0 0 30px rgba(0, 0, 0, 0.1); /* Less pronounced depth */
+    border-color: var(--color-accent-bronze); /* Bronze inner border */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
 }
 
 .profile-pic:hover {
-    transform: scale(1.08) rotate(2deg); /* More subtle movement */
-    box-shadow: 0 0 25px var(--color-interactive-hover), /* Brighter glow on hover */
-        0 0 50px rgba(0, 0, 0, 0.2);
-    border-color: var(--color-interactive-hover);
+    transform: scale(1.08) rotate(2deg); /* More subtle movement */
+    box-shadow: 0 0 25px var(--color-interactive-hover), /* Brighter glow on hover */
+        0 0 50px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-interactive-hover);
 }
 
 /* Headline Underline - Architectural Frieze */
 .headline-underline {
-    display: block;
-    width: 150px; /* Slightly narrower */
-    height: 3px; /* Thinner line */
-    background: linear-gradient(to right, var(--color-accent-bronze), var(--color-accent-gold), var(--color-accent-bronze)); /* Multi-tone gradient */
-    margin: 1em auto 2.5em auto; /* Reduced spacing */
-    border-radius: 2px;
-    opacity: 0.8;
-    animation: fadeInUnderline 1.5s ease-out forwards; /* Faster animation */
+    display: block;
+    width: 150px; /* Slightly narrower */
+    height: 3px; /* Thinner line */
+    background: linear-gradient(to right, var(--color-accent-bronze), var(--color-accent-gold), var(--color-accent-bronze)); /* Multi-tone gradient */
+    margin: 1em auto 2.5em auto; /* Reduced spacing */
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: fadeInUnderline 1.5s ease-out forwards; /* Faster animation */
 }
 
 /* Section Title Styling - Chiseled Stone Header */
 .section-title {
-    font-family: 'Cinzel', serif;
-    color: var(--color-section-heading); /* New muted color for headings */
-    text-align: center;
-    font-size: 2.4rem; /* Slightly smaller */
-    margin-top: 3rem; /* Reduced vertical space */
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em; /* Reduced letter spacing */
-    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
+    font-family: 'Cinzel', serif;
+    color: var(--color-section-heading); /* New muted color for headings */
+    text-align: center;
+    font-size: 2.4rem; /* Slightly smaller */
+    margin-top: 3rem; /* Reduced vertical space */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em; /* Reduced letter spacing */
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
 }
 
 .section-title::after {
-    content: '';
-    display: block;
-    width: 80px; /* Narrower divider */
-    height: 2px;
-    background: var(--color-accent-gold); /* Solid gold divider */
-    margin: 0.6rem auto 0;
-    border-radius: 1px;
+    content: '';
+    display: block;
+    width: 80px; /* Narrower divider */
+    height: 2px;
+    background: var(--color-accent-gold); /* Solid gold divider */
+    margin: 0.6rem auto 0;
+    border-radius: 1px;
 }
 
 /* Investigation Pillars - Elegant List */
 .investigation-list-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the rows */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the rows */
 }
 
 .investigation-row {
-    display: flex;
-    justify-content: center; /* Center items within each row */
-    gap: 2.5rem; /* Space between items in a row */
-    margin-bottom: 1.5rem; /* Space between rows */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    display: flex;
+    justify-content: center; /* Center items within each row */
+    gap: 2.5rem; /* Space between items in a row */
+    margin-bottom: 1.5rem; /* Space between rows */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .investigation-list-item {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-bg-primary); /* Lighter background for distinct entries */
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
-    transition: all 0.3s ease-in-out;
-    cursor: default; /* Not interactive as individual cards */
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-primary); /* Lighter background for distinct entries */
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: default; /* Not interactive as individual cards */
 }
 
 .investigation-list-item:hover {
-    background-color: var(--color-bg-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px var(--color-shadow-soft);
+    background-color: var(--color-bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px var(--color-shadow-soft);
 }
 
 .investigation-list-item i {
-    color: var(--color-accent-gold); /* Icons in gold */
-    font-size: 1.8rem; /* Smaller, more subtle icons */
-    margin-right: 0.6rem;
-    transition: color 0.3s ease;
+    color: var(--color-accent-gold); /* Icons in gold */
+    font-size: 1.8rem; /* Smaller, more subtle icons */
+    margin-right: 0.6rem;
+    transition: color 0.3s ease;
 }
 
 .investigation-list-item p {
-    font-family: 'Lora', serif;
-    font-weight: 600; /* Slightly less bold */
-    color: var(--color-text-dark);
-    line-height: 1.2;
-    margin: 0;
-    font-size: 1.05rem; /* Adjusted font size for list items */
+    font-family: 'Lora', serif;
+    font-weight: 600; /* Slightly less bold */
+    color: var(--color-text-dark);
+    line-height: 1.2;
+    margin: 0;
+    font-size: 1.05rem; /* Adjusted font size for list items */
 }
-
 
 /* Contact Icons - Regal Emblems */
 .contact-icon-link {
-    color: var(--color-accent-royal-blue); /* Retain royal blue for contact icons for contrast */
-    font-size: 3.8rem; /* Slightly smaller icons */
-    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* More subtle shadow */
+    color: var(--color-accent-royal-blue); /* Retain royal blue for contact icons for contrast */
+    font-size: 3.8rem; /* Slightly smaller icons */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* More subtle shadow */
 }
 
 .contact-icon-link:hover {
-    color: var(--color-interactive-hover);
-    transform: scale(1.1); /* Less pronounced scaling */
-    text-shadow: 0 0 10px var(--color-interactive-hover), 0 0 15px rgba(0,0,0,0.2); /* Softer glowing effect */
+    color: var(--color-interactive-hover);
+    transform: scale(1.1); /* Less pronounced scaling */
+    text-shadow: 0 0 10px var(--color-interactive-hover), 0 0 15px rgba(0,0,0,0.2); /* Softer glowing effect */
 }
 
 /* Message Box for Copy Confirmation */
 .message-box {
-    background-color: var(--color-accent-royal-blue);
-    color: var(--color-text-light);
-    padding: 0.6rem 1.2rem; /* Slightly smaller padding */
-    border-radius: 6px;
-    font-size: 0.9rem; /* Slightly smaller font */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* Softer shadow */
-    border: 1px solid var(--color-accent-gold);
+    background-color: var(--color-accent-royal-blue);
+    color: var(--color-text-light);
+    padding: 0.6rem 1.2rem; /* Slightly smaller padding */
+    border-radius: 6px;
+    font-size: 0.9rem; /* Slightly smaller font */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* Softer shadow */
+    border: 1px solid var(--color-accent-gold);
 }
 
 .message-box.show {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Ornate Divider - Royal Scroll Line */
 .divider-ornate {
-    height: 2px; /* Thinner divider */
-    background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze) 20%, var(--color-accent-gold) 50%, var(--color-accent-bronze) 80%, transparent 95%);
-    width: 80%; /* Slightly narrower */
-    margin: 0 auto;
-    border-radius: 1px;
-    opacity: 0.7;
+    height: 2px; /* Thinner divider */
+    background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze) 20%, var(--color-accent-gold) 50%, var(--color-accent-bronze) 80%, transparent 95%);
+    width: 80%; /* Slightly narrower */
+    margin: 0 auto;
+    border-radius: 1px;
+    opacity: 0.7;
 }
 
 /* Animations */
 @keyframes fadeInUnderline {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to {
-        width: 150px;
-        opacity: 0.8;
-    }
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 150px;
+        opacity: 0.8;
+    }
 }
 
 @keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Tailwind JIT config for custom colors and fonts */
-@config {
-    theme: {
-        extend: {
-            fontFamily: {
-                'cinzel': ['Cinzel', 'serif'],
-                'lora': ['Lora', 'serif'],
-                'open-sans': ['Open Sans', 'sans-serif'],
-            },
-            colors: {
-                'bg-primary': 'var(--color-bg-primary)',
-                'bg-secondary': 'var(--color-bg-secondary)',
-                'accent-gold': 'var(--color-accent-gold)',
-                'accent-royal-blue': 'var(--color-accent-royal-blue)',
-                'accent-bronze': 'var(--color-accent-bronze)',
-                'text-dark': 'var(--color-text-dark)',
-                'text-light': 'var(--color-text-light)',
-                'strong-text': 'var(--color-accent-royal-blue)', /* Emphasis in royal blue */
-                'interactive-hover': 'var(--color-interactive-hover)',
-                'section-heading': 'var(--color-section-heading)',
-                'subtitle-text': 'var(--color-subtitle-text)',
-            },
-        }
-    }
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-container {
-        padding: 1rem;
-        margin: 1rem auto;
-        border-width: 1.5px;
-    }
-    .main-container::before {
-        top: -3px; left: -3px; right: -3px; bottom: -3px;
-    }
+    .main-container {
+        padding: 1rem;
+        margin: 1rem auto;
+        border-width: 1.5px;
+    }
+    .main-container::before {
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
+    }
 
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
 
-    h1 {
-        font-size: 2.4rem;
-    }
-    .subtitle-text { /* Use custom class for subtitle */
-        font-size: 1rem;
-    }
+    h1 {
+        font-size: 2.4rem;
+    }
+    .subtitle-text { /* Use custom class for subtitle */
+        font-size: 1rem;
+    }
 
-    .headline-underline {
-        width: 120px;
-        margin-bottom: 1.8em;
-    }
+    .headline-underline {
+        width: 120px;
+        margin-bottom: 1.8em;
+    }
 
-    .section-title {
-        font-size: 1.8rem;
-        margin-top: 2.5rem;
-        margin-bottom: 1.2rem;
-    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1.2rem;
+    }
 
-    .investigation-row {
-        gap: 1.5rem; /* Smaller gap for mobile */
-        margin-bottom: 1rem;
-    }
+    .investigation-row {
+        gap: 1.5rem; /* Smaller gap for mobile */
+        margin-bottom: 1rem;
+    }
 
-    .investigation-list-item {
-        padding: 0.5rem 0.8rem;
-    }
+    .investigation-list-item {
+        padding: 0.5rem 0.8rem;
+    }
 
-    .investigation-list-item i {
-        font-size: 1.5rem;
-        margin-right: 0.4rem;
-    }
+    .investigation-list-item i {
+        font-size: 1.5rem;
+        margin-right: 0.4rem;
+    }
 
-    .investigation-list-item p {
-        font-size: 0.9rem;
-    }
+    .investigation-list-item p {
+        font-size: 0.9rem;
+    }
 
-    .contact-icon-link {
-        font-size: 3rem;
-    }
+    .contact-icon-link {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .main-container {
-        padding: 0.8rem;
-        border-radius: 6px;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    .subtitle-text {
-        font-size: 0.9rem;
-    }
-    .headline-underline {
-        width: 90px;
-        margin-bottom: 1.2em;
-    }
-    .section-title {
-        font-size: 1.5rem;
-        letter-spacing: 0.04em;
-    }
+    .main-container {
+        padding: 0.8rem;
+        border-radius: 6px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .subtitle-text {
+        font-size: 0.9rem;
+    }
+    .headline-underline {
+        width: 90px;
+        margin-bottom: 1.2em;
+    }
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.04em;
+    }
 
-    .investigation-row {
-        gap: 1rem; /* Even smaller gap */
-        margin-bottom: 0.8rem;
-    }
+    .investigation-row {
+        gap: 1rem; /* Even smaller gap */
+        margin-bottom: 0.8rem;
+    }
 
-    .investigation-list-item {
-        padding: 0.4rem 0.6rem;
-    }
-    .investigation-list-item i {
-        font-size: 1.3rem;
-        margin-right: 0.3rem;
-    }
-    .investigation-list-item p {
-        font-size: 0.8rem;
-    }
-    .contact-icon-link {
-        font-size: 2.5rem;
-    }
-    .message-box {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.8rem;
-    }
-    .divider-ornate {
-        width: 70%;
-    }
+    .investigation-list-item {
+        padding: 0.4rem 0.6rem;
+    }
+    .investigation-list-item i {
+        font-size: 1.3rem;
+        margin-right: 0.3rem;
+    }
+    .investigation-list-item p {
+        font-size: 0.8rem;
+    }
+    .contact-icon-link {
+        font-size: 2.5rem;
+    }
+    .message-box {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .divider-ornate {
+        width: 70%;
+    }
 }
