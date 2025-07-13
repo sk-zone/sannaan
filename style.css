@@ -3,264 +3,271 @@
 @tailwind components;
 @tailwind utilities;
 
-/* The Aethelred Codex: Royal Roman Academic Palette */
+/* Royal Roman Scroll Theme Palette */
 :root {
-    --color-bg-deep-parchment: #F8F5EC; /* Deep, rich parchment background */
-    --color-bg-aged-stone: #E6DBC9; /* Aged stone for content blocks */
-    --color-text-ink-dark: #2C2C2C; /* Classic, deep ink for body text */
-    --color-text-heading: #1A1A1A; /* Even darker for commanding headlines */
-    --color-accent-gold-royal: #B8860B; /* Deep, non-flashy royal gold */
-    --color-accent-bronze-patina: #7A5C34; /* Aged bronze for intricate details */
-    --color-accent-sage-green: #6C7F60; /* Subtle, wise green for highlights */
-    --color-interactive-glow: #D4AF37; /* Brighter gold for hover/active states */
-    --color-shadow-grand: rgba(0, 0, 0, 0.25); /* Deep, soft shadow for grandeur */
-    --color-shadow-subtle: rgba(0, 0, 0, 0.08); /* Lighter shadow for inner depth */
+    --color-scroll-bg-light: #F7F3EB; /* Light parchment */
+    --color-scroll-bg-dark: #E4D9C7; /* Darker parchment texture */
+    --color-text-primary: #3B2F2F; /* Deep sepia/ink color for main text */
+    --color-text-secondary: #6B5B5B; /* Lighter sepia for subtle details */
+    --color-gold-accent: #B8860B; /* Deep gold */
+    --color-bronze-accent: #8A4F1D; /* Rich bronze */
+    --color-royal-blue-accent: #2C3E50; /* Deep, academic blue */
+    --color-shadow-scroll: rgba(0, 0, 0, 0.25); /* Shadow for scroll depth */
+    --color-border-ornate: #A58133; /* Gold for ornate borders */
+    --color-interactive-hover: #D4AF37; /* Brighter gold for hover */
 }
 
-/* Importing bespoke fonts for Roman grandeur and philosophical depth */
-@import url('https://fonts.googleapis.com/css2?family=Trajan+Pro:wght@400;700&display=swap'); /* Using a mock for Trajan Pro for conceptual purposes, fallback to a similar serif */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Literata:wght@400;700&display=swap'); /* For a more philosophical body text */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap'); /* As a strong alternative for headings */
+/* Custom fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-royal-blue-accent); /* Deep blue background for the "outside" of the scroll */
+}
 
-/* Global Body & Background - The Grand Codex Page */
 body {
-    background: var(--color-bg-deep-parchment);
-    color: var(--color-text-ink-dark);
-    font-family: 'Literata', serif; /* Philosophical and readable body font */
-    line-height: 1.8; /* Enhanced readability for scholarly text */
+    background-color: var(--color-royal-blue-accent); /* Match html background */
+    color: var(--color-text-primary);
+    line-height: 1.8; /* Increased line height for readability on scroll */
+    font-family: 'Crimson Text', serif; /* Elegant, readable serif for body */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 4rem 0; /* More ample vertical spacing */
-    overflow-x: hidden;
-    /* Layered background to mimic an ancient, grand wall or scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+/* The Scroll Container - This is the magic! */
+.scroll-container {
+    width: 90%; /* Max width of the scroll */
+    max-width: 960px; /* Limit for large screens */
+    background-color: var(--color-scroll-bg-light);
+    box-shadow: 0 15px 50px var(--color-shadow-scroll); /* Deep shadow for scroll effect */
+    border-left: 2px solid var(--color-gold-accent); /* Subtle border for definition */
+    border-right: 2px solid var(--color-gold-accent);
+    padding: 4rem 3rem; /* Generous padding within the scroll */
+    margin: 3rem auto; /* Spacing from viewport edges */
+    position: relative; /* For scroll ends */
+    z-index: 10;
+    overflow: hidden; /* Crucial for initial hidden state */
+    transform-origin: top center;
+    animation: unfoldScroll 3s ease-out forwards; /* Unfold animation */
+
+    /* Subtle texture for the scroll */
     background-image:
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect x="0" y="0" width="200" height="200" fill="%23F8F5EC"/><path d="M0,0 L200,0 L200,200 L0,200 Z M100,0 C150,50 150,150 100,200 C50,150 50,50 100,0 Z" fill="none" stroke="%23E6DBC9" stroke-width="0.7" opacity="0.4"/></svg>'), /* Subtle, abstract classical pattern */
-        linear-gradient(180deg, var(--color-bg-deep-parchment) 0%, #D4C9B7 100%); /* Depth gradient */
-    background-repeat: repeat, no-repeat;
-    background-size: 250px 250px, cover; /* Pattern size, cover for gradient */
-    animation: backgroundFadeIn 2s ease-out forwards; /* Gentle background reveal */
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 50px 50px; /* Smaller pattern for fine detail */
 }
 
-/* Main Content Block - The Illuminated Manuscript */
-.codex-page {
-    background: var(--color-bg-aged-stone);
-    border: 5px double var(--color-accent-gold-royal); /* Double border for royal seal effect */
-    border-radius: 20px; /* Softer, more organic corners */
-    box-shadow:
-        0 25px 60px var(--color-shadow-grand), /* Commanding, multi-layered shadow */
-        0 0 120px rgba(0, 0, 0, 0.15), /* Wide, ethereal glow */
-        inset 0 0 40px rgba(0, 0, 0, 0.08); /* Inner depth for the "page" */
-    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1); /* Smoother, more elegant transition */
-    position: relative;
-    padding: 3rem 4rem; /* Generous padding */
-    animation: fadeInCodex 1.8s ease-out forwards; /* Main page reveal animation */
-    overflow: hidden; /* To contain inner elements for subtle scrolls */
-}
-
-.codex-page::before, .codex-page::after {
+/* Scroll Top and Bottom Edges - rolled effect */
+.scroll-container::before,
+.scroll-container::after {
     content: '';
     position: absolute;
-    background: var(--color-accent-bronze-patina);
-    border-radius: 50%;
-    opacity: 0.1;
-    filter: blur(15px);
-    pointer-events: none;
-    z-index: -1;
-}
-.codex-page::before {
-    width: 200px; height: 200px;
-    top: -50px; left: -50px;
-}
-.codex-page::after {
-    width: 150px; height: 150px;
-    bottom: -30px; right: -30px;
+    left: -20px; /* Extend slightly beyond the scroll body */
+    right: -20px;
+    height: 60px; /* Height of the rolled edge */
+    background: linear-gradient(to bottom, var(--color-scroll-bg-dark) 0%, var(--color-scroll-bg-light) 100%);
+    border: 1px solid var(--color-bronze-accent);
+    border-radius: 50%; /* Creates the rounded, rolled effect */
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1); /* Inner and outer shadows */
+    z-index: 5; /* Below main scroll content */
 }
 
-.codex-page:hover {
-    box-shadow:
-        0 35px 80px var(--color-shadow-grand),
-        0 0 150px rgba(0, 0, 0, 0.2),
-        inset 0 0 50px rgba(0, 0, 0, 0.12);
-    transform: translateY(-12px) rotateX(1deg) rotateY(-1deg); /* Subtle 3D lift and tilt */
-    border-color: var(--color-interactive-glow); /* Gold border brightens */
+.scroll-container::before {
+    top: -30px; /* Position above the top of the scroll */
+    transform: rotateX(15deg); /* Slight 3D roll */
 }
 
-/* Profile Picture - The Scholar's Medallion */
-.profile-medallion {
-    width: 180px; /* Larger, more imposing */
-    height: 180px;
-    border: 6px solid var(--color-accent-bronze-patina); /* Thicker bronze border */
-    box-shadow: 0 0 30px var(--color-accent-gold-royal), /* Stronger golden halo */
-                0 0 60px rgba(0, 0, 0, 0.2);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
-    animation: medallionEntrance 1.5s ease-out forwards; /* Entrance animation */
+.scroll-container::after {
+    bottom: -30px; /* Position below the bottom of the scroll */
+    transform: rotateX(-15deg); /* Slight 3D roll */
+    background: linear-gradient(to top, var(--color-scroll-bg-dark) 0%, var(--color-scroll-bg-light) 100%);
 }
 
-.profile-medallion:hover {
-    transform: scale(1.15) rotate(5deg); /* Grand, inviting rotation */
-    box-shadow: 0 0 45px var(--color-interactive-glow),
-                0 0 80px rgba(0, 0, 0, 0.3);
-    border-color: var(--color-interactive-glow);
-}
 
-/* Main Heading - The Grand Inscription */
-.main-heading {
-    font-family: 'Cinzel', serif; /* Or Trajan Pro if you can load it */
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em; /* Wider spacing for an ancient inscription look */
-    color: var(--color-text-heading);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.15); /* Subtle depth */
-    animation: textFadeInUp 1.2s ease-out 0.5s forwards;
-}
-
-/* One-liner - The Philosophical Motto */
-.one-liner {
-    font-family: 'Lora', serif; /* Elegant, classic serif */
-    font-style: italic; /* A philosophical touch */
-    font-size: 1.3rem; /* Slightly larger for clarity but still distinct */
-    color: var(--color-accent-sage-green); /* A wise, subtle green */
-    letter-spacing: 0.05em;
-    animation: textFadeInUp 1.2s ease-out 0.7s forwards;
-}
-
-/* Architectural Divider - The Frieze Line */
-.frieze-divider {
-    height: 5px; /* Thicker, more substantial */
-    background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze-patina) 20%, var(--color-accent-gold-royal) 50%, var(--color-accent-bronze-patina) 80%, transparent 95%);
-    width: 90%; /* Wider, commanding presence */
-    margin: 4rem auto; /* More vertical separation */
-    border-radius: 3px;
-    opacity: 0.9;
-    animation: fadeInDivider 1.5s ease-out 1s forwards;
-}
-
-/* Section Title - The Chapter Heading */
-.section-chapter-heading {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-text-heading);
-    font-size: 3.2rem; /* Impressive size */
-    margin-top: 5rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    padding-bottom: 1rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-}
-
-.section-chapter-heading::after {
-    content: '';
-    display: block;
-    width: 150px; /* More significant underline */
-    height: 4px;
-    background: var(--color-accent-gold-royal);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-}
-
-/* Areas of Investigation - The Philosophical Scrolls/Pillars */
-.investigation-grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive grid */
-}
-
-.investigation-pillar {
-    background: var(--color-bg-deep-parchment);
-    border: 2px solid var(--color-accent-bronze-patina);
-    border-radius: 15px; /* Rounded for a softer, scroll-like feel */
-    box-shadow: 0 8px 25px var(--color-shadow-subtle);
-    transition: all 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px; /* Ample space for unique presentation */
+/* Profile Section */
+.profile-section {
     text-align: center;
-    cursor: default; /* Not clickable like a link */
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 3rem;
 }
 
-.investigation-pillar::before {
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-gold-accent); /* Golden halo */
+    box-shadow: 0 0 25px var(--color-gold-accent), 0 0 50px rgba(0,0,0,0.2); /* Glowing effect */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 0 35px var(--color-interactive-hover), 0 0 70px rgba(0,0,0,0.3);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif; /* Elegant, classical display font */
+    font-weight: 700;
+    font-size: 3.5rem; /* Large, commanding title */
+    color: var(--color-royal-blue-accent);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em; /* Spaced out for grandeur */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.one-liner {
+    font-family: 'Old Standard TT', serif; /* Philosophical, classic feel */
+    font-style: italic;
+    font-size: 1.3rem; /* Small but elegant */
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.underline-ornate {
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-bronze-accent), var(--color-gold-accent), var(--color-bronze-accent));
+    margin: 0 auto 3rem auto;
+    border-radius: 2px;
+    animation: fadeInUnderline 1.5s ease-out forwards;
+}
+
+/* Main Body Text (no bolding) */
+.main-text {
+    font-size: 1.15rem; /* Slightly larger for readability */
+    line-height: 2; /* More generous line height for a manuscript feel */
+    text-align: justify;
+    padding: 0 1rem; /* Inner padding for text within scroll */
+    color: var(--color-text-primary);
+}
+
+/* Philosophical Divisor */
+.philosophical-divisor {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-bronze-accent) 20%, var(--color-gold-accent) 50%, var(--color-bronze-accent) 80%, transparent);
+    width: 70%;
+    margin: 4rem auto;
+    opacity: 0.7;
+}
+
+/* Areas of Investigation - Philosophical Pillars */
+.investigation-section {
+    margin-bottom: 4rem;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--color-royal-blue-accent);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.investigation-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 2.5rem; /* Wider gap between pillars */
+    padding: 0 1rem;
+}
+
+.pillar-item {
+    background-color: var(--color-scroll-bg-light);
+    border: 2px solid var(--color-bronze-accent); /* Bronze border for aged look */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Soft shadow */
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden; /* For pseudo-element background */
+}
+
+.pillar-item::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.05) 100%); /* Subtle internal sheen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--color-scroll-bg-dark) 0%, transparent 100%); /* Subtle diagonal texture */
+    opacity: 0.1;
     pointer-events: none;
 }
 
-.investigation-pillar:hover {
-    transform: translateY(-10px) scale(1.03); /* Lifts and subtly expands */
-    box-shadow: 0 15px 40px var(--color-shadow-grand);
-    border-color: var(--color-interactive-glow); /* Highlights with gold */
+.pillar-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    border-color: var(--color-gold-accent);
 }
 
-.investigation-pillar .icon-container {
-    width: 80px; height: 80px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--color-accent-gold-royal);
-    border-radius: 50%;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: all 0.4s ease;
-}
-
-.investigation-pillar:hover .icon-container {
-    background: var(--color-interactive-glow);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.investigation-pillar i {
-    color: var(--color-text-light); /* White/light text for icon contrast */
-    font-size: 3.5rem; /* Large, bold icons */
-}
-
-.investigation-pillar .title {
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    font-size: 1.5rem; /* Prominent title */
-    color: var(--color-text-heading);
-    line-height: 1.3;
+.pillar-item .pillar-icon {
+    font-size: 3.8rem; /* Larger, more symbolic icons */
+    color: var(--color-royal-blue-accent);
+    margin-bottom: 1rem;
     transition: color 0.3s ease;
 }
 
-.investigation-pillar:hover .title {
-    color: var(--color-accent-sage-green); /* Title changes to sage on hover */
+.pillar-item:hover .pillar-icon {
+    color: var(--color-interactive-hover);
 }
 
-
-/* Contact Emblems */
-.contact-emblem {
-    color: var(--color-accent-bronze-patina);
-    font-size: 5rem; /* Truly grand icons */
-    transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+.pillar-item .pillar-text {
+    font-family: 'Old Standard TT', serif; /* Philosophical text */
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.5;
 }
 
-.contact-emblem:hover {
-    color: var(--color-interactive-glow);
-    transform: scale(1.2); /* More significant interaction */
-    text-shadow: 0 0 20px var(--color-interactive-glow), 0 0 35px rgba(0,0,0,0.4);
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    margin-top: 4rem;
 }
 
-/* Message Box for Copy Confirmation - Discreet and Elegant */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* More space between icons */
+    margin-top: 2rem;
+}
+
+.contact-link {
+    color: var(--color-royal-blue-accent);
+    font-size: 4.8rem; /* Very large icons, like ancient symbols */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-link:hover {
+    color: var(--color-interactive-hover);
+    transform: scale(1.15);
+    text-shadow: 0 0 18px var(--color-interactive-hover), 0 0 30px rgba(0,0,0,0.4);
+}
+
 .message-box {
-    background-color: var(--color-accent-sage-green);
+    background-color: var(--color-royal-blue-accent);
     color: var(--color-text-light);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-size: 1.1rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.7s ease, visibility 0.7s ease;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    border: 2px solid var(--color-accent-gold-royal);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border: 1px solid var(--color-gold-accent);
+    margin-top: 2.5rem;
 }
 
 .message-box.show {
@@ -268,234 +275,147 @@ body {
     visibility: visible;
 }
 
-/* Footer - The Codex Colophon */
-.codex-colophon {
-    font-family: 'Lora', serif;
-    color: var(--color-accent-bronze-patina);
-    border-top: 1px dashed var(--color-accent-sage-green);
-    padding-top: 2rem;
-    margin-top: 6rem; /* More space for grandeur */
-    font-style: italic;
-    letter-spacing: 0.03em;
+/* Footer - Classical and Understated */
+.scroll-footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-bronze-accent); /* Subtle sepia line */
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Animations */
-@keyframes backgroundFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes unfoldScroll {
+    from {
+        max-height: 0; /* Start completely rolled up */
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0;
+        transform: scaleY(0); /* Start flat */
+    }
+    to {
+        max-height: 2000px; /* Allow content to dictate height, but set a max */
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        opacity: 1;
+        transform: scaleY(1); /* Fully unfolded */
+    }
 }
 
-@keyframes fadeInCodex {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes medallionEntrance {
-    from { opacity: 0; transform: translateY(-50px) scale(0.5); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes textFadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInDivider {
+@keyframes fadeInUnderline {
     from { width: 0; opacity: 0; }
-    to { width: 90%; opacity: 0.9; }
+    to { width: 150px; opacity: 1; }
 }
 
-
-/* Tailwind JIT config for custom colors and fonts */
-@config {
-    theme: {
-        extend: {
-            fontFamily: {
-                'cinzel': ['Cinzel', 'serif'],
-                'lora': ['Lora', 'serif'],
-                'literata': ['Literata', 'serif'], /* New body font */
-                // 'trajan': ['Trajan Pro', 'serif'], // Placeholder if you can load a Trajan Pro equivalent
-            },
-            colors: {
-                'bg-deep-parchment': 'var(--color-bg-deep-parchment)',
-                'bg-aged-stone': 'var(--color-bg-aged-stone)',
-                'text-ink-dark': 'var(--color-text-ink-dark)',
-                'text-heading': 'var(--color-text-heading)',
-                'accent-gold-royal': 'var(--color-accent-gold-royal)',
-                'accent-bronze-patina': 'var(--color-accent-bronze-patina)',
-                'accent-sage-green': 'var(--color-accent-sage-green)',
-                'interactive-glow': 'var(--color-interactive-glow)',
-                'shadow-grand': 'var(--color-shadow-grand)',
-                'strong-text': 'var(--color-text-ink-dark)', /* Keep strong text dark but avoid boldness */
-            },
-        }
-    }
-}
-
-/* Responsive adjustments for Aethelred Codex */
-@media (max-width: 1024px) {
-    .codex-page {
-        padding: 2.5rem 3rem;
-    }
-    .profile-medallion {
-        width: 160px; height: 160px;
-    }
-    .main-heading {
-        font-size: 3rem;
-    }
-    .one-liner {
-        font-size: 1.2rem;
-    }
-    .section-chapter-heading {
-        font-size: 2.8rem;
-    }
-    .investigation-pillar {
-        min-height: 180px;
-    }
-    .investigation-pillar .icon-container {
-        width: 70px; height: 70px;
-    }
-    .investigation-pillar i {
-        font-size: 3rem;
-    }
-    .investigation-pillar .title {
-        font-size: 1.3rem;
-    }
-    .contact-emblem {
-        font-size: 4rem;
-    }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    body {
-        padding: 2rem 0;
+    .scroll-container {
+        width: 95%;
+        padding: 3rem 1.5rem;
+        margin: 2rem auto;
     }
-    .codex-page {
-        padding: 2rem 2.5rem;
-        border-width: 3px; /* Thinner border for mobile */
-        border-radius: 15px;
+    .scroll-container::before,
+    .scroll-container::after {
+        left: -10px;
+        right: -10px;
+        height: 40px;
+        top: -20px;
+        bottom: -20px;
     }
-    .codex-page::before, .codex-page::after {
-        display: none; /* Hide subtle blurs for performance/simplicity */
+    .profile-pic {
+        width: 130px;
+        height: 130px;
     }
-    .profile-medallion {
-        width: 140px; height: 140px;
-        border-width: 4px;
-    }
-    .main-heading {
+    .main-title {
         font-size: 2.5rem;
-        letter-spacing: 0.1em;
     }
     .one-liner {
         font-size: 1.1rem;
-        letter-spacing: 0.03em;
     }
-    .frieze-divider {
-        margin: 3rem auto;
-        height: 4px;
+    .main-text {
+        font-size: 1rem;
+        line-height: 1.8;
     }
-    .section-chapter-heading {
-        font-size: 2.2rem;
-        margin-top: 3.5rem;
-        margin-bottom: 2rem;
+    .section-heading {
+        font-size: 1.8rem;
+        letter-spacing: 0.08em;
     }
-    .section-chapter-heading::after {
-        width: 100px;
-        height: 3px;
+    .pillar-item {
+        padding: 1.5rem;
     }
-    .investigation-grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
+    .pillar-item .pillar-icon {
+        font-size: 3rem;
     }
-    .investigation-pillar {
-        min-height: 160px;
-        padding: 1.2rem;
+    .pillar-item .pillar-text {
+        font-size: 1rem;
     }
-    .investigation-pillar .icon-container {
-        width: 60px; height: 60px;
-        margin-bottom: 1rem;
-    }
-    .investigation-pillar i {
-        font-size: 2.8rem;
-    }
-    .investigation-pillar .title {
-        font-size: 1.2rem;
-    }
-    .contact-emblem {
+    .contact-link {
         font-size: 3.5rem;
     }
     .message-box {
         font-size: 0.9rem;
-        padding: 0.8rem 1.5rem;
     }
-    .codex-colophon {
-        margin-top: 4rem;
-        padding-top: 1.5rem;
+    .scroll-footer {
+        margin-top: 3rem;
+        padding-top: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 1.5rem 0;
+    .scroll-container {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
     }
-    .codex-page {
-        padding: 1.5rem 1.5rem;
-        border-radius: 10px;
+    .scroll-container::before,
+    .scroll-container::after {
+        height: 30px;
+        top: -15px;
+        bottom: -15px;
     }
-    .profile-medallion {
-        width: 100px; height: 100px;
-        border-width: 3px;
+    .profile-pic {
+        width: 100px;
+        height: 100px;
     }
-    .main-heading {
-        font-size: 1.8rem;
-        letter-spacing: 0.08em;
+    .main-title {
+        font-size: 2rem;
+        letter-spacing: 0.05em;
     }
     .one-liner {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
-    .frieze-divider {
-        margin: 2.5rem auto;
-        height: 3px;
-        width: 80%;
+    .main-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
     }
-    .section-chapter-heading {
-        font-size: 1.6rem;
-        letter-spacing: 0.08em;
-        margin-top: 2.5rem;
-        margin-bottom: 1.5rem;
+    .underline-ornate {
+        width: 100px;
+        margin-bottom: 2rem;
     }
-    .section-chapter-heading::after {
-        width: 80px;
-        height: 2px;
+    .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
-    .investigation-grid-container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .investigation-pillars {
+        gap: 1.5rem;
     }
-    .investigation-pillar {
-        min-height: 140px;
+    .pillar-item {
         padding: 1rem;
     }
-    .investigation-pillar .icon-container {
-        width: 50px; height: 50px;
-        margin-bottom: 0.8rem;
+    .pillar-item .pillar-icon {
+        font-size: 2.5rem;
     }
-    .investigation-pillar i {
-        font-size: 2.2rem;
+    .pillar-item .pillar-text {
+        font-size: 0.9rem;
     }
-    .investigation-pillar .title {
-        font-size: 1.1rem;
+    .contact-icons {
+        gap: 2rem;
     }
-    .contact-emblem {
-        font-size: 3rem;
+    .contact-link {
+        font-size: 2.8rem;
     }
     .message-box {
-        font-size: 0.75rem;
-        padding: 0.6rem 1.2rem;
-    }
-    .codex-colophon {
-        margin-top: 3rem;
-        padding-top: 1rem;
         font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
     }
 }
