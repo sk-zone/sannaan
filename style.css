@@ -3,154 +3,186 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ancient Forum / Philosophical Academy Theme Palette */
+/* The Aethelred Codex: Royal Roman Academic Palette */
 :root {
-    --color-bg-primary: #FDF9F3; /* Very soft parchment/alabaster */
-    --color-bg-secondary: #EBE6D7; /* Warm, light stone/aged paper for main blocks */
-    --color-accent-gold: #B48B4B; /* Muted, rich gold for highlights */
-    --color-accent-patina-blue: #3E5F7F; /* Deep, aged blue-green like oxidized bronze or ancient ink */
-    --color-accent-terracotta: #A65D4F; /* Earthy, deep red-brown for subtle warmth/detail */
-    --color-text-body: #4A4A4A; /* Soft dark grey for main text */
-    --color-text-headline: #2B2B2B; /* Near black for strong headings */
-    --color-text-light: #FDF9F3; /* Light text for dark backgrounds */
-    --color-shadow-subtle: rgba(0, 0, 0, 0.08);
-    --color-shadow-medium: rgba(0, 0, 0, 0.15);
-    --color-shadow-deep: rgba(0, 0, 0, 0.3);
-    --color-interactive-hover: #D4A96A; /* Brighter gold for interactive states */
+    --color-bg-deep-parchment: #F8F5EC; /* Deep, rich parchment background */
+    --color-bg-aged-stone: #E6DBC9; /* Aged stone for content blocks */
+    --color-text-ink-dark: #2C2C2C; /* Classic, deep ink for body text */
+    --color-text-heading: #1A1A1A; /* Even darker for commanding headlines */
+    --color-accent-gold-royal: #B8860B; /* Deep, non-flashy royal gold */
+    --color-accent-bronze-patina: #7A5C34; /* Aged bronze for intricate details */
+    --color-accent-sage-green: #6C7F60; /* Subtle, wise green for highlights */
+    --color-interactive-glow: #D4AF37; /* Brighter gold for hover/active states */
+    --color-shadow-grand: rgba(0, 0, 0, 0.25); /* Deep, soft shadow for grandeur */
+    --color-shadow-subtle: rgba(0, 0, 0, 0.08); /* Lighter shadow for inner depth */
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* Importing bespoke fonts for Roman grandeur and philosophical depth */
+@import url('https://fonts.googleapis.com/css2?family=Trajan+Pro:wght@400;700&display=swap'); /* Using a mock for Trajan Pro for conceptual purposes, fallback to a similar serif */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Literata:wght@400;700&display=swap'); /* For a more philosophical body text */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap'); /* As a strong alternative for headings */
 
+
+/* Global Body & Background - The Grand Codex Page */
 body {
-    background: var(--color-bg-primary);
-    color: var(--color-text-body);
-    line-height: 1.8; /* Increased line-height for readability, like a philosophical text */
-    font-family: 'Open Sans', sans-serif; /* Keeping Open Sans for body as it's highly readable */
+    background: var(--color-bg-deep-parchment);
+    color: var(--color-text-ink-dark);
+    font-family: 'Literata', serif; /* Philosophical and readable body font */
+    line-height: 1.8; /* Enhanced readability for scholarly text */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 4rem 0; /* More generous vertical padding */
+    padding: 4rem 0; /* More ample vertical spacing */
     overflow-x: hidden;
-    /* Layered background: subtle marble texture + a soft radial glow */
+    /* Layered background to mimic an ancient, grand wall or scroll */
     background-image:
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23FDF9F3"/><path d="M0,0 L100,0 L100,100 L0,100 Z M50,0 C22.4,0 0,22.4 0,50 S22.4,100 50,100 S100,77.6 100,50 S77.6,0 50,0 Z" fill="none" stroke="%23EBE6D7" stroke-width="0.3" opacity="0.7"/></svg>'), /* Subtle geometric overlay for texture */
-        radial-gradient(circle at center, var(--color-bg-primary) 0%, #E0DBCF 100%); /* Soft, warm radial gradient */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect x="0" y="0" width="200" height="200" fill="%23F8F5EC"/><path d="M0,0 L200,0 L200,200 L0,200 Z M100,0 C150,50 150,150 100,200 C50,150 50,50 100,0 Z" fill="none" stroke="%23E6DBC9" stroke-width="0.7" opacity="0.4"/></svg>'), /* Subtle, abstract classical pattern */
+        linear-gradient(180deg, var(--color-bg-deep-parchment) 0%, #D4C9B7 100%); /* Depth gradient */
     background-repeat: repeat, no-repeat;
-    background-size: 200px 200px, cover;
+    background-size: 250px 250px, cover; /* Pattern size, cover for gradient */
+    animation: backgroundFadeIn 2s ease-out forwards; /* Gentle background reveal */
 }
 
-/* Main Container - The "Philosopher's Tablet" or "Architectural Block" */
-.main-container {
-    background: var(--color-bg-secondary);
-    border: 4px solid var(--color-accent-patina-blue); /* Stronger, more academic border */
-    border-radius: 15px; /* Softer, more organic curves */
+/* Main Content Block - The Illuminated Manuscript */
+.codex-page {
+    background: var(--color-bg-aged-stone);
+    border: 5px double var(--color-accent-gold-royal); /* Double border for royal seal effect */
+    border-radius: 20px; /* Softer, more organic corners */
     box-shadow:
-        0 20px 60px var(--color-shadow-deep), /* Commanding, deep shadow */
-        0 0 100px rgba(0, 0, 0, 0.1), /* Wide, ethereal ambient glow */
-        inset 0 0 40px rgba(0, 0, 0, 0.08); /* More pronounced inner depth */
-    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth, elegant ease-out */
+        0 25px 60px var(--color-shadow-grand), /* Commanding, multi-layered shadow */
+        0 0 120px rgba(0, 0, 0, 0.15), /* Wide, ethereal glow */
+        inset 0 0 40px rgba(0, 0, 0, 0.08); /* Inner depth for the "page" */
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1); /* Smoother, more elegant transition */
     position: relative;
-    overflow: hidden; /* For inner gradients/textures */
-    /* Subtle inner gradient to mimic aged stone */
-    background-image: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.03) 100%);
-    opacity: 0; /* Starts invisible for animation */
-    transform: translateY(20px); /* Starts slightly below for animation */
-    animation: fadeInSlideUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Custom animation */
+    padding: 3rem 4rem; /* Generous padding */
+    animation: fadeInCodex 1.8s ease-out forwards; /* Main page reveal animation */
+    overflow: hidden; /* To contain inner elements for subtle scrolls */
 }
 
-.main-container::before {
+.codex-page::before, .codex-page::after {
     content: '';
     position: absolute;
-    top: -15px; /* Outer decorative border */
-    left: -15px;
-    right: -15px;
-    bottom: -15px;
-    border: 2px solid var(--color-accent-gold); /* A distinct golden outer frame */
-    border-radius: 18px;
+    background: var(--color-accent-bronze-patina);
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(15px);
     pointer-events: none;
-    z-index: -1; /* Place behind for layered effect */
+    z-index: -1;
+}
+.codex-page::before {
+    width: 200px; height: 200px;
+    top: -50px; left: -50px;
+}
+.codex-page::after {
+    width: 150px; height: 150px;
+    bottom: -30px; right: -30px;
 }
 
-.main-container:hover {
+.codex-page:hover {
     box-shadow:
-        0 30px 80px var(--color-shadow-deep),
-        0 0 120px rgba(0, 0, 0, 0.2),
+        0 35px 80px var(--color-shadow-grand),
+        0 0 150px rgba(0, 0, 0, 0.2),
         inset 0 0 50px rgba(0, 0, 0, 0.12);
-    transform: translateY(-10px); /* More significant lift on hover */
-    border-color: var(--color-interactive-hover);
+    transform: translateY(-12px) rotateX(1deg) rotateY(-1deg); /* Subtle 3D lift and tilt */
+    border-color: var(--color-interactive-glow); /* Gold border brightens */
 }
 
-/* Profile Picture - A Bust of Intellect */
-.profile-pic {
-    box-shadow: 0 0 25px var(--color-accent-gold), /* Strong golden aura */
-                0 0 50px rgba(0, 0, 0, 0.2); /* Deep shadow for prominence */
-    border-color: var(--color-accent-terracotta); /* Subtle terracotta ring */
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease-out, border-color 0.6s ease-out;
+/* Profile Picture - The Scholar's Medallion */
+.profile-medallion {
+    width: 180px; /* Larger, more imposing */
+    height: 180px;
+    border: 6px solid var(--color-accent-bronze-patina); /* Thicker bronze border */
+    box-shadow: 0 0 30px var(--color-accent-gold-royal), /* Stronger golden halo */
+                0 0 60px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+    animation: medallionEntrance 1.5s ease-out forwards; /* Entrance animation */
 }
 
-.profile-pic:hover {
-    transform: scale(1.15) rotate(5deg); /* More dynamic, almost classical sculpture-like */
-    box-shadow: 0 0 40px var(--color-interactive-hover), /* Brighter, more inviting glow */
+.profile-medallion:hover {
+    transform: scale(1.15) rotate(5deg); /* Grand, inviting rotation */
+    box-shadow: 0 0 45px var(--color-interactive-glow),
                 0 0 80px rgba(0, 0, 0, 0.3);
-    border-color: var(--color-interactive-hover);
+    border-color: var(--color-interactive-glow);
 }
 
-/* Headline Underline - A Carved Decree */
-.headline-underline {
-    display: block;
-    width: 250px; /* Wider for greater impact */
-    height: 5px; /* Thicker, more substantial line */
-    background: linear-gradient(to right, var(--color-accent-terracotta), var(--color-accent-gold), var(--color-accent-patina-blue)); /* Tri-color gradient for richness */
-    margin: 2em auto 4em auto; /* Generous vertical spacing */
-    border-radius: 4px;
+/* Main Heading - The Grand Inscription */
+.main-heading {
+    font-family: 'Cinzel', serif; /* Or Trajan Pro if you can load it */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em; /* Wider spacing for an ancient inscription look */
+    color: var(--color-text-heading);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.15); /* Subtle depth */
+    animation: textFadeInUp 1.2s ease-out 0.5s forwards;
+}
+
+/* One-liner - The Philosophical Motto */
+.one-liner {
+    font-family: 'Lora', serif; /* Elegant, classic serif */
+    font-style: italic; /* A philosophical touch */
+    font-size: 1.3rem; /* Slightly larger for clarity but still distinct */
+    color: var(--color-accent-sage-green); /* A wise, subtle green */
+    letter-spacing: 0.05em;
+    animation: textFadeInUp 1.2s ease-out 0.7s forwards;
+}
+
+/* Architectural Divider - The Frieze Line */
+.frieze-divider {
+    height: 5px; /* Thicker, more substantial */
+    background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze-patina) 20%, var(--color-accent-gold-royal) 50%, var(--color-accent-bronze-patina) 80%, transparent 95%);
+    width: 90%; /* Wider, commanding presence */
+    margin: 4rem auto; /* More vertical separation */
+    border-radius: 3px;
     opacity: 0.9;
-    transform: scaleX(0); /* Starts hidden for animation */
-    animation: revealUnderline 2s cubic-bezier(0.23, 1, 0.32, 1) forwards 0.5s; /* Slower reveal */
+    animation: fadeInDivider 1.5s ease-out 1s forwards;
 }
 
-/* Section Title Styling - Grand Archway Headers */
-.section-title {
-    font-family: 'Lora', serif; /* Elegant, scholarly serif for titles */
-    color: var(--color-text-headline);
-    text-align: center;
-    font-size: 3rem; /* Larger and more commanding */
-    margin-top: 5rem; /* Significant vertical space */
+/* Section Title - The Chapter Heading */
+.section-chapter-heading {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-heading);
+    font-size: 3.2rem; /* Impressive size */
+    margin-top: 5rem;
     margin-bottom: 2.5rem;
     position: relative;
     padding-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em; /* Increased spacing for a chiseled look */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    font-weight: 700; /* Bold for authority */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
-.section-title::after {
+.section-chapter-heading::after {
     content: '';
     display: block;
-    width: 120px; /* Wider, more substantial divider */
+    width: 150px; /* More significant underline */
     height: 4px;
-    background: var(--color-accent-patina-blue); /* Patina blue divider */
+    background: var(--color-accent-gold-royal);
     margin: 1rem auto 0;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
-/* Investigation Pillars - The 5 Pillars of Inquiry */
+/* Areas of Investigation - The Philosophical Scrolls/Pillars */
+.investigation-grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive grid */
+}
+
 .investigation-pillar {
+    background: var(--color-bg-deep-parchment);
+    border: 2px solid var(--color-accent-bronze-patina);
+    border-radius: 15px; /* Rounded for a softer, scroll-like feel */
+    box-shadow: 0 8px 25px var(--color-shadow-subtle);
+    transition: all 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2.5rem 1.5rem; /* Generous padding */
-    border-radius: 12px;
-    background: linear-gradient(160deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%); /* Soft gradient background */
-    border: 2px solid var(--color-accent-gold); /* Gold border, symbolizing value */
-    box-shadow: 0 8px 25px var(--color-shadow-medium);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: default; /* Indicate not clickable */
+    min-height: 200px; /* Ample space for unique presentation */
+    text-align: center;
+    cursor: default; /* Not clickable like a link */
     position: relative;
     overflow: hidden;
 }
@@ -159,70 +191,76 @@ body {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%); /* Subtle light source effect */
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.05) 100%); /* Subtle internal sheen */
+    pointer-events: none;
 }
 
 .investigation-pillar:hover {
-    transform: translateY(-10px) scale(1.03); /* Significant lift and slight scale */
-    box-shadow: 0 15px 40px var(--color-shadow-deep);
-    border-color: var(--color-interactive-hover);
+    transform: translateY(-10px) scale(1.03); /* Lifts and subtly expands */
+    box-shadow: 0 15px 40px var(--color-shadow-grand);
+    border-color: var(--color-interactive-glow); /* Highlights with gold */
 }
 
-.investigation-pillar:hover::before {
-    opacity: 1; /* Light source becomes visible on hover */
-}
-
-.investigation-pillar .pillar-icon {
-    font-size: 5rem; /* Very large, commanding icons */
-    color: var(--color-accent-patina-blue);
+.investigation-pillar .icon-container {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--color-accent-gold-royal);
+    border-radius: 50%;
     margin-bottom: 1.5rem;
-    transition: color 0.4s ease;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.15); /* Shadow for depth */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
 }
 
-.investigation-pillar:hover .pillar-icon {
-    color: var(--color-interactive-hover); /* Icons turn gold on hover */
-    text-shadow: 0 0 15px var(--color-interactive-hover), 0 0 25px rgba(0,0,0,0.3); /* Glowing icon */
+.investigation-pillar:hover .icon-container {
+    background: var(--color-interactive-glow);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.investigation-pillar .pillar-text {
-    font-family: 'Lora', serif; /* Lora for the area text */
+.investigation-pillar i {
+    color: var(--color-text-light); /* White/light text for icon contrast */
+    font-size: 3.5rem; /* Large, bold icons */
+}
+
+.investigation-pillar .title {
+    font-family: 'Lora', serif;
     font-weight: 700;
-    color: var(--color-text-headline);
-    text-align: center;
+    font-size: 1.5rem; /* Prominent title */
+    color: var(--color-text-heading);
     line-height: 1.3;
-    font-size: 1.25rem; /* Larger, more impactful text */
-    letter-spacing: 0.03em;
+    transition: color 0.3s ease;
 }
 
-/* Contact Icons - Classical Emblems of Connection */
-.contact-icon-link {
-    color: var(--color-accent-patina-blue);
-    font-size: 5rem; /* Even more imposing icons */
+.investigation-pillar:hover .title {
+    color: var(--color-accent-sage-green); /* Title changes to sage on hover */
+}
+
+
+/* Contact Emblems */
+.contact-emblem {
+    color: var(--color-accent-bronze-patina);
+    font-size: 5rem; /* Truly grand icons */
     transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.15); /* Stronger shadow for depth */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.2);
 }
 
-.contact-icon-link:hover {
-    color: var(--color-interactive-hover);
-    transform: scale(1.2); /* More dramatic scaling */
-    text-shadow: 0 0 20px var(--color-interactive-hover), 0 0 35px rgba(0,0,0,0.4); /* Intense glow */
+.contact-emblem:hover {
+    color: var(--color-interactive-glow);
+    transform: scale(1.2); /* More significant interaction */
+    text-shadow: 0 0 20px var(--color-interactive-glow), 0 0 35px rgba(0,0,0,0.4);
 }
 
-/* Message Box for Copy Confirmation */
+/* Message Box for Copy Confirmation - Discreet and Elegant */
 .message-box {
-    background-color: var(--color-accent-patina-blue);
+    background-color: var(--color-accent-sage-green);
     color: var(--color-text-light);
     padding: 1rem 2rem;
     border-radius: 10px;
     font-size: 1.1rem;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    border: 2px solid var(--color-accent-gold);
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    border: 2px solid var(--color-accent-gold-royal);
 }
 
 .message-box.show {
@@ -230,166 +268,234 @@ body {
     visibility: visible;
 }
 
-/* Ornate Divider - An Ancient Frieze */
-.divider-ornate {
-    height: 5px; /* Thicker, more substantial */
-    background: linear-gradient(to right, transparent 5%, var(--color-accent-terracotta) 20%, var(--color-accent-gold) 50%, var(--color-accent-patina-blue) 80%, transparent 95%);
-    width: 95%; /* Almost full width for grandeur */
-    margin: 0 auto;
-    border-radius: 3px;
-    opacity: 0.9;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+/* Footer - The Codex Colophon */
+.codex-colophon {
+    font-family: 'Lora', serif;
+    color: var(--color-accent-bronze-patina);
+    border-top: 1px dashed var(--color-accent-sage-green);
+    padding-top: 2rem;
+    margin-top: 6rem; /* More space for grandeur */
+    font-style: italic;
+    letter-spacing: 0.03em;
 }
 
 /* Animations */
-@keyframes fadeInSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes backgroundFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes revealUnderline {
-    from {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-    to {
-        transform: scaleX(1);
-        opacity: 0.9;
-    }
+@keyframes fadeInCodex {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+@keyframes medallionEntrance {
+    from { opacity: 0; transform: translateY(-50px) scale(0.5); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes textFadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDivider {
+    from { width: 0; opacity: 0; }
+    to { width: 90%; opacity: 0.9; }
+}
+
 
 /* Tailwind JIT config for custom colors and fonts */
 @config {
     theme: {
         extend: {
             fontFamily: {
-                'lora': ['Lora', 'serif'], /* For headlines and thoughtful text */
-                'open-sans': ['Open Sans', 'sans-serif'], /* For body text */
+                'cinzel': ['Cinzel', 'serif'],
+                'lora': ['Lora', 'serif'],
+                'literata': ['Literata', 'serif'], /* New body font */
+                // 'trajan': ['Trajan Pro', 'serif'], // Placeholder if you can load a Trajan Pro equivalent
             },
             colors: {
-                'bg-primary': 'var(--color-bg-primary)',
-                'bg-secondary': 'var(--color-bg-secondary)',
-                'accent-gold': 'var(--color-accent-gold)',
-                'accent-patina-blue': 'var(--color-accent-patina-blue)',
-                'accent-terracotta': 'var(--color-accent-terracotta)',
-                'text-body': 'var(--color-text-body)',
-                'text-headline': 'var(--color-text-headline)',
-                'text-light': 'var(--color-text-light)',
-                'interactive-hover': 'var(--color-interactive-hover)',
+                'bg-deep-parchment': 'var(--color-bg-deep-parchment)',
+                'bg-aged-stone': 'var(--color-bg-aged-stone)',
+                'text-ink-dark': 'var(--color-text-ink-dark)',
+                'text-heading': 'var(--color-text-heading)',
+                'accent-gold-royal': 'var(--color-accent-gold-royal)',
+                'accent-bronze-patina': 'var(--color-accent-bronze-patina)',
+                'accent-sage-green': 'var(--color-accent-sage-green)',
+                'interactive-glow': 'var(--color-interactive-glow)',
+                'shadow-grand': 'var(--color-shadow-grand)',
+                'strong-text': 'var(--color-text-ink-dark)', /* Keep strong text dark but avoid boldness */
             },
         }
     }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for Aethelred Codex */
+@media (max-width: 1024px) {
+    .codex-page {
+        padding: 2.5rem 3rem;
+    }
+    .profile-medallion {
+        width: 160px; height: 160px;
+    }
+    .main-heading {
+        font-size: 3rem;
+    }
+    .one-liner {
+        font-size: 1.2rem;
+    }
+    .section-chapter-heading {
+        font-size: 2.8rem;
+    }
+    .investigation-pillar {
+        min-height: 180px;
+    }
+    .investigation-pillar .icon-container {
+        width: 70px; height: 70px;
+    }
+    .investigation-pillar i {
+        font-size: 3rem;
+    }
+    .investigation-pillar .title {
+        font-size: 1.3rem;
+    }
+    .contact-emblem {
+        font-size: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .main-container {
-        padding: 1.5rem;
-        margin: 1rem auto;
-        border-width: 2px;
-        border-radius: 10px;
+    body {
+        padding: 2rem 0;
     }
-    .main-container::before {
-        top: -8px; left: -8px; right: -8px; bottom: -8px;
-        border-width: 1px;
-        border-radius: 12px;
+    .codex-page {
+        padding: 2rem 2.5rem;
+        border-width: 3px; /* Thinner border for mobile */
+        border-radius: 15px;
     }
-
-    .profile-pic {
-        width: 120px;
-        height: 120px;
+    .codex-page::before, .codex-page::after {
+        display: none; /* Hide subtle blurs for performance/simplicity */
     }
-
-    .headline-underline {
-        width: 180px;
-        height: 4px;
-        margin-bottom: 2.5em;
+    .profile-medallion {
+        width: 140px; height: 140px;
+        border-width: 4px;
     }
-
-    .section-title {
-        font-size: 2.2rem;
-        margin-top: 4rem;
+    .main-heading {
+        font-size: 2.5rem;
         letter-spacing: 0.1em;
     }
-
-    .investigation-pillar {
-        padding: 1.8rem 1rem;
+    .one-liner {
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
     }
-    .investigation-pillar .pillar-icon {
-        font-size: 4rem;
+    .frieze-divider {
+        margin: 3rem auto;
+        height: 4px;
+    }
+    .section-chapter-heading {
+        font-size: 2.2rem;
+        margin-top: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    .section-chapter-heading::after {
+        width: 100px;
+        height: 3px;
+    }
+    .investigation-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+    .investigation-pillar {
+        min-height: 160px;
+        padding: 1.2rem;
+    }
+    .investigation-pillar .icon-container {
+        width: 60px; height: 60px;
         margin-bottom: 1rem;
     }
-    .investigation-pillar .pillar-text {
-        font-size: 1.1rem;
+    .investigation-pillar i {
+        font-size: 2.8rem;
     }
-
-    .contact-icon-link {
-        font-size: 4rem;
+    .investigation-pillar .title {
+        font-size: 1.2rem;
+    }
+    .contact-emblem {
+        font-size: 3.5rem;
+    }
+    .message-box {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .codex-colophon {
+        margin-top: 4rem;
+        padding-top: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
-    .main-container {
-        padding: 1rem;
-        border-radius: 8px;
-    }
-    .main-container::before {
-        top: -5px; left: -5px; right: -5px; bottom: -5px;
-        border-width: 1px;
+    .codex-page {
+        padding: 1.5rem 1.5rem;
         border-radius: 10px;
     }
-    .profile-pic {
-        width: 100px;
-        height: 100px;
+    .profile-medallion {
+        width: 100px; height: 100px;
+        border-width: 3px;
     }
-    h1 {
-        font-size: 2.5rem;
-    }
-    .font-lora.text-lg.md\:text-xl { /* Specificity for the one-liner */
-        font-size: 1rem;
-    }
-    .headline-underline {
-        width: 120px;
-        height: 3px;
-        margin-bottom: 2em;
-    }
-    .section-title {
+    .main-heading {
         font-size: 1.8rem;
-        margin-top: 3rem;
         letter-spacing: 0.08em;
     }
-    .section-title::after {
-        width: 80px;
+    .one-liner {
+        font-size: 1rem;
+    }
+    .frieze-divider {
+        margin: 2.5rem auto;
         height: 3px;
+        width: 80%;
+    }
+    .section-chapter-heading {
+        font-size: 1.6rem;
+        letter-spacing: 0.08em;
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .section-chapter-heading::after {
+        width: 80px;
+        height: 2px;
+    }
+    .investigation-grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     .investigation-pillar {
-        padding: 1.5rem 0.8rem;
+        min-height: 140px;
+        padding: 1rem;
     }
-    .investigation-pillar .pillar-icon {
-        font-size: 3rem;
+    .investigation-pillar .icon-container {
+        width: 50px; height: 50px;
         margin-bottom: 0.8rem;
     }
-    .investigation-pillar .pillar-text {
-        font-size: 0.95rem;
+    .investigation-pillar i {
+        font-size: 2.2rem;
     }
-    .contact-icon-link {
-        font-size: 3.5rem;
+    .investigation-pillar .title {
+        font-size: 1.1rem;
+    }
+    .contact-emblem {
+        font-size: 3rem;
     }
     .message-box {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         padding: 0.6rem 1.2rem;
     }
-    .divider-ornate {
-        height: 4px;
-        width: 85%;
+    .codex-colophon {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        font-size: 0.8rem;
     }
 }
