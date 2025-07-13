@@ -3,101 +3,115 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gothic Academia / Dark Academia Theme */
+/* Roman Academia Theme - Earthy tones, classic elegance */
 :root {
-    --color-bg-dark: #1A1C1D; /* Very dark charcoal/near black for overall background */
-    --color-container-bg: #2C3032; /* Slightly lighter deep grey for content boxes */
-    --color-primary-accent: #A68C65; /* Aged Brass/Gold for primary accents */
-    --color-secondary-accent: #454A4D; /* Muted dark grey for subtle details/borders */
-    --color-headline-text: #F0F0F0; /* Near white for headlines */
-    --color-body-text: #D0D0D0; /* Light grey for body text, ensuring readability */
-    --color-strong-text: #FFFFFF; /* Pure white for strong emphasis */
-    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Deep, rich shadows */
-    --color-interactive-hover: #C6A477; /* Brighter aged brass for hover states */
-    --color-border-subtle: #3A4042; /* Even lighter dark grey for subtle borders */
+    /* Backgrounds & Text */
+    --color-bg-primary: #FDF9F3; /* Warm off-white, like aged parchment */
+    --color-container-bg: #EAE3D6; /* Muted beige, like aged marble */
+    --color-text-dark: #3A3A3A; /* Deep charcoal for main text */
+    --color-text-light: #6B6B6B; /* Softer grey for secondary text */
+    --color-headline-dark: #2A2A2A; /* Almost black for impactful headlines */
+
+    /* Accents (Inspired by Roman motifs: terracotta, gold, deep red) */
+    --color-accent-primary: #8C473C; /* Muted Terracotta/Brick Red, strong accent */
+    --color-accent-secondary: #B99066; /* Aged Gold/Bronze, subtle highlight */
+    --color-accent-tertiary: #A5A5A5; /* Stone Grey for structural elements */
+
+    /* Shadows & Interactivity */
+    --color-shadow-subtle: rgba(0, 0, 0, 0.08); /* Very soft, general shadow */
+    --color-shadow-deeper: rgba(0, 0, 0, 0.15); /* More pronounced on hover */
+    --color-interactive-hover: #A35A4B; /* Darker terracotta for hover */
+    --color-border-subtle: #D5CDC0; /* Faint border, like grout lines */
 }
 
 html {
     scroll-behavior: smooth;
+    height: 100%; /* Ensure html takes full height */
 }
 
 body {
-    background-color: var(--color-bg-dark); /* Apply dark background */
-    color: var(--color-body-text);
+    background: var(--color-bg-primary);
+    color: var(--color-text-dark);
     line-height: 1.7;
     font-family: 'Open Sans', sans-serif;
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    display: flex; /* Use flexbox to center content initially, then allow scroll */
-    flex-direction: column; /* Allows content to stack vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: flex-start; /* Align content to the top, allowing it to scroll */
-    padding: 2rem 1rem; /* Add horizontal padding for smaller screens */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    min-height: 100vh; /* Ensure body covers full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 0;
+    overflow-x: hidden;
 }
 
-/* Main Container - The Ancient Tome / Portal */
+/* Main Container - Grand and framed */
 .main-container {
-    background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-dark) 100%);
-    box-shadow:
-        0 8px 30px var(--color-shadow-dark), /* Main shadow for lift */
-        0 0 60px rgba(0, 0, 0, 0.15), /* Wider, softer glow */
-        inset 0 0 25px rgba(0, 0, 0, 0.1); /* Subtle inner darkness for depth */
-    border: 1px solid var(--color-border-subtle); /* A subtle, almost invisible border */
-    border-left: 10px solid var(--color-primary-accent); /* Thicker left border, like a book spine */
-    transition: all 0.4s ease-in-out; /* Smooth transitions for hover */
-    max-width: 900px; /* Constrain max width for readability */
-    width: 100%; /* Ensure it takes full width on small screens */
-    margin: 2rem auto; /* Adjusted margin for better vertical spacing */
-    padding: 2.5rem; /* Increased padding inside */
-    border-radius: 12px; /* Slightly more rounded corners */
+    background: var(--color-container-bg);
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: 0 5px 25px var(--color-shadow-subtle); /* Main lift */
+    transition: all 0.4s ease-in-out;
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* For inner border effect */
+    border-radius: 8px; /* Soft rounding */
+    padding: 3rem 4rem; /* Increased padding for spacious feel */
 }
 
 .main-container:hover {
-    box-shadow:
-        0 12px 40px var(--color-shadow-dark),
-        0 0 80px rgba(0, 0, 0, 0.2),
-        inset 0 0 35px rgba(0, 0, 0, 0.15);
-    border-left: 18px solid var(--color-interactive-hover); /* More pronounced left border on hover */
-    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 10px 40px var(--color-shadow-deeper);
+    transform: translateY(-3px); /* Subtle lift on hover */
 }
 
-/* Profile Picture - Glimmering Aura */
+/* Subtle inner border mimicking an architectural frame */
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid var(--color-accent-tertiary); /* Inner stone line */
+    pointer-events: none; /* Allows clicks to pass through */
+    opacity: 0.7;
+    border-radius: 4px; /* Matches outer radius but smaller offset */
+}
+
+/* Profile Picture - Statuesque and centered */
 .profile-pic {
-    box-shadow: 0 0 15px var(--color-primary-accent), /* Gentle glow */
-                0 0 35px rgba(0, 0, 0, 0.25); /* Deeper shadow for depth */
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-out; /* Smoother, more nuanced transition */
+    border: 5px solid var(--color-accent-secondary); /* Gold/bronze border */
+    box-shadow: 0 0 0 2px var(--color-accent-primary), /* Terracotta outer ring */
+                0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .profile-pic:hover {
-    transform: scale(1.1) rotate(3deg); /* More dynamic hover */
-    box-shadow: 0 0 25px var(--color-interactive-hover),
-                0 0 50px rgba(0, 0, 0, 0.35);
+    transform: scale(1.05); /* Gentle zoom, less rotation */
+    box-shadow: 0 0 0 3px var(--color-interactive-hover),
+                0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Headline Underline - Elegant Mark */
+/* Headline Underline - Architectural pediment feel */
 .headline-underline {
     display: block;
-    width: 150px; /* Wider and more prominent */
+    width: 150px; /* Wider for grandeur */
     height: 3px;
-    background: linear-gradient(to right, var(--color-primary-accent), var(--color-secondary-accent));
+    background: linear-gradient(to right, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
     margin: 0.8em auto 2.5em auto;
-    border-radius: 2px;
-    opacity: 0.8;
-    animation: fadeInUnderline 1.5s ease-out forwards;
+    border-radius: 1.5px; /* Half of height for rounded caps */
+    opacity: 0.9;
+    animation: expandUnderline 1.5s ease-out forwards; /* Changed animation */
 }
 
-/* Section Title Styling - Chapter Heading */
+/* Section Title - Bold and distinguished */
 .section-title {
     font-family: 'Merriweather', serif;
-    color: var(--color-headline-text);
+    color: var(--color-headline-dark);
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 3.5rem; /* More space for sections */
     margin-bottom: 2rem;
     position: relative;
-    padding-bottom: 0.5rem;
-    font-size: 2.5rem; /* Larger font size for impact */
-    letter-spacing: 0.05em; /* Subtle letter spacing */
+    padding-bottom: 0.75rem;
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 700;
+    letter-spacing: 0.05em; /* Subtle spacing for gravitas */
 }
 
 .section-title::after {
@@ -105,69 +119,89 @@ body {
     display: block;
     width: 80px; /* Wider underline */
     height: 2px;
-    background: var(--color-primary-accent);
+    background: var(--color-accent-secondary); /* Gold/bronze underline */
     margin: 0.5rem auto 0;
     border-radius: 1px;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
-/* Interactive Icons for Contact - Glowing Orbs */
-.contact-icon {
-    font-size: 2.8rem; /* Larger icons */
-    color: var(--color-primary-accent);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Subtle shadow for depth */
+/* Buttons - Solid and reliable */
+.btn-primary {
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    background-color: var(--color-accent-primary);
+    color: var(--color-bg-primary); /* Text color contrasts with dark button */
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-accent-primary);
+    letter-spacing: 0.02em;
 }
 
-.contact-icon:hover {
-    color: var(--color-interactive-hover);
-    transform: translateY(-4px) scale(1.1); /* Lift and slightly enlarge */
-    text-shadow: 0 0 15px var(--color-interactive-hover), 0 0 25px rgba(255,215,0,0.2); /* More pronounced glow */
-}
-
-/* Pills for Research Areas */
-.research-pill {
-    display: inline-block;
-    background-color: var(--color-secondary-accent);
-    color: var(--color-body-text);
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px; /* Pill shape */
-    font-weight: 500;
-    font-size: 0.95rem;
-    border: 1px solid var(--color-border-subtle);
-    transition: all 0.3s ease;
-    cursor: default; /* Not clickable */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); /* Inner shadow for depth */
-}
-
-.research-pill:hover {
-    background-color: var(--color-primary-accent);
-    color: var(--color-container-bg); /* Text color changes to match container bg */
+.btn-primary:hover {
+    background-color: var(--color-interactive-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
+
+/* Social/Contact Icons - Iconic and clickable */
+.social-icon-link {
+    color: var(--color-accent-primary);
+    transition: all 0.2s ease;
+    border-bottom: none; /* No underline on icons */
+}
+
+.social-icon-link:hover {
+    color: var(--color-interactive-hover);
+    transform: translateY(-2px) scale(1.1); /* Lift and subtle grow */
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+/* Research Areas List - Clean and direct */
+.research-area-item {
+    font-family: 'Merriweather', serif;
+    color: var(--color-text-dark);
+    font-weight: 400;
+    font-size: 1.15rem;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.8rem; /* Space for the bullet/icon */
+}
+
+.research-area-item::before {
+    content: '\2022'; /* Unicode bullet point */
+    color: var(--color-accent-secondary); /* Gold bullet */
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 /* Animations */
-@keyframes fadeInUnderline {
+@keyframes expandUnderline {
     from {
         width: 0;
         opacity: 0;
     }
     to {
         width: 150px;
-        opacity: 0.8;
+        opacity: 0.9;
     }
 }
 
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: scale(0.98) translateY(10px);
+        transform: translateY(20px) scale(0.98);
     }
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -180,13 +214,14 @@ body {
                 'open-sans': ['Open Sans', 'sans-serif'],
             },
             colors: {
-                'bg-dark': 'var(--color-bg-dark)',
+                'bg-primary': 'var(--color-bg-primary)',
                 'container-bg': 'var(--color-container-bg)',
-                'primary-accent': 'var(--color-primary-accent)',
-                'secondary-accent': 'var(--color-secondary-accent)',
-                'headline-text': 'var(--color-headline-text)',
-                'body-text': 'var(--color-body-text)',
-                'strong-text': 'var(--color-strong-text)',
+                'text-dark': 'var(--color-text-dark)',
+                'text-light': 'var(--color-text-light)',
+                'headline-dark': 'var(--color-headline-dark)',
+                'accent-primary': 'var(--color-accent-primary)',
+                'accent-secondary': 'var(--color-accent-secondary)',
+                'accent-tertiary': 'var(--color-accent-tertiary)',
                 'interactive-hover': 'var(--color-interactive-hover)',
                 'border-subtle': 'var(--color-border-subtle)',
             },
@@ -195,53 +230,74 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .main-container {
-        padding: 1.5rem;
+        padding: 2.5rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0;
+    }
+    .main-container {
+        padding: 2rem;
         margin: 1rem auto;
-        border-left: 5px solid var(--color-primary-accent);
+        border-left: 1px solid var(--color-border-subtle); /* Less prominent on small screens */
     }
-
-    .main-container:hover {
-        border-left: 10px solid var(--color-interactive-hover);
+    .main-container::before {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
     }
-
     .headline-underline {
         width: 100px;
-        margin-bottom: 1.5em;
+        margin-bottom: 2em;
     }
-
     .profile-pic {
         width: 120px;
         height: 120px;
     }
-
     .section-title {
         font-size: 2rem;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         margin-bottom: 1.5rem;
     }
-
-    .research-pill {
-        padding: 0.5rem 1rem;
+    .section-title::after {
+        width: 60px;
+    }
+    .btn-primary {
+        padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
     }
-
-    .contact-icon {
-        font-size: 2.2rem;
+    .research-area-item {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .main-container {
-        padding: 1rem;
-        border-radius: 8px;
+        padding: 1.5rem;
+        border-radius: 4px;
     }
-    .section-title {
-        font-size: 1.8rem;
+    .main-container::before {
+        display: none; /* Hide inner frame on very small screens for simplicity */
     }
     .profile-pic {
         width: 100px;
         height: 100px;
+    }
+    .text-4xl, .text-5xl {
+        font-size: 2.5rem;
+    }
+    .text-lg, .text-xl {
+        font-size: 1rem;
+    }
+    .btn-primary {
+        width: 100%; /* Full width buttons on tiny screens */
+    }
+    .flex.flex-col.items-center.space-y-4 > div.flex.space-x-4 {
+        justify-content: center; /* Center icons if they wrap */
     }
 }
