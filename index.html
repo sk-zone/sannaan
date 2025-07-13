@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sannaan Khan | Researcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="font-lora">
-    <div class="container max-w-4xl mx-auto my-8 md:my-12 p-8 md:p-12 main-container animate-fadeInScale">
+<body class="font-open-sans">
+    <div class="container max-w-4xl mx-auto my-8 md:my-12 p-8 md:p-12 rounded-lg main-container">
         
         <header class="text-center mb-10">
             <img
                 src="./assets/images/sannaan.png"
                 alt="Profile picture of Sannaan Khan"
-                class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-accent-dark-maroon mx-auto mb-6"
-                onerror="this.onerror=null;this.src='https://placehold.co/160x160/EDEAE0/A27B3D?text=Sannaan';"
+                class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-accent-terracotta mx-auto mb-6"
+                onerror="this.onerror=null;this.src='https://placehold.co/160x160/EBE6D7/A65D4F?text=Sannaan';"
             />
 
-            <h1 class="font-fira-sans-extra-condensed font-bold text-4xl md:text-5xl mb-1 text-accent-dark-maroon tracking-wide">
+            <h1 class="font-lora font-bold text-4xl md:text-5xl mb-1 text-text-headline tracking-wide">
                 Hi, I'm Sannaan
             </h1>
-            <p class="font-lora text-xl md:text-2xl text-accent-bronze mb-4">
+            <p class="font-lora text-lg md:text-xl text-accent-patina-blue mb-4">
                 Unveiling the Computational Principles of Intelligence
             </p>
             <div class="headline-underline"></div>
 
-            <p class="font-lora text-lg md:text-xl max-w-2xl mx-auto text-text-dark leading-relaxed px-1 text-justify">
+            <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-text-body leading-relaxed px-1 text-justify">
                 My research interests lie at the intersection of deep learning theory, computer vision, and interpretability, 
                 with a focus on causal representation learning and the emergence of shared structure across vision, language, sound, and thought.
                 I’m driven by a fundamental curiosity about how high-level abstractions arise in deep models, 
@@ -50,20 +50,25 @@
         <section id="investigations" class="mb-12">
             <h2 class="section-title">Areas of Investigation</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center px-4">
-                <div class="investigation-item">
-                    <p>Deep Learning Theory</p>
+                <div class="investigation-pillar">
+                    <i class="fas fa-microchip pillar-icon"></i>
+                    <p class="pillar-text">Deep Learning Theory</p>
                 </div>
-                <div class="investigation-item">
-                    <p>Multimodal Intelligence</p>
+                <div class="investigation-pillar">
+                    <i class="fas fa-cube pillar-icon"></i>
+                    <p class="pillar-text">Multimodal Intelligence</p>
                 </div>
-                <div class="investigation-item">
-                    <p>Causal Representational Learning</p>
+                <div class="investigation-pillar">
+                    <i class="fas fa-infinity pillar-icon"></i>
+                    <p class="pillar-text">Causal Representational Learning</p>
                 </div>
-                <div class="investigation-item">
-                    <p>Interpretability</p>
+                <div class="investigation-pillar">
+                    <i class="fas fa-glasses pillar-icon"></i>
+                    <p class="pillar-text">Interpretability</p>
                 </div>
-                <div class="investigation-item">
-                    <p>AI Safety & Alignment</p>
+                <div class="investigation-pillar">
+                    <i class="fas fa-scroll pillar-icon"></i>
+                    <p class="pillar-text">AI Safety & Alignment</p>
                 </div>
             </div>
         </section>
@@ -72,7 +77,7 @@
 
         <section id="contact" class="mb-10 text-center">
             <h2 class="section-title">Connect with Sannaan</h2>
-            <p class="text-lg text-text-dark mb-8">
+            <p class="text-lg text-text-body mb-8">
                 Reach out for collaborations, inquiries, or discussions on cutting-edge research.
             </p>
             <div class="flex justify-center space-x-8">
@@ -88,7 +93,7 @@
             </div>
         </section>
 
-        <footer class="text-center text-sm text-accent-bronze mt-16 pt-8 border-t border-accent-gold border-opacity-50">
+        <footer class="text-center text-sm text-accent-terracotta mt-16 pt-8 border-t border-accent-gold border-opacity-50">
             &copy; <span id="current-year"></span> Sannaan Khan. All rights reserved.
         </footer>
     </div>
