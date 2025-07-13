@@ -37,12 +37,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Applying uppercase and letter spacing to H1 to match H2 */
-header h1 {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
 /* Main Container - The "Royal Book" or "Chiseled Stone Block" */
 .main-container {
     background: var(--color-bg-secondary);
