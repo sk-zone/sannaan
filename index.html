@@ -4,32 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sannaan Khan | Researcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <title>Sannaan Khan | The Aethelred Codex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700&family=Literata:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="font-open-sans">
-    <div class="container max-w-4xl mx-auto my-8 md:my-12 p-8 md:p-12 rounded-lg main-container">
+<body class="font-literata">
+    <div class="container max-w-5xl mx-auto my-8 md:my-12 rounded-lg codex-page">
         
         <header class="text-center mb-10">
             <img
                 src="./assets/images/sannaan.png"
                 alt="Profile picture of Sannaan Khan"
-                class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-accent-terracotta mx-auto mb-6"
-                onerror="this.onerror=null;this.src='https://placehold.co/160x160/EBE6D7/A65D4F?text=Sannaan';"
+                class="profile-medallion block rounded-full object-cover mx-auto mb-8 transition-transform duration-500 ease-out"
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/E6DBC9/7A5C34?text=Sannaan';"
             />
 
-            <h1 class="font-lora font-bold text-4xl md:text-5xl mb-1 text-text-headline tracking-wide">
-                Hi, I'm Sannaan
+            <h1 class="main-heading text-4xl md:text-5xl lg:text-6xl mb-2">
+                Sannaan Khan
             </h1>
-            <p class="font-lora text-lg md:text-xl text-accent-patina-blue mb-4">
+            <p class="one-liner text-xl md:text-2xl mb-4 text-accent-sage-green">
                 Unveiling the Computational Principles of Intelligence
             </p>
-            <div class="headline-underline"></div>
+            <div class="frieze-divider"></div>
 
-            <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-text-body leading-relaxed px-1 text-justify">
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-text-ink-dark leading-relaxed px-1 text-justify animate-fadeIn">
                 My research interests lie at the intersection of deep learning theory, computer vision, and interpretability, 
                 with a focus on causal representation learning and the emergence of shared structure across vision, language, sound, and thought.
                 I’m driven by a fundamental curiosity about how high-level abstractions arise in deep models, 
@@ -45,64 +45,67 @@
             </p>
         </header>
 
-        <div class="divider-ornate my-16"></div>
+        <div class="frieze-divider my-16"></div>
 
         <section id="investigations" class="mb-12">
-            <h2 class="section-title">Areas of Investigation</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center px-4">
+            <h2 class="section-chapter-heading text-center">Areas of Investigation</h2>
+            <div class="grid gap-6 py-4 investigation-grid-container">
                 <div class="investigation-pillar">
-                    <i class="fas fa-microchip pillar-icon"></i>
-                    <p class="pillar-text">Deep Learning Theory</p>
+                    <div class="icon-container">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <p class="title">Deep Learning Theory</p>
                 </div>
                 <div class="investigation-pillar">
-                    <i class="fas fa-cube pillar-icon"></i>
-                    <p class="pillar-text">Multimodal Intelligence</p>
+                    <div class="icon-container">
+                        <i class="fas fa-eye-dropper"></i> </div>
+                    <p class="title">Multimodal Intelligence</p>
                 </div>
                 <div class="investigation-pillar">
-                    <i class="fas fa-infinity pillar-icon"></i>
-                    <p class="pillar-text">Causal Representational Learning</p>
+                    <div class="icon-container">
+                        <i class="fas fa-scroll"></i> </div>
+                    <p class="title">Causal Representational Learning</p>
                 </div>
                 <div class="investigation-pillar">
-                    <i class="fas fa-glasses pillar-icon"></i>
-                    <p class="pillar-text">Interpretability</p>
+                    <div class="icon-container">
+                        <i class="fas fa-glasses"></i> </div>
+                    <p class="title">Interpretability</p>
                 </div>
                 <div class="investigation-pillar">
-                    <i class="fas fa-scroll pillar-icon"></i>
-                    <p class="pillar-text">AI Safety & Alignment</p>
+                    <div class="icon-container">
+                        <i class="fas fa-gavel"></i> </div>
+                    <p class="title">AI Safety & Alignment</p>
                 </div>
             </div>
         </section>
 
-        <div class="divider-ornate my-16"></div>
+        <div class="frieze-divider my-16"></div>
 
         <section id="contact" class="mb-10 text-center">
-            <h2 class="section-title">Connect with Sannaan</h2>
-            <p class="text-lg text-text-body mb-8">
-                Reach out for collaborations, inquiries, or discussions on cutting-edge research.
+            <h2 class="section-chapter-heading text-center">Connect with Sannaan</h2>
+            <p class="text-xl text-text-ink-dark mb-10">
+                May your inquiries be as profound as the truths you seek to uncover.
             </p>
-            <div class="flex justify-center space-x-8">
-                <a href="#" id="email-copy-btn" class="contact-icon-link">
-                    <i class="fas fa-envelope" title="Email Sannaan"></i>
-                </a>
-                <a href="https://github.com/sk-zone" target="_blank" rel="noopener noreferrer" class="contact-icon-link">
-                    <i class="fab fa-github" title="GitHub Profile"></i>
+            <div class="flex justify-center space-x-12">
+                <a href="#" id="email-copy-btn" class="contact-emblem">
+                    <i class="fas fa-envelope-open-text" title="Scribe a Missive"></i> </a>
+                <a href="https://github.com/sk-zone" target="_blank" rel="noopener noreferrer" class="contact-emblem">
+                    <i class="fab fa-github" title="Peruse the Archives"></i>
                 </a>
             </div>
-            <div id="message-box" class="message-box hidden mt-6">
+            <div id="message-box" class="message-box hidden mt-8">
                 Email copied to clipboard!
             </div>
         </section>
 
-        <footer class="text-center text-sm text-accent-terracotta mt-16 pt-8 border-t border-accent-gold border-opacity-50">
-            &copy; <span id="current-year"></span> Sannaan Khan. All rights reserved.
+        <footer class="text-center text-sm codex-colophon">
+            Authored in the digital realm, Anno Domini <span id="current-year"></span>, by Sannaan Khan. All scholarly rights reserved.
         </footer>
     </div>
 
     <script>
-        // Dynamically update the copyright year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Email copy functionality
         const emailCopyBtn = document.getElementById('email-copy-btn');
         const messageBox = document.getElementById('message-box');
         const emailAddress = 'sannaanofficial@gmail.com';
