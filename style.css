@@ -8,13 +8,15 @@
     --color-bg-primary: #FDFDF6; /* Very light parchment/cream */
     --color-bg-secondary: #EFEBE0; /* Slightly richer, warm off-white for containers */
     --color-accent-gold: #A58133; /* Deep, muted gold for luxury */
-    --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue (still available if needed elsewhere) */
+    --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue (used sparingly now) */
     --color-accent-bronze: #8D5A32; /* Rich bronze for decorative elements */
     --color-text-dark: #2F323A; /* Very dark grey for main body text */
     --color-text-light: #FDFDF6; /* Light text for contrast */
     --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Gentle shadow */
     --color-shadow-deep: rgba(0, 0, 0, 0.25); /* More pronounced shadow */
     --color-interactive-hover: #CBAA5F; /* Brighter gold for interactive elements */
+    --color-section-heading: #5A4A3E; /* A sophisticated, muted brown/sepia for headings */
+    --color-subtitle-text: #6B5B5B; /* A softer, more aged tone for the subtitle */
 }
 
 html {
@@ -101,7 +103,7 @@ body {
 /* Section Title Styling - Chiseled Stone Header */
 .section-title {
     font-family: 'Cinzel', serif;
-    color: var(--color-text-dark); /* Changed to text-dark as requested */
+    color: var(--color-section-heading); /* New muted color for headings */
     text-align: center;
     font-size: 2.4rem; /* Slightly smaller */
     margin-top: 3rem; /* Reduced vertical space */
@@ -123,44 +125,57 @@ body {
     border-radius: 1px;
 }
 
-/* Investigation Pillars - Elegant List with Arrows (replaces previous .investigation-card) */
-.investigation-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center; /* Center the entire list */
+/* Investigation Pillars - Elegant List */
+.investigation-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the rows */
 }
 
-.investigation-list li {
-    margin-bottom: 1rem; /* Space between list items */
-    display: flex; /* Use flexbox for arrow and text alignment */
+.investigation-row {
+    display: flex;
+    justify-content: center; /* Center items within each row */
+    gap: 2.5rem; /* Space between items in a row */
+    margin-bottom: 1.5rem; /* Space between rows */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.investigation-list-item {
+    display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
+    background-color: var(--color-bg-primary); /* Lighter background for distinct entries */
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: default; /* Not interactive as individual cards */
+}
+
+.investigation-list-item:hover {
+    background-color: var(--color-bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px var(--color-shadow-soft);
+}
+
+.investigation-list-item i {
+    color: var(--color-accent-gold); /* Icons in gold */
+    font-size: 1.8rem; /* Smaller, more subtle icons */
+    margin-right: 0.6rem;
+    transition: color 0.3s ease;
+}
+
+.investigation-list-item p {
     font-family: 'Lora', serif;
-    font-weight: 700;
+    font-weight: 600; /* Slightly less bold */
     color: var(--color-text-dark);
-    font-size: 1.15rem; /* Readable font size */
+    line-height: 1.2;
+    margin: 0;
+    font-size: 1.05rem; /* Adjusted font size for list items */
 }
 
-.investigation-list li i.fas { /* Styling for the arrow icon */
-    color: var(--color-accent-gold); /* Gold arrow */
-    font-size: 1.8rem; /* Size of the arrow */
-    margin-right: 0.8rem; /* Space between arrow and text */
-    transition: transform 0.2s ease-out, color 0.2s ease-out;
-}
-
-.investigation-list li:hover i.fas {
-    transform: translateX(5px); /* Subtle movement on hover */
-    color: var(--color-interactive-hover); /* Arrow brightens on hover */
-}
-
-.investigation-list li:hover {
-    color: var(--color-accent-royal-blue); /* Text changes color on hover */
-}
 
 /* Contact Icons - Regal Emblems */
 .contact-icon-link {
-    color: var(--color-accent-royal-blue);
+    color: var(--color-accent-royal-blue); /* Retain royal blue for contact icons for contrast */
     font-size: 3.8rem; /* Slightly smaller icons */
     transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* More subtle shadow */
@@ -243,6 +258,8 @@ body {
                 'text-light': 'var(--color-text-light)',
                 'strong-text': 'var(--color-accent-royal-blue)', /* Emphasis in royal blue */
                 'interactive-hover': 'var(--color-interactive-hover)',
+                'section-heading': 'var(--color-section-heading)',
+                'subtitle-text': 'var(--color-subtitle-text)',
             },
         }
     }
@@ -267,7 +284,7 @@ body {
     h1 {
         font-size: 2.4rem;
     }
-    .font-lora.text-lg.md\:text-xl { /* Specificity for the one-liner */
+    .subtitle-text { /* Use custom class for subtitle */
         font-size: 1rem;
     }
 
@@ -282,14 +299,22 @@ body {
         margin-bottom: 1.2rem;
     }
 
-    .investigation-list li {
-        margin-bottom: 0.8rem; /* Reduced space between list items */
-        font-size: 1rem; /* Adjusted font size */
+    .investigation-row {
+        gap: 1.5rem; /* Smaller gap for mobile */
+        margin-bottom: 1rem;
     }
 
-    .investigation-list li i.fas {
-        font-size: 1.5rem; /* Smaller arrow icon */
-        margin-right: 0.6rem; /* Reduced space */
+    .investigation-list-item {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .investigation-list-item i {
+        font-size: 1.5rem;
+        margin-right: 0.4rem;
+    }
+
+    .investigation-list-item p {
+        font-size: 0.9rem;
     }
 
     .contact-icon-link {
@@ -305,7 +330,7 @@ body {
     h1 {
         font-size: 2rem;
     }
-    .font-lora.text-lg.md\:text-xl {
+    .subtitle-text {
         font-size: 0.9rem;
     }
     .headline-underline {
@@ -317,16 +342,21 @@ body {
         letter-spacing: 0.04em;
     }
 
-    .investigation-list li {
-        margin-bottom: 0.6rem; /* Further reduced space */
-        font-size: 0.9rem; /* Further adjusted font size */
+    .investigation-row {
+        gap: 1rem; /* Even smaller gap */
+        margin-bottom: 0.8rem;
     }
 
-    .investigation-list li i.fas {
-        font-size: 1.3rem; /* Smallest arrow icon */
-        margin-right: 0.5rem; /* Smallest space */
+    .investigation-list-item {
+        padding: 0.4rem 0.6rem;
     }
-
+    .investigation-list-item i {
+        font-size: 1.3rem;
+        margin-right: 0.3rem;
+    }
+    .investigation-list-item p {
+        font-size: 0.8rem;
+    }
     .contact-icon-link {
         font-size: 2.5rem;
     }
