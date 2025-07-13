@@ -172,6 +172,7 @@ body {
     font-size: 1.05rem; /* Adjusted font size for list items */
 }
 
+
 /* Contact Icons - Regal Emblems */
 .contact-icon-link {
     color: var(--color-accent-royal-blue); /* Retain royal blue for contact icons for contrast */
@@ -235,6 +236,32 @@ body {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Tailwind JIT config for custom colors and fonts */
+@config {
+    theme: {
+        extend: {
+            fontFamily: {
+                'cinzel': ['Cinzel', 'serif'],
+                'lora': ['Lora', 'serif'],
+                'open-sans': ['Open Sans', 'sans-serif'],
+            },
+            colors: {
+                'bg-primary': 'var(--color-bg-primary)',
+                'bg-secondary': 'var(--color-bg-secondary)',
+                'accent-gold': 'var(--color-accent-gold)',
+                'accent-royal-blue': 'var(--color-accent-royal-blue)',
+                'accent-bronze': 'var(--color-accent-bronze)',
+                'text-dark': 'var(--color-text-dark)',
+                'text-light': 'var(--color-text-light)',
+                'strong-text': 'var(--color-accent-royal-blue)', /* Emphasis in royal blue */
+                'interactive-hover': 'var(--color-interactive-hover)',
+                'section-heading': 'var(--color-section-heading)',
+                'subtitle-text': 'var(--color-subtitle-text)',
+            },
+        }
     }
 }
 
@@ -339,5 +366,7 @@ body {
     }
     .divider-ornate {
         width: 70%;
+    }
+}
     }
 }
