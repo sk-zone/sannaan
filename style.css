@@ -1,139 +1,201 @@
-/* Custom Tailwind Configuration for fonts and colors */
+/* Custom Tailwind Configuration for fonts and colors - Gothic Palette */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Light Academia (Harry Potter-inspired) - White and Black Palette with subtle depth */
+/* Gothic Academia Palette - Deep, rich, and mysterious */
 :root {
-    --color-bg-light: #F8F8F8; /* Even lighter background for freshness */
-    --color-container-bg: #EFEFEF; /* Soft off-white for containers */
-    --color-primary-accent: #6A6A6A; /* Slightly softer dark grey for accents */
-    --color-secondary-accent: #A0A0A0; /* Lighter grey for subtle details/borders */
-    --color-headline-text: #222222; /* Deeper black for headlines */
-    --color-body-text: #444444; /* Darker grey for body text, high contrast */
-    --color-strong-text: #222222; /* For emphasis */
-    --color-shadow-light: rgba(0, 0, 0, 0.1); /* Softer, wider shadows */
-    --color-shadow-deep: rgba(0, 0, 0, 0.05); /* Very subtle inner shadow */
-    --color-interactive-hover: #7B7B7B; /* Slightly lighter accent for hover states */
+    --color-bg-dark: #1A1A1A; /* Deep charcoal background */
+    --color-container-bg: #2B2B2B; /* Darker grey for content boxes */
+    --color-primary-accent: #8B0000; /* Deep Maroon for primary highlights (like ancient wax seals) */
+    --color-secondary-accent: #4A4A4A; /* Muted dark grey for subtle details/borders */
+    --color-text-light: #E0E0E0; /* Light grey for body text, ensuring readability */
+    --color-headline-text: #F0F0F0; /* Off-white for headlines, stark contrast */
+    --color-strong-text: #FFD700; /* Aged Gold for strong emphasis, like illuminated manuscript details */
+    --color-shadow-dark: rgba(0, 0, 0, 0.7); /* Pronounced, dark shadows */
+    --color-shadow-inner: rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+    --color-interactive-hover: #A52A2A; /* Slightly brighter maroon for hover states */
 }
 
+/* Importing a more gothic-suitable font for body if desired, otherwise Open Sans */
+/* I'll stick with Merriweather for headlines and Open Sans for body for now,
+   as it balances elegance with readability on dark backgrounds.
+   If you want more 'gothic' body text, consider:
+   - 'Cinzel Decorative' (ornate, but less readable for long blocks)
+   - 'Fauna One' (classic serif, better readability)
+   For now, sticking to readable: Merriweather and Open Sans are a good combo.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap');
+
+
 html {
-    scroll-behavior: smooth; /* Smooth scrolling for potential future navigation */
+    scroll-behavior: smooth;
 }
 
 body {
-    background: var(--color-bg-light);
-    color: var(--color-body-text);
-    line-height: 1.7;
+    background: var(--color-bg-dark); /* Dark background */
+    color: var(--color-text-light); /* Light text on dark background */
+    line-height: 1.8; /* Increased line height for readability on dark */
     font-family: 'Open Sans', sans-serif;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Allow content to stack */
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align content to the start, allow scrolling */
+    justify-content: flex-start;
     padding: 2rem 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    position: relative; /* For potential background patterns */
 }
 
-/* Base Container Styling - More refined depth and border */
+/* Optional: Subtle background pattern for gothic feel */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* You could use a subtle dark pattern here, e.g.,
+       background-image: url('path/to/dark-gothic-texture.png');
+       background-size: cover;
+       opacity: 0.05; */
+    z-index: -1;
+}
+
+/* Main Container - The Ancient Tome / Portal */
 .main-container {
-    background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-light) 100%);
+    background: radial-gradient(circle at center, var(--color-container-bg) 0%, #1F1F1F 100%); /* Deep inner glow */
     box-shadow:
-        0 4px 20px var(--color-shadow-light), /* Main shadow for lift */
-        0 0 40px var(--color-shadow-deep), /* Subtle wider glow */
-        inset 0 0 15px rgba(0, 0, 0, 0.03); /* Very light inner shadow for depth */
-    border: 1px solid var(--color-secondary-accent); /* Lighter, more elegant border */
-    border-left: 8px solid var(--color-primary-accent); /* Thicker left border for emphasis */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+        0 8px 30px var(--color-shadow-dark), /* Main shadow for lift */
+        0 0 60px rgba(0, 0, 0, 0.3), /* Wider, softer glow */
+        inset 0 0 25px var(--color-shadow-inner); /* Subtle inner darkness */
+    border: 1px solid var(--color-secondary-accent);
+    border-left: 10px solid var(--color-primary-accent); /* Thicker, deeper left border */
+    transition: all 0.4s ease-in-out; /* Slower, more deliberate transition */
 }
 
 .main-container:hover {
     box-shadow:
-        0 8px 30px var(--color-shadow-light),
-        0 0 60px var(--color-shadow-deep),
-        inset 0 0 25px rgba(0, 0, 0, 0.05);
-    border-left: 12px solid var(--color-primary-accent);
+        0 12px 40px var(--color-shadow-dark),
+        0 0 80px rgba(0, 0, 0, 0.4),
+        inset 0 0 35px var(--color-shadow-inner);
+    border-left: 15px solid var(--color-interactive-hover); /* More vibrant on hover */
+    transform: translateY(-3px); /* Slight lift */
 }
 
-/* Profile Picture - Subtle glow and animation */
+/* Profile Picture - Gilded Medallion Effect */
 .profile-pic {
-    box-shadow: 0 0 10px var(--color-primary-accent), /* Softer glow */
-                0 0 25px rgba(0, 0, 0, 0.1); /* More pronounced depth */
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smoother transitions */
+    border-color: var(--color-strong-text); /* Gilded border */
+    box-shadow: 0 0 15px var(--color-strong-text), /* Subtle golden glow */
+                0 0 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
 }
 
 .profile-pic:hover {
-    transform: scale(1.08) rotate(2deg); /* Slightly more playful hover */
-    box-shadow: 0 0 20px var(--color-interactive-hover),
-                0 0 40px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1) rotate(-3deg); /* More pronounced, slightly mystic rotate */
+    box-shadow: 0 0 25px var(--color-strong-text),
+                0 0 50px rgba(0, 0, 0, 0.3);
 }
 
-/* Headline Underline - More pronounced and elegant */
+/* Headline Underline - Ancient Scroll Divider */
 .headline-underline {
     content: '';
     display: block;
-    width: 120px; /* Slightly wider */
-    height: 3px; /* Slightly thinner, more elegant */
-    background: linear-gradient(to right, var(--color-primary-accent), var(--color-secondary-accent)); /* Gradient for subtle depth */
-    margin: 0.8em auto 2.5em auto; /* More vertical spacing */
-    border-radius: 2px;
-    opacity: 0.8; /* Slightly transparent */
-    animation: fadeInUnderline 1.5s ease-out forwards; /* Animation on load */
+    width: 150px; /* Wider for impact */
+    height: 2px; /* Thinner for elegance */
+    background: linear-gradient(to right, var(--color-primary-accent), var(--color-strong-text), var(--color-primary-accent)); /* Gradient for ancient feel */
+    margin: 1em auto 3em auto; /* More spacing */
+    border-radius: 1px;
+    opacity: 0.7;
+    animation: fadeInUnderline 2s ease-out forwards; /* Slower animation */
 }
 
-/* Section Title Styling */
+/* Section Title Styling - Chiseled Stone / Engraving */
 .section-title {
     font-family: 'Merriweather', serif;
     color: var(--color-headline-text);
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-top: 3.5rem; /* More spacing */
+    margin-bottom: 1.8rem;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
+    font-size: 2.5rem; /* Larger titles */
+    letter-spacing: 1px; /* Slight letter spacing for formality */
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 2px;
-    background: var(--color-primary-accent);
-    margin: 0.5rem auto 0;
-    border-radius: 1px;
+    width: 80px; /* Wider accent */
+    height: 1px; /* Very thin line */
+    background: var(--color-strong-text); /* Gold accent */
+    margin: 0.6rem auto 0;
+    border-radius: 0; /* Sharp edges */
 }
 
-/* Interactive Elements (Buttons/Links) */
+/* Interactive Elements (Buttons/Links) - Aged Metal or Leather */
 .btn-primary {
     display: inline-block;
     background-color: var(--color-primary-accent);
-    color: var(--color-container-bg); /* Use container bg for text color on dark buttons */
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
+    color: var(--color-headline-text); /* Lighter text on dark button */
+    padding: 0.8rem 1.8rem;
+    border-radius: 3px; /* Sharper corners */
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     border: 1px solid var(--color-primary-accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Button shadow */
 }
 
 .btn-primary:hover {
     background-color: var(--color-interactive-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 .link-academic {
-    color: var(--color-primary-accent);
+    color: var(--color-strong-text); /* Golden link */
     text-decoration: none;
-    border-bottom: 1px dashed var(--color-secondary-accent);
-    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--color-secondary-accent); /* Muted underline */
+    transition: all 0.3s ease;
 }
 
 .link-academic:hover {
-    color: var(--color-interactive-hover);
+    color: var(--color-interactive-hover); /* Maroon hover */
     border-bottom: 1px solid var(--color-interactive-hover);
-    padding-bottom: 2px;
+    padding-bottom: 3px; /* More padding */
 }
 
+/* Publication/Expertise Cards - Darker, more substantial */
+.card-item {
+    background-color: var(--color-container-bg);
+    border: 1px solid var(--color-secondary-accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.card-item:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    border-color: var(--color-primary-accent);
+}
+
+/* Icons in Expertise Section */
+.expertise-icon {
+    color: var(--color-strong-text); /* Golden icons */
+    margin-right: 0.75rem;
+}
+
+/* Social Icons */
+.social-icon {
+    color: var(--color-strong-text); /* Golden social icons */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+    color: var(--color-interactive-hover); /* Maroon on hover */
+    transform: scale(1.1);
+}
 
 /* Animations */
 @keyframes fadeInUnderline {
@@ -142,15 +204,15 @@ body {
         opacity: 0;
     }
     to {
-        width: 120px;
-        opacity: 0.8;
+        width: 150px;
+        opacity: 0.7;
     }
 }
 
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.98);
     }
     to {
         opacity: 1;
@@ -167,14 +229,14 @@ body {
                 'open-sans': ['Open Sans', 'sans-serif'],
             },
             colors: {
-                'bg-light': 'var(--color-bg-light)',
+                'bg-dark': 'var(--color-bg-dark)',
                 'container-bg': 'var(--color-container-bg)',
                 'primary-accent': 'var(--color-primary-accent)',
-                'secondary-accent': 'var(--color-secondary-accent)', /* New color */
+                'secondary-accent': 'var(--color-secondary-accent)',
+                'text-light': 'var(--color-text-light)',
                 'headline-text': 'var(--color-headline-text)',
-                'body-text': 'var(--color-body-text)',
                 'strong-text': 'var(--color-strong-text)',
-                'interactive-hover': 'var(--color-interactive-hover)', /* New color */
+                'interactive-hover': 'var(--color-interactive-hover)',
             },
         }
     }
@@ -185,15 +247,45 @@ body {
     .main-container {
         padding: 1.5rem;
         margin: 1rem auto;
+        border-left: 8px solid var(--color-primary-accent);
+    }
+
+    .main-container:hover {
+        border-left: 12px solid var(--color-interactive-hover);
     }
 
     .headline-underline {
-        width: 80px;
-        margin-bottom: 1.5em;
+        width: 100px;
+        margin-bottom: 2em;
     }
 
     .profile-pic {
         width: 120px;
         height: 120px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    .btn-primary {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    h1 {
+        font-size: 3rem !important; /* Tailwind's default 4xl might be too big */
+    }
+    p {
+        font-size: 1rem !important;
+    }
+    .headline-underline {
+        width: 80px;
     }
 }
