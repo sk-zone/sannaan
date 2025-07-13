@@ -11,25 +11,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="font-open-sans">
-    <div class="container max-w-4xl mx-auto my-8 md:my-12 rounded-lg main-container animate-fadeInScale">
+    <div class="container max-w-4xl mx-auto my-8 md:my-12 p-8 md:p-12 rounded-lg main-container animate-fadeInScale">
         
-        <header class="text-center mb-10 px-4 md:px-8 lg:px-12">
+        <header class="text-center mb-10">
             <img
                 src="./assets/images/sannaan.png"
                 alt="Profile picture of Sannaan Khan"
-                class="profile-pic block w-40 h-40 rounded-full object-cover mx-auto mb-6 transition-all duration-300"
-                onerror="this.onerror=null;this.src='https://placehold.co/160x160/EFEBE0/333333?text=Sannaan';"
+                class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-accent-bronze mx-auto mb-6"
+                onerror="this.onerror=null;this.src='https://placehold.co/160x160/EFEBE0/A58133?text=Sannaan';"
             />
 
-            <h1 class="font-bold text-4xl md:text-5xl mb-1 headline-text tracking-wide">
+            <h1 class="font-cinzel font-bold text-4xl md:text-5xl mb-1 text-accent-royal-blue tracking-wide">
                 Hi, I'm Sannaan
             </h1>
-            <p class="one-liner">
+            <p class="font-lora text-lg md:text-xl text-accent-bronze mb-4">
                 Unveiling the Computational Principles of Intelligence
             </p>
             <div class="headline-underline"></div>
 
-            <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-text-dark leading-relaxed text-justify">
+            <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-text-dark leading-relaxed px-1 text-justify">
                 My research interests lie at the intersection of <strong class="text-strong-text">deep learning theory</strong>, <strong class="text-strong-text">computer vision</strong>, and <strong class="text-strong-text">interpretability</strong>, 
                 with a focus on <strong class="text-strong-text">causal representation learning</strong> and the emergence of shared structure across vision, language, sound, and thought.
                 I’m driven by a fundamental curiosity about how high-level abstractions arise in deep models, 
@@ -45,47 +45,55 @@
             </p>
         </header>
 
-        <div class="divider-ornate"></div>
+        <div class="divider-ornate my-16"></div>
 
-        <section id="investigations" class="mb-12 px-4 md:px-8 lg:px-12">
+        <section id="investigations" class="mb-12">
             <h2 class="section-title">Areas of Investigation</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="investigation-category">
-                    <i class="fas fa-brain" title="Deep Learning Theory"></i>
-                    <p>Deep Learning Theory,<br>Multimodal Intelligence</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center px-4">
+                <div class="investigation-card">
+                    <i class="fas fa-brain"></i>
+                    <p>Deep Learning Theory</p>
                 </div>
-                <div class="investigation-category">
-                    <i class="fas fa-microscope" title="Causal Representational Learning"></i>
-                    <p>Causal Representational Learning,<br>Interpretability</p>
+                <div class="investigation-card">
+                    <i class="fas fa-cubes"></i>
+                    <p>Multimodal Intelligence</p>
                 </div>
-                <div class="investigation-category">
-                    <i class="fas fa-shield-alt" title="AI Safety & Alignment"></i>
+                <div class="investigation-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <p>Causal Representational Learning</p>
+                </div>
+                <div class="investigation-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Interpretability</p>
+                </div>
+                <div class="investigation-card">
+                    <i class="fas fa-shield-alt"></i>
                     <p>AI Safety & Alignment</p>
                 </div>
             </div>
         </section>
 
-        <div class="divider-ornate"></div>
+        <div class="divider-ornate my-16"></div>
 
-        <section id="contact" class="mb-10 text-center px-4 md:px-8 lg:px-12">
+        <section id="contact" class="mb-10 text-center">
             <h2 class="section-title">Connect with Sannaan</h2>
-            <p class="text-lg text-text-dark mb-6">
-                Feel free to reach out for collaborations, inquiries, or discussions on research.
+            <p class="text-lg text-text-dark mb-8">
+                Reach out for collaborations, inquiries, or discussions on cutting-edge research.
             </p>
             <div class="flex justify-center space-x-8">
-                <a href="#" id="email-copy-btn" class="contact-icon-link" title="Click to copy email">
-                    <i class="fas fa-envelope"></i>
+                <a href="#" id="email-copy-btn" class="contact-icon-link">
+                    <i class="fas fa-envelope" title="Email Sannaan"></i>
                 </a>
-                <a href="https://github.com/sk-zone" target="_blank" rel="noopener noreferrer" class="contact-icon-link" title="Visit GitHub profile">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/sk-zone" target="_blank" rel="noopener noreferrer" class="contact-icon-link">
+                    <i class="fab fa-github" title="GitHub Profile"></i>
                 </a>
             </div>
-            <div id="message-box" class="message-box hidden mt-5">
+            <div id="message-box" class="message-box hidden mt-6">
                 Email copied to clipboard!
             </div>
         </section>
 
-        <footer class="text-center text-sm text-text-medium mt-12 pt-6 border-t border-accent-gold opacity-80">
+        <footer class="text-center text-sm text-accent-bronze mt-16 pt-8 border-t border-accent-gold border-opacity-50">
             &copy; <span id="current-year"></span> Sannaan Khan. All rights reserved.
         </footer>
     </div>
@@ -94,63 +102,53 @@
         // Dynamically update the copyright year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // JavaScript for copying email to clipboard
+        // Email copy functionality
         const emailCopyBtn = document.getElementById('email-copy-btn');
         const messageBox = document.getElementById('message-box');
         const emailAddress = 'sannaanofficial@gmail.com';
 
         emailCopyBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default link behavior
+            e.preventDefault();
 
-            // Use the modern navigator.clipboard API for better security and performance
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(emailAddress).then(() => {
-                    showMessage('Email copied to clipboard!');
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    showMessage('Failed to copy. Please copy manually: ' + emailAddress, true);
-                });
-            } else {
-                // Fallback for browsers that don't support navigator.clipboard (e.g., older IE)
-                const textarea = document.createElement('textarea');
-                textarea.value = emailAddress;
-                textarea.style.position = 'fixed'; // Prevent scrolling to bottom
-                textarea.style.opacity = 0; // Hide the textarea
-                document.body.appendChild(textarea);
-                textarea.focus();
-                textarea.select();
-                try {
-                    const successful = document.execCommand('copy');
-                    if (successful) {
-                        showMessage('Email copied to clipboard!');
-                    } else {
-                        showMessage('Failed to copy. Please copy manually: ' + emailAddress, true);
-                    }
-                } catch (err) {
-                    showMessage('Failed to copy. Please copy manually: ' + emailAddress, true);
-                } finally {
-                    document.body.removeChild(textarea); // Clean up
+            const textarea = document.createElement('textarea');
+            textarea.value = emailAddress;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = 0;
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    messageBox.textContent = 'Email copied to clipboard!';
+                    messageBox.classList.remove('hidden');
+                    messageBox.classList.add('show');
+                    setTimeout(() => {
+                        messageBox.classList.remove('show');
+                        messageBox.classList.add('hidden');
+                    }, 3000);
+                } else {
+                    messageBox.textContent = 'Failed to copy. Please copy manually: ' + emailAddress;
+                    messageBox.classList.remove('hidden');
+                    messageBox.classList.add('show');
+                    setTimeout(() => {
+                        messageBox.classList.remove('show');
+                        messageBox.classList.add('hidden');
+                    }, 5000);
                 }
+            } catch (err) {
+                messageBox.textContent = 'Failed to copy. Please copy manually: ' + emailAddress;
+                messageBox.classList.remove('hidden');
+                messageBox.classList.add('show');
+                setTimeout(() => {
+                    messageBox.classList.remove('show');
+                    messageBox.classList.add('hidden');
+                }, 5000);
+            } finally {
+                document.body.removeChild(textarea);
             }
         });
-
-        // Function to show the message box
-        function showMessage(text, isError = false) {
-            messageBox.textContent = text;
-            if (isError) {
-                messageBox.style.backgroundColor = '#d9534f'; // A red color for errors
-            } else {
-                messageBox.style.backgroundColor = 'var(--color-accent-bronze)';
-            }
-            messageBox.classList.remove('hidden');
-            messageBox.classList.add('show');
-
-            // Hide message box after 3 seconds
-            setTimeout(() => {
-                messageBox.classList.remove('show');
-                messageBox.classList.add('hidden');
-            }, 3000);
-        }
     </script>
 </body>
 </html>
