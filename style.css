@@ -3,15 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light Academia (Harry Potter-inspired) - White and Black Palette */
+/* Light Academia (Harry Potter-inspired) - White and Black Palette with subtle depth */
 :root {
-    --color-bg-light: #F5F5F5; /* Very light grey, almost white, for overall background */
-    --color-container-bg: #E0E0E0; /* Slightly darker light grey for content boxes, subtle contrast */
-    --color-primary-accent: #555555; /* Dark grey for subtle accents, like ink or aged parchment */
-    --color-headline-text: #000000; /* Pure black for headlines, stark and clear */
-    --color-body-text: #333333; /* Dark grey for body text, ensuring readability on light backgrounds */
-    --color-strong-text: #000000; /* Pure black for emphasis, drawing attention to key terms */
-    --color-shadow-light: rgba(0, 0, 0, 0.2); /* Lighter, subtle shadows for depth */
+    --color-bg-light: #F8F8F8; /* Even lighter background for freshness */
+    --color-container-bg: #EFEFEF; /* Soft off-white for containers */
+    --color-primary-accent: #6A6A6A; /* Slightly softer dark grey for accents */
+    --color-secondary-accent: #A0A0A0; /* Lighter grey for subtle details/borders */
+    --color-headline-text: #222222; /* Deeper black for headlines */
+    --color-body-text: #444444; /* Darker grey for body text, high contrast */
+    --color-strong-text: #222222; /* For emphasis */
+    --color-shadow-light: rgba(0, 0, 0, 0.1); /* Softer, wider shadows */
+    --color-shadow-deep: rgba(0, 0, 0, 0.05); /* Very subtle inner shadow */
+    --color-interactive-hover: #7B7B7B; /* Slightly lighter accent for hover states */
 }
 
 html {
@@ -19,27 +22,140 @@ html {
 }
 
 body {
-    /* Apply light background and default text color from the defined variables */
     background: var(--color-bg-light);
     color: var(--color-body-text);
-    line-height: 1.7; /* Improved readability for body text */
-    font-family: 'Open Sans', sans-serif; /* Default body font, clean and readable */
-    min-height: 100vh; /* Ensure body takes full viewport height for proper centering */
-    display: flex; /* Use flexbox for centering content vertically */
-    align-items: center; /* Center content vertically within the viewport */
-    justify-content: center; /* Center content horizontally within the viewport */
-    padding: 2rem 0; /* Add some vertical padding to prevent content from touching edges */
+    line-height: 1.7;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Allow content to stack */
+    align-items: center;
+    justify-content: flex-start; /* Align content to the start, allow scrolling */
+    padding: 2rem 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Custom styles for the headline underline, mimicking a decorative element */
+/* Base Container Styling - More refined depth and border */
+.main-container {
+    background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-light) 100%);
+    box-shadow:
+        0 4px 20px var(--color-shadow-light), /* Main shadow for lift */
+        0 0 40px var(--color-shadow-deep), /* Subtle wider glow */
+        inset 0 0 15px rgba(0, 0, 0, 0.03); /* Very light inner shadow for depth */
+    border: 1px solid var(--color-secondary-accent); /* Lighter, more elegant border */
+    border-left: 8px solid var(--color-primary-accent); /* Thicker left border for emphasis */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.main-container:hover {
+    box-shadow:
+        0 8px 30px var(--color-shadow-light),
+        0 0 60px var(--color-shadow-deep),
+        inset 0 0 25px rgba(0, 0, 0, 0.05);
+    border-left: 12px solid var(--color-primary-accent);
+}
+
+/* Profile Picture - Subtle glow and animation */
+.profile-pic {
+    box-shadow: 0 0 10px var(--color-primary-accent), /* Softer glow */
+                0 0 25px rgba(0, 0, 0, 0.1); /* More pronounced depth */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smoother transitions */
+}
+
+.profile-pic:hover {
+    transform: scale(1.08) rotate(2deg); /* Slightly more playful hover */
+    box-shadow: 0 0 20px var(--color-interactive-hover),
+                0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Headline Underline - More pronounced and elegant */
 .headline-underline {
-    content: ''; /* Required for pseudo-elements, though not strictly needed here as it's a div */
-    display: block; /* Ensures it takes up its own line */
-    width: 90px; /* Fixed width for the underline */
-    height: 4px; /* Thickness of the underline */
-    background: var(--color-primary-accent); /* Color of the underline, matching accents */
-    margin: 0.5em auto 1.8em auto; /* Centering the underline and providing vertical spacing */
-    border-radius: 3px; /* Slightly rounded corners for a softer look */
+    content: '';
+    display: block;
+    width: 120px; /* Slightly wider */
+    height: 3px; /* Slightly thinner, more elegant */
+    background: linear-gradient(to right, var(--color-primary-accent), var(--color-secondary-accent)); /* Gradient for subtle depth */
+    margin: 0.8em auto 2.5em auto; /* More vertical spacing */
+    border-radius: 2px;
+    opacity: 0.8; /* Slightly transparent */
+    animation: fadeInUnderline 1.5s ease-out forwards; /* Animation on load */
+}
+
+/* Section Title Styling */
+.section-title {
+    font-family: 'Merriweather', serif;
+    color: var(--color-headline-text);
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-primary-accent);
+    margin: 0.5rem auto 0;
+    border-radius: 1px;
+}
+
+/* Interactive Elements (Buttons/Links) */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary-accent);
+    color: var(--color-container-bg); /* Use container bg for text color on dark buttons */
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid var(--color-primary-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-interactive-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.link-academic {
+    color: var(--color-primary-accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-secondary-accent);
+    transition: all 0.2s ease;
+}
+
+.link-academic:hover {
+    color: var(--color-interactive-hover);
+    border-bottom: 1px solid var(--color-interactive-hover);
+    padding-bottom: 2px;
+}
+
+
+/* Animations */
+@keyframes fadeInUnderline {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 120px;
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Tailwind JIT config for custom colors and fonts */
@@ -47,17 +163,37 @@ body {
     theme: {
         extend: {
             fontFamily: {
-                'merriweather': ['Merriweather', 'serif'], /* Merriweather for headlines, classic and elegant */
-                'open-sans': ['Open Sans', 'sans-serif'], /* Open Sans for body, modern and readable */
+                'merriweather': ['Merriweather', 'serif'],
+                'open-sans': ['Open Sans', 'sans-serif'],
             },
             colors: {
                 'bg-light': 'var(--color-bg-light)',
                 'container-bg': 'var(--color-container-bg)',
                 'primary-accent': 'var(--color-primary-accent)',
+                'secondary-accent': 'var(--color-secondary-accent)', /* New color */
                 'headline-text': 'var(--color-headline-text)',
                 'body-text': 'var(--color-body-text)',
                 'strong-text': 'var(--color-strong-text)',
+                'interactive-hover': 'var(--color-interactive-hover)', /* New color */
             },
         }
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    .headline-underline {
+        width: 80px;
+        margin-bottom: 1.5em;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
     }
 }
