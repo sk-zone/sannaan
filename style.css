@@ -1,360 +1,340 @@
 /* Custom Tailwind Configuration for fonts and colors */
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
- /* Royal Roman Academia Theme Palette */
- :root {
-     --color-bg-primary: #FDFDF6; /* Very light parchment/cream */
-     --color-bg-secondary: #EFEBE0; /* Slightly richer, warm off-white for containers */
-     --color-accent-gold: #A58133; /* Deep, muted gold for luxury */
-     --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue */
-     --color-accent-bronze: #8D5A32; /* Rich bronze for decorative elements */
-     --color-text-dark: #2F323A; /* Very dark grey for main body text */
-     --color-text-light: #FDFDF6; /* Light text for contrast */
-     --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Gentle shadow */
-     --color-shadow-deep: rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-     --color-interactive-hover: #CBAA5F; /* Brighter gold for interactive elements */
- }
+/* Royal Roman Academia Theme Palette */
+:root {
+    --color-bg-primary: #FDFDF6; /* Very light parchment/cream */
+    --color-bg-secondary: #EFEBE0; /* Slightly richer, warm off-white for containers */
+    --color-accent-gold: #A58133; /* Deep, muted gold for luxury */
+    --color-accent-royal-blue: #2A3E5C; /* Deep, dark scholarly blue (still available if needed elsewhere) */
+    --color-accent-bronze: #8D5A32; /* Rich bronze for decorative elements */
+    --color-text-dark: #2F323A; /* Very dark grey for main body text */
+    --color-text-light: #FDFDF6; /* Light text for contrast */
+    --color-shadow-soft: rgba(0, 0, 0, 0.1); /* Gentle shadow */
+    --color-shadow-deep: rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+    --color-interactive-hover: #CBAA5F; /* Brighter gold for interactive elements */
+}
 
- html {
-     scroll-behavior: smooth;
- }
+html {
+    scroll-behavior: smooth;
+}
 
- body {
-     background: var(--color-bg-primary);
-     color: var(--color-text-dark);
-     line-height: 1.7;
-     font-family: 'Open Sans', sans-serif;
-     min-height: 100vh;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: flex-start;
-     padding: 3rem 0; /* More vertical padding for breathing room */
-     overflow-x: hidden;
- }
+body {
+    background: var(--color-bg-primary);
+    color: var(--color-text-dark);
+    line-height: 1.7;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 0; /* More vertical padding for breathing room */
+    overflow-x: hidden;
+}
 
- /* Main Container - The "Royal Book" or "Chiseled Stone Block" */
- .main-container {
-     background: var(--color-bg-secondary);
-     border: 2px solid var(--color-accent-gold); /* Thinner gold border */
-     border-radius: 8px; /* Slightly less rounded edges */
-     box-shadow:
-         0 10px 30px var(--color-shadow-deep), /* Less intense shadow */
-         0 0 60px rgba(0, 0, 0, 0.05), /* Softer ambient glow */
-         inset 0 0 20px rgba(0, 0, 0, 0.03); /* Softer inner depth */
-     transition: all 0.4s ease-in-out; /* Slightly faster transition */
-     position: relative;
-     /* Adding subtle linear gradient overlay for more depth, like aged parchment */
-     background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%);
- }
+/* Main Container - The "Royal Book" or "Chiseled Stone Block" */
+.main-container {
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-accent-gold); /* Thinner gold border */
+    border-radius: 8px; /* Slightly less rounded edges */
+    box-shadow:
+        0 10px 30px var(--color-shadow-deep), /* Less intense shadow */
+        0 0 60px rgba(0, 0, 0, 0.05), /* Softer ambient glow */
+        inset 0 0 20px rgba(0, 0, 0, 0.03); /* Softer inner depth */
+    transition: all 0.4s ease-in-out; /* Slightly faster transition */
+    position: relative;
+    /* Adding subtle linear gradient overlay for more depth, like aged parchment */
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%);
+}
 
- .main-container::before {
-     content: '';
-     position: absolute;
-     top: -5px; /* Closer to the container */
-     left: -5px;
-     right: -5px;
-     bottom: -5px;
-     border: 1px solid var(--color-accent-bronze); /* An additional, finer bronze frame */
-     border-radius: 10px; /* Matches container radius + padding */
-     pointer-events: none; /* Allows clicks to pass through */
- }
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Closer to the container */
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid var(--color-accent-bronze); /* An additional, finer bronze frame */
+    border-radius: 10px; /* Matches container radius + padding */
+    pointer-events: none; /* Allows clicks to pass through */
+}
 
- .main-container:hover {
-     box-shadow:
-         0 15px 40px var(--color-shadow-deep),
-         0 0 80px rgba(0, 0, 0, 0.1),
-         inset 0 0 30px rgba(0, 0, 0, 0.08);
-     transform: translateY(-5px); /* Less pronounced lift on hover */
-     border-color: var(--color-interactive-hover); /* Gold brightens */
- }
+.main-container:hover {
+    box-shadow:
+        0 15px 40px var(--color-shadow-deep),
+        0 0 80px rgba(0, 0, 0, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px); /* Less pronounced lift on hover */
+    border-color: var(--color-interactive-hover); /* Gold brightens */
+}
 
- /* Profile Picture - Royal Seal */
- .profile-pic {
-     box-shadow: 0 0 15px var(--color-accent-gold), /* Softer golden glow */
-         0 0 30px rgba(0, 0, 0, 0.1); /* Less pronounced depth */
-     border-color: var(--color-accent-bronze); /* Bronze inner border */
-     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
- }
+/* Profile Picture - Royal Seal */
+.profile-pic {
+    box-shadow: 0 0 15px var(--color-accent-gold), /* Softer golden glow */
+        0 0 30px rgba(0, 0, 0, 0.1); /* Less pronounced depth */
+    border-color: var(--color-accent-bronze); /* Bronze inner border */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+}
 
- .profile-pic:hover {
-     transform: scale(1.08) rotate(2deg); /* More subtle movement */
-     box-shadow: 0 0 25px var(--color-interactive-hover), /* Brighter glow on hover */
-         0 0 50px rgba(0, 0, 0, 0.2);
-     border-color: var(--color-interactive-hover);
- }
+.profile-pic:hover {
+    transform: scale(1.08) rotate(2deg); /* More subtle movement */
+    box-shadow: 0 0 25px var(--color-interactive-hover), /* Brighter glow on hover */
+        0 0 50px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-interactive-hover);
+}
 
- /* Headline Underline - Architectural Frieze */
- .headline-underline {
-     display: block;
-     width: 150px; /* Slightly narrower */
-     height: 3px; /* Thinner line */
-     background: linear-gradient(to right, var(--color-accent-bronze), var(--color-accent-gold), var(--color-accent-bronze)); /* Multi-tone gradient */
-     margin: 1em auto 2.5em auto; /* Reduced spacing */
-     border-radius: 2px;
-     opacity: 0.8;
-     animation: fadeInUnderline 1.5s ease-out forwards; /* Faster animation */
- }
+/* Headline Underline - Architectural Frieze */
+.headline-underline {
+    display: block;
+    width: 150px; /* Slightly narrower */
+    height: 3px; /* Thinner line */
+    background: linear-gradient(to right, var(--color-accent-bronze), var(--color-accent-gold), var(--color-accent-bronze)); /* Multi-tone gradient */
+    margin: 1em auto 2.5em auto; /* Reduced spacing */
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: fadeInUnderline 1.5s ease-out forwards; /* Faster animation */
+}
 
- /* Section Title Styling - Chiseled Stone Header */
- .section-title {
-     font-family: 'Cinzel', serif;
-     color: var(--color-accent-royal-blue); /* Deep royal blue */
-     text-align: center;
-     font-size: 2.4rem; /* Slightly smaller */
-     margin-top: 3rem; /* Reduced vertical space */
-     margin-bottom: 1.5rem;
-     position: relative;
-     padding-bottom: 0.6rem;
-     text-transform: uppercase;
-     letter-spacing: 0.08em; /* Reduced letter spacing */
-     text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05); /* More subtle text shadow */
- }
+/* Section Title Styling - Chiseled Stone Header */
+.section-title {
+    font-family: 'Cinzel', serif;
+    color: var(--color-text-dark); /* Changed to text-dark as requested */
+    text-align: center;
+    font-size: 2.4rem; /* Slightly smaller */
+    margin-top: 3rem; /* Reduced vertical space */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em; /* Reduced letter spacing */
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
+}
 
- .section-title::after {
-     content: '';
-     display: block;
-     width: 80px; /* Narrower divider */
-     height: 2px;
-     background: var(--color-accent-gold); /* Solid gold divider */
-     margin: 0.6rem auto 0;
-     border-radius: 1px;
- }
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px; /* Narrower divider */
+    height: 2px;
+    background: var(--color-accent-gold); /* Solid gold divider */
+    margin: 0.6rem auto 0;
+    border-radius: 1px;
+}
 
- /* Investigation Pillars - Elegant List */
- .investigation-list {
-     list-style: none;
-     padding: 0;
-     margin: 0;
-     text-align: center;
- }
+/* Investigation Pillars - Elegant List with Arrows (replaces previous .investigation-card) */
+.investigation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center the entire list */
+}
 
- .investigation-list li {
-     margin-bottom: 1.5rem;
- }
+.investigation-list li {
+    margin-bottom: 1rem; /* Space between list items */
+    display: flex; /* Use flexbox for arrow and text alignment */
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    font-size: 1.15rem; /* Readable font size */
+}
 
- .investigation-pillar-item {
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     padding: 0.8rem 1.5rem;
-     border: 1px solid var(--color-accent-gold);
-     border-radius: 6px;
-     background-color: var(--color-bg-primary);
-     box-shadow: 0 2px 8px var(--color-shadow-soft);
-     transition: all 0.3s ease-in-out;
- }
+.investigation-list li i.fas { /* Styling for the arrow icon */
+    color: var(--color-accent-gold); /* Gold arrow */
+    font-size: 1.8rem; /* Size of the arrow */
+    margin-right: 0.8rem; /* Space between arrow and text */
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
 
- .investigation-pillar-item:hover {
-     transform: translateY(-3px);
-     box-shadow: 0 5px 15px var(--color-shadow-deep);
-     border-color: var(--color-interactive-hover);
-     background-color: var(--color-bg-secondary);
- }
+.investigation-list li:hover i.fas {
+    transform: translateX(5px); /* Subtle movement on hover */
+    color: var(--color-interactive-hover); /* Arrow brightens on hover */
+}
 
- .investigation-pillar-item i {
-     color: var(--color-accent-royal-blue);
-     font-size: 2.5rem;
-     margin-right: 0.8rem;
- }
+.investigation-list li:hover {
+    color: var(--color-accent-royal-blue); /* Text changes color on hover */
+}
 
- .investigation-pillar-item p {
-     font-family: 'Lora', serif;
-     font-weight: 700;
-     color: var(--color-text-dark);
-     line-height: 1.2;
-     margin: 0;
- }
+/* Contact Icons - Regal Emblems */
+.contact-icon-link {
+    color: var(--color-accent-royal-blue);
+    font-size: 3.8rem; /* Slightly smaller icons */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* More subtle shadow */
+}
 
+.contact-icon-link:hover {
+    color: var(--color-interactive-hover);
+    transform: scale(1.1); /* Less pronounced scaling */
+    text-shadow: 0 0 10px var(--color-interactive-hover), 0 0 15px rgba(0,0,0,0.2); /* Softer glowing effect */
+}
 
- /* Contact Icons - Regal Emblems */
- .contact-icon-link {
-     color: var(--color-accent-royal-blue);
-     font-size: 3.8rem; /* Slightly smaller icons */
-     transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-     text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* More subtle shadow */
- }
+/* Message Box for Copy Confirmation */
+.message-box {
+    background-color: var(--color-accent-royal-blue);
+    color: var(--color-text-light);
+    padding: 0.6rem 1.2rem; /* Slightly smaller padding */
+    border-radius: 6px;
+    font-size: 0.9rem; /* Slightly smaller font */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* Softer shadow */
+    border: 1px solid var(--color-accent-gold);
+}
 
- .contact-icon-link:hover {
-     color: var(--color-interactive-hover);
-     transform: scale(1.1); /* Less pronounced scaling */
-     text-shadow: 0 0 10px var(--color-interactive-hover), 0 0 15px rgba(0,0,0,0.2); /* Softer glowing effect */
- }
+.message-box.show {
+    opacity: 1;
+    visibility: visible;
+}
 
- /* Message Box for Copy Confirmation */
- .message-box {
-     background-color: var(--color-accent-royal-blue);
-     color: var(--color-text-light);
-     padding: 0.6rem 1.2rem; /* Slightly smaller padding */
-     border-radius: 6px;
-     font-size: 0.9rem; /* Slightly smaller font */
-     opacity: 0;
-     visibility: hidden;
-     transition: opacity 0.5s ease, visibility 0.5s ease;
-     box-shadow: 0 3px 10px rgba(0,0,0,0.15); /* Softer shadow */
-     border: 1px solid var(--color-accent-gold);
- }
+/* Ornate Divider - Royal Scroll Line */
+.divider-ornate {
+    height: 2px; /* Thinner divider */
+    background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze) 20%, var(--color-accent-gold) 50%, var(--color-accent-bronze) 80%, transparent 95%);
+    width: 80%; /* Slightly narrower */
+    margin: 0 auto;
+    border-radius: 1px;
+    opacity: 0.7;
+}
 
- .message-box.show {
-     opacity: 1;
-     visibility: visible;
- }
+/* Animations */
+@keyframes fadeInUnderline {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 150px;
+        opacity: 0.8;
+    }
+}
 
- /* Ornate Divider - Royal Scroll Line */
- .divider-ornate {
-     height: 2px; /* Thinner divider */
-     background: linear-gradient(to right, transparent 5%, var(--color-accent-bronze) 20%, var(--color-accent-gold) 50%, var(--color-accent-bronze) 80%, transparent 95%);
-     width: 80%; /* Slightly narrower */
-     margin: 0 auto;
-     border-radius: 1px;
-     opacity: 0.7;
- }
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
- /* Animations */
- @keyframes fadeInUnderline {
-     from {
-         width: 0;
-         opacity: 0;
-     }
-     to {
-         width: 150px;
-         opacity: 0.8;
-     }
- }
+/* Tailwind JIT config for custom colors and fonts */
+@config {
+    theme: {
+        extend: {
+            fontFamily: {
+                'cinzel': ['Cinzel', 'serif'],
+                'lora': ['Lora', 'serif'],
+                'open-sans': ['Open Sans', 'sans-serif'],
+            },
+            colors: {
+                'bg-primary': 'var(--color-bg-primary)',
+                'bg-secondary': 'var(--color-bg-secondary)',
+                'accent-gold': 'var(--color-accent-gold)',
+                'accent-royal-blue': 'var(--color-accent-royal-blue)',
+                'accent-bronze': 'var(--color-accent-bronze)',
+                'text-dark': 'var(--color-text-dark)',
+                'text-light': 'var(--color-text-light)',
+                'strong-text': 'var(--color-accent-royal-blue)', /* Emphasis in royal blue */
+                'interactive-hover': 'var(--color-interactive-hover)',
+            },
+        }
+    }
+}
 
- @keyframes fadeInScale {
-     from {
-         opacity: 0;
-         transform: scale(0.98);
-     }
-     to {
-         opacity: 1;
-         transform: scale(1);
-     }
- }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1rem;
+        margin: 1rem auto;
+        border-width: 1.5px;
+    }
+    .main-container::before {
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
+    }
 
- /* Tailwind JIT config for custom colors and fonts */
- @config {
-     theme: {
-         extend: {
-             fontFamily: {
-                 'cinzel': ['Cinzel', 'serif'],
-                 'lora': ['Lora', 'serif'],
-                 'open-sans': ['Open Sans', 'sans-serif'],
-             },
-             colors: {
-                 'bg-primary': 'var(--color-bg-primary)',
-                 'bg-secondary': 'var(--color-bg-secondary)',
-                 'accent-gold': 'var(--color-accent-gold)',
-                 'accent-royal-blue': 'var(--color-accent-royal-blue)',
-                 'accent-bronze': 'var(--color-accent-bronze)',
-                 'text-dark': 'var(--color-text-dark)',
-                 'text-light': 'var(--color-text-light)',
-                 'strong-text': 'var(--color-accent-royal-blue)', /* Emphasis in royal blue */
-                 'interactive-hover': 'var(--color-interactive-hover)',
-             },
-         }
-     }
- }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
 
- /* Responsive adjustments */
- @media (max-width: 768px) {
-     .main-container {
-         padding: 1rem;
-         margin: 1rem auto;
-         border-width: 1.5px;
-     }
-     .main-container::before {
-         top: -3px; left: -3px; right: -3px; bottom: -3px;
-     }
+    h1 {
+        font-size: 2.4rem;
+    }
+    .font-lora.text-lg.md\:text-xl { /* Specificity for the one-liner */
+        font-size: 1rem;
+    }
 
-     .profile-pic {
-         width: 100px;
-         height: 100px;
-     }
+    .headline-underline {
+        width: 120px;
+        margin-bottom: 1.8em;
+    }
 
-     h1 {
-         font-size: 2.4rem;
-     }
-     .font-lora.text-lg.md\:text-xl { /* Specificity for the one-liner */
-         font-size: 1rem;
-     }
+    .section-title {
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1.2rem;
+    }
 
-     .headline-underline {
-         width: 120px;
-         margin-bottom: 1.8em;
-     }
+    .investigation-list li {
+        margin-bottom: 0.8rem; /* Reduced space between list items */
+        font-size: 1rem; /* Adjusted font size */
+    }
 
-     .section-title {
-         font-size: 1.8rem;
-         margin-top: 2.5rem;
-         margin-bottom: 1.2rem;
-     }
+    .investigation-list li i.fas {
+        font-size: 1.5rem; /* Smaller arrow icon */
+        margin-right: 0.6rem; /* Reduced space */
+    }
 
-     .investigation-list li {
-         margin-bottom: 1rem;
-     }
+    .contact-icon-link {
+        font-size: 3rem;
+    }
+}
 
-     .investigation-pillar-item {
-         padding: 0.6rem 1rem;
-     }
+@media (max-width: 480px) {
+    .main-container {
+        padding: 0.8rem;
+        border-radius: 6px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .font-lora.text-lg.md\:text-xl {
+        font-size: 0.9rem;
+    }
+    .headline-underline {
+        width: 90px;
+        margin-bottom: 1.2em;
+    }
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.04em;
+    }
 
-     .investigation-pillar-item i {
-         font-size: 2rem;
-         margin-right: 0.5rem;
-     }
+    .investigation-list li {
+        margin-bottom: 0.6rem; /* Further reduced space */
+        font-size: 0.9rem; /* Further adjusted font size */
+    }
 
-     .investigation-pillar-item p {
-         font-size: 0.9rem;
-     }
+    .investigation-list li i.fas {
+        font-size: 1.3rem; /* Smallest arrow icon */
+        margin-right: 0.5rem; /* Smallest space */
+    }
 
-     .contact-icon-link {
-         font-size: 3rem;
-     }
- }
-
- @media (max-width: 480px) {
-     .main-container {
-         padding: 0.8rem;
-         border-radius: 6px;
-     }
-     h1 {
-         font-size: 2rem;
-     }
-     .font-lora.text-lg.md\:text-xl {
-         font-size: 0.9rem;
-     }
-     .headline-underline {
-         width: 90px;
-         margin-bottom: 1.2em;
-     }
-     .section-title {
-         font-size: 1.5rem;
-         letter-spacing: 0.04em;
-     }
-
-     .investigation-pillar-item {
-         padding: 0.5rem 0.8rem;
-     }
-
-     .investigation-pillar-item i {
-         font-size: 1.8rem;
-         margin-right: 0.4rem;
-     }
-
-     .investigation-pillar-item p {
-         font-size: 0.8rem;
-     }
-     .contact-icon-link {
-         font-size: 2.5rem;
-     }
-     .message-box {
-         font-size: 0.7rem;
-         padding: 0.4rem 0.8rem;
-     }
-     .divider-ornate {
-         width: 70%;
-     }
- }
+    .contact-icon-link {
+        font-size: 2.5rem;
+    }
+    .message-box {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .divider-ornate {
+        width: 70%;
+    }
+}
