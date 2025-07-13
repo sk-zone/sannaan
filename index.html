@@ -4,23 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sannaan Khan | Ancient Scholar</title>
+    <title>Sannaan Khan | The Imperial Scholar</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-royal-blue-accent">
-
-    <div class="scroll-wrapper">
-        <div class="content-area">
+<body class="bg-bg-dark-wall">
+    <div class="imperial-decree-container">
+        <div class="imperial-content-area">
             
             <header class="profile-section">
                 <img
                     src="./assets/images/sannaan.png"
                     alt="Profile picture of Sannaan Khan"
-                    class="profile-pic"
-                    onerror="this.onerror=null;this.src='https://placehold.co/120x120/E4D9C7/B8860B?text=Sannaan';"
+                    class="profile-pic mx-auto mb-6"
+                    onerror="this.onerror=null;this.src='https://placehold.co/180x180/E4D9C7/A58133?text=Sannaan';"
                 />
 
                 <h1 class="main-title">Sannaan Khan</h1>
@@ -49,23 +48,23 @@
                 <h2 class="section-heading">Pillars of Inquiry</h2>
                 <div class="investigation-pillars">
                     <div class="pillar-item">
-                        <i class="fas fa-book-open pillar-icon"></i> 
+                        <i class="fas fa-book-open pillar-icon" title="Deep Learning Theory"></i>
                         <p class="pillar-text">Deep Learning Theory</p>
                     </div>
                     <div class="pillar-item">
-                        <i class="fas fa-globe-americas pillar-icon"></i>
+                        <i class="fas fa-brain pillar-icon" title="Multimodal Intelligence"></i>
                         <p class="pillar-text">Multimodal Intelligence</p>
                     </div>
                     <div class="pillar-item">
-                        <i class="fas fa-cubes pillar-icon"></i>
+                        <i class="fas fa-sitemap pillar-icon" title="Causal Representational Learning"></i>
                         <p class="pillar-text">Causal Representational Learning</p>
                     </div>
                     <div class="pillar-item">
-                        <i class="fas fa-lightbulb pillar-icon"></i>
+                        <i class="fas fa-microscope pillar-icon" title="Interpretability"></i>
                         <p class="pillar-text">Interpretability</p>
                     </div>
                     <div class="pillar-item">
-                        <i class="fas fa-balance-scale-right pillar-icon"></i>
+                        <i class="fas fa-shield-alt pillar-icon" title="AI Safety & Alignment"></i>
                         <p class="pillar-text">AI Safety & Alignment</p>
                     </div>
                 </div>
@@ -75,8 +74,8 @@
 
             <section id="contact" class="contact-section">
                 <h2 class="section-heading">The Scribe's Inscription</h2>
-                <p class="main-text mb-6">
-                    Should you wish to delve deeper into these pursuits, correspondence may be established through the following ancient symbols:
+                <p class="main-text mb-8">
+                    Should you wish to delve deeper into these pursuits, contact may be established through the following ancient symbols:
                 </p>
                 <div class="contact-icons">
                     <a href="#" id="email-copy-btn" class="contact-link">
@@ -91,8 +90,8 @@
                 </div>
             </section>
 
-            <footer class="scroll-footer">
-                &copy; <span id="current-year"></span> Sannaan Khan. All ancient knowledge reserved.
+            <footer class="decree-footer">
+                &copy; <span id="current-year"></span> Sannaan Khan. All imperial knowledge reserved.
             </footer>
         </div>
     </div>
@@ -111,8 +110,8 @@
 
             const textarea = document.createElement('textarea');
             textarea.value = emailAddress;
-            textarea.style.position = 'fixed'; // Prevents scrolling to bottom
-            textarea.style.opacity = 0; // Hides the textarea
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = 0;
             document.body.appendChild(textarea);
             textarea.focus();
             textarea.select();
