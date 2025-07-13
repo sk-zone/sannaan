@@ -3,30 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Roman Academia Theme - Earthy tones, classic elegance */
+/* New Roman Academia Theme Palette */
 :root {
-    /* Backgrounds & Text */
-    --color-bg-primary: #FDF9F3; /* Warm off-white, like aged parchment */
-    --color-container-bg: #EAE3D6; /* Muted beige, like aged marble */
-    --color-text-dark: #3A3A3A; /* Deep charcoal for main text */
-    --color-text-light: #6B6B6B; /* Softer grey for secondary text */
-    --color-headline-dark: #2A2A2A; /* Almost black for impactful headlines */
-
-    /* Accents (Inspired by Roman motifs: terracotta, gold, deep red) */
-    --color-accent-primary: #8C473C; /* Muted Terracotta/Brick Red, strong accent */
-    --color-accent-secondary: #B99066; /* Aged Gold/Bronze, subtle highlight */
-    --color-accent-tertiary: #A5A5A5; /* Stone Grey for structural elements */
-
-    /* Shadows & Interactivity */
-    --color-shadow-subtle: rgba(0, 0, 0, 0.08); /* Very soft, general shadow */
-    --color-shadow-deeper: rgba(0, 0, 0, 0.15); /* More pronounced on hover */
-    --color-interactive-hover: #A35A4B; /* Darker terracotta for hover */
-    --color-border-subtle: #D5CDC0; /* Faint border, like grout lines */
+    --color-bg-primary: #FDFBF6; /* Light Parchment / Travertine Stone */
+    --color-bg-secondary: #EFEBE0; /* Slightly darker, subtly textured marble/stone */
+    --color-accent-gold: #C8AE7D; /* Soft, antiqued gold for details */
+    --color-accent-bronze: #8B4513; /* Rich bronze/saddle brown for deeper accents */
+    --color-text-dark: #333333; /* Deep charcoal for primary text */
+    --color-text-medium: #555555; /* Medium grey for secondary text */
+    --color-text-light: #FDFBF6; /* Light text for dark elements */
+    --color-shadow-light: rgba(0, 0, 0, 0.05); /* Very soft shadow */
+    --color-shadow-medium: rgba(0, 0, 0, 0.12); /* More pronounced shadow */
+    --color-shadow-deep: rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
+    --color-interactive-hover: #AA956F; /* Muted gold for interactive elements hover */
 }
 
 html {
     scroll-behavior: smooth;
-    height: 100%; /* Ensure html takes full height */
+    height: 100%; /* Ensure html also takes full height */
 }
 
 body {
@@ -34,174 +28,206 @@ body {
     color: var(--color-text-dark);
     line-height: 1.7;
     font-family: 'Open Sans', sans-serif;
-    min-height: 100vh; /* Ensure body covers full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 2rem 0;
     overflow-x: hidden;
+    /* Subtle background texture for the Roman feel */
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23efebe0" fill-opacity="0.4" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E'); /* Subtle geometric pattern for depth */
+    background-size: 30px 30px;
+    background-repeat: repeat;
 }
 
-/* Main Container - Grand and framed */
+/* Main Container - Designed like a monumental stone block or framed tablet */
 .main-container {
-    background: var(--color-container-bg);
-    border: 1px solid var(--color-border-subtle);
-    box-shadow: 0 5px 25px var(--color-shadow-subtle); /* Main lift */
-    transition: all 0.4s ease-in-out;
-    position: relative; /* For pseudo-elements */
-    overflow: hidden; /* For inner border effect */
-    border-radius: 8px; /* Soft rounding */
-    padding: 3rem 4rem; /* Increased padding for spacious feel */
+    background: var(--color-bg-secondary);
+    border: 3px solid var(--color-accent-gold); /* Prominent gold frame */
+    border-radius: 8px; /* Softened corners */
+    box-shadow:
+        0 10px 40px var(--color-shadow-medium), /* Main lift shadow */
+        0 0 60px var(--color-shadow-light), /* Soft ambient glow */
+        inset 0 0 30px var(--color-shadow-light); /* Inner subtle depth */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Elegant ease-in-out */
+    position: relative;
+    padding: 3rem; /* More generous padding */
 }
 
 .main-container:hover {
-    box-shadow: 0 10px 40px var(--color-shadow-deeper);
-    transform: translateY(-3px); /* Subtle lift on hover */
+    transform: translateY(-5px) scale(1.005); /* Slight lift and subtle enlargement */
+    box-shadow:
+        0 15px 50px var(--color-shadow-deep),
+        0 0 80px var(--color-shadow-medium),
+        inset 0 0 40px var(--color-shadow-light);
 }
 
-/* Subtle inner border mimicking an architectural frame */
-.main-container::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 1px solid var(--color-accent-tertiary); /* Inner stone line */
-    pointer-events: none; /* Allows clicks to pass through */
-    opacity: 0.7;
-    border-radius: 4px; /* Matches outer radius but smaller offset */
-}
-
-/* Profile Picture - Statuesque and centered */
+/* Profile Picture - Encased like a medallion */
 .profile-pic {
-    border: 5px solid var(--color-accent-secondary); /* Gold/bronze border */
-    box-shadow: 0 0 0 2px var(--color-accent-primary), /* Terracotta outer ring */
-                0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 5px solid var(--color-accent-gold); /* Thicker gold border */
+    box-shadow: 0 0 20px var(--color-accent-gold), /* Stronger gold glow */
+                0 0 40px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.4s ease; /* Bouncy effect */
 }
 
 .profile-pic:hover {
-    transform: scale(1.05); /* Gentle zoom, less rotation */
-    box-shadow: 0 0 0 3px var(--color-interactive-hover),
-                0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1) rotateY(10deg); /* More dramatic, almost 3D-like rotation */
+    box-shadow: 0 0 30px var(--color-interactive-hover),
+                0 0 60px rgba(0, 0, 0, 0.25);
 }
 
-/* Headline Underline - Architectural pediment feel */
+/* Headline and One-Liner Styling */
+.headline-text {
+    font-family: 'Cinzel', serif; /* Strong Roman font for name */
+    color: var(--color-text-dark);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+}
+
+.one-liner {
+    font-family: 'Lora', serif; /* Elegant, scholarly font for the one-liner */
+    font-style: italic; /* Emphasize its nature */
+    color: var(--color-accent-bronze); /* Bronze color for distinctiveness */
+    font-size: 1.1rem; /* Keeping it small but readable */
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em; /* Slightly spaced letters */
+}
+
+/* Headline Underline - A more artistic, chiseled line */
 .headline-underline {
     display: block;
-    width: 150px; /* Wider for grandeur */
+    width: 100px;
     height: 3px;
-    background: linear-gradient(to right, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
-    margin: 0.8em auto 2.5em auto;
-    border-radius: 1.5px; /* Half of height for rounded caps */
-    opacity: 0.9;
-    animation: expandUnderline 1.5s ease-out forwards; /* Changed animation */
+    background: linear-gradient(to right, var(--color-accent-gold), var(--color-accent-bronze));
+    margin: 1.5em auto 3em auto; /* More vertical separation */
+    border-radius: 2px;
+    opacity: 0.7;
+    transform: scaleX(0); /* Start hidden for animation */
+    animation: expandUnderline 1.2s ease-out forwards 0.5s; /* Delay animation start */
 }
 
-/* Section Title - Bold and distinguished */
+/* Section Title - Grand and centered */
 .section-title {
-    font-family: 'Merriweather', serif;
-    color: var(--color-headline-dark);
+    font-family: 'Cinzel', serif;
+    color: var(--color-accent-bronze); /* Bronze for section titles */
     text-align: center;
-    margin-top: 3.5rem; /* More space for sections */
+    font-size: 2.8rem; /* Larger, more commanding */
+    margin-top: 4rem;
     margin-bottom: 2rem;
     position: relative;
-    padding-bottom: 0.75rem;
-    font-size: 2.5rem; /* Larger font size */
-    font-weight: 700;
-    letter-spacing: 0.05em; /* Subtle spacing for gravitas */
+    text-transform: uppercase;
+    letter-spacing: 0.1em; /* More pronounced letter spacing */
+    padding-bottom: 1rem;
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 80px; /* Wider underline */
-    height: 2px;
-    background: var(--color-accent-secondary); /* Gold/bronze underline */
-    margin: 0.5rem auto 0;
-    border-radius: 1px;
-    opacity: 0.8;
+    width: 120px; /* Wider and more prominent */
+    height: 3px;
+    background: var(--color-accent-gold);
+    margin: 1rem auto 0;
+    border-radius: 2px;
 }
 
-/* Buttons - Solid and reliable */
-.btn-primary {
-    display: inline-flex; /* Use flex for icon alignment */
+/* Investigation Categories - Presented as distinct columns/pillars */
+.investigation-category {
+    background: var(--color-bg-primary); /* Lighter background for distinctiveness */
+    border: 1px solid var(--color-accent-gold); /* Subtle gold border */
+    border-radius: 5px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 15px var(--color-shadow-light);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: var(--color-accent-primary);
-    color: var(--color-bg-primary); /* Text color contrasts with dark button */
-    padding: 0.8rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
+    min-height: 120px; /* Ensure consistent height */
+}
+
+.investigation-category:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 25px var(--color-shadow-medium);
+    border-color: var(--color-accent-bronze); /* Border darkens on hover */
+}
+
+.investigation-category .fas {
+    font-size: 2.5rem; /* Larger icons */
+    color: var(--color-accent-bronze); /* Bronze icons */
+    margin-bottom: 0.75rem;
+}
+
+.investigation-category p {
+    font-family: 'Lora', serif; /* Elegant font for categories */
+    font-size: 1.15rem; /* Clear and readable */
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--color-accent-primary);
-    letter-spacing: 0.02em;
-}
-
-.btn-primary:hover {
-    background-color: var(--color-interactive-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Social/Contact Icons - Iconic and clickable */
-.social-icon-link {
-    color: var(--color-accent-primary);
-    transition: all 0.2s ease;
-    border-bottom: none; /* No underline on icons */
-}
-
-.social-icon-link:hover {
-    color: var(--color-interactive-hover);
-    transform: translateY(-2px) scale(1.1); /* Lift and subtle grow */
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
-}
-
-/* Research Areas List - Clean and direct */
-.research-area-item {
-    font-family: 'Merriweather', serif;
     color: var(--color-text-dark);
-    font-weight: 400;
-    font-size: 1.15rem;
-    padding: 0.5rem 0;
-    position: relative;
-    padding-left: 1.8rem; /* Space for the bullet/icon */
+    line-height: 1.4;
 }
 
-.research-area-item::before {
-    content: '\2022'; /* Unicode bullet point */
-    color: var(--color-accent-secondary); /* Gold bullet */
-    position: absolute;
-    left: 0;
-    font-size: 1.5rem;
-    line-height: 1;
-    top: 50%;
-    transform: translateY(-50%);
+/* Contact Icons - Bold and interactive, like carved emblems */
+.contact-icon-link {
+    color: var(--color-accent-bronze); /* Bronze for default */
+    font-size: 4rem; /* Even larger icons */
+    transition: color 0.3s ease, transform 0.2s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+.contact-icon-link:hover {
+    color: var(--color-interactive-hover); /* Muted gold on hover */
+    transform: scale(1.15); /* Significant enlargement */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Box for Copy Confirmation */
+.message-box {
+    background-color: var(--color-accent-bronze);
+    color: var(--color-text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.message-box.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ornate Divider - More like a chiseled architectural detail */
+.divider-ornate {
+    height: 3px; /* Thicker */
+    background: linear-gradient(to right, transparent, var(--color-accent-bronze) 10%, var(--color-accent-gold) 50%, var(--color-accent-bronze) 90%, transparent);
+    width: 90%; /* Wider */
+    margin: 3rem auto; /* More vertical space */
+    border-radius: 2px;
+    opacity: 0.6;
+}
 
 /* Animations */
 @keyframes expandUnderline {
     from {
-        width: 0;
+        transform: scaleX(0);
         opacity: 0;
     }
     to {
-        width: 150px;
-        opacity: 0.9;
+        transform: scaleX(1);
+        opacity: 0.7;
     }
 }
 
 @keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.98);
+        transform: scale(0.97);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1);
     }
 }
 
@@ -210,94 +236,105 @@ body {
     theme: {
         extend: {
             fontFamily: {
-                'merriweather': ['Merriweather', 'serif'],
+                'cinzel': ['Cinzel', 'serif'],
+                'lora': ['Lora', 'serif'],
                 'open-sans': ['Open Sans', 'sans-serif'],
             },
             colors: {
                 'bg-primary': 'var(--color-bg-primary)',
-                'container-bg': 'var(--color-container-bg)',
+                'bg-secondary': 'var(--color-bg-secondary)',
+                'accent-gold': 'var(--color-accent-gold)',
+                'accent-bronze': 'var(--color-accent-bronze)',
                 'text-dark': 'var(--color-text-dark)',
+                'text-medium': 'var(--color-text-medium)',
                 'text-light': 'var(--color-text-light)',
-                'headline-dark': 'var(--color-headline-dark)',
-                'accent-primary': 'var(--color-accent-primary)',
-                'accent-secondary': 'var(--color-accent-secondary)',
-                'accent-tertiary': 'var(--color-accent-tertiary)',
+                'strong-text': 'var(--color-accent-bronze)', /* Strong text now uses bronze */
                 'interactive-hover': 'var(--color-interactive-hover)',
-                'border-subtle': 'var(--color-border-subtle)',
             },
         }
     }
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
-    .main-container {
-        padding: 2.5rem 3rem;
-    }
-}
-
 @media (max-width: 768px) {
-    body {
-        padding: 1rem 0;
-    }
     .main-container {
         padding: 2rem;
         margin: 1rem auto;
-        border-left: 1px solid var(--color-border-subtle); /* Less prominent on small screens */
+        border-width: 2px;
     }
-    .main-container::before {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-    }
-    .headline-underline {
-        width: 100px;
-        margin-bottom: 2em;
-    }
+
     .profile-pic {
         width: 120px;
         height: 120px;
+        border-width: 4px;
     }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .one-liner {
+        font-size: 1rem;
+    }
+
+    .headline-underline {
+        width: 80px;
+        margin-bottom: 2em;
+    }
+
     .section-title {
         font-size: 2rem;
-        margin-top: 2.5rem;
-        margin-bottom: 1.5rem;
+        letter-spacing: 0.08em;
     }
+
     .section-title::after {
-        width: 60px;
+        width: 90px;
     }
-    .btn-primary {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+
+    .investigation-category {
+        min-height: 100px;
+        padding: 1rem 0.75rem;
     }
-    .research-area-item {
+
+    .investigation-category .fas {
+        font-size: 2rem;
+    }
+
+    .investigation-category p {
         font-size: 1rem;
+    }
+
+    .contact-icon-link {
+        font-size: 3rem;
+    }
+
+    .divider-ornate {
+        width: 80%;
+        margin: 2rem auto;
     }
 }
 
 @media (max-width: 480px) {
     .main-container {
         padding: 1.5rem;
-        border-radius: 4px;
+        border-width: 1px;
     }
-    .main-container::before {
-        display: none; /* Hide inner frame on very small screens for simplicity */
+    h1 {
+        font-size: 2.2rem;
     }
-    .profile-pic {
-        width: 100px;
-        height: 100px;
+    .one-liner {
+        font-size: 0.9rem;
     }
-    .text-4xl, .text-5xl {
+    .text-lg {
+        font-size: 0.95rem;
+    }
+    .text-xl {
+        font-size: 1.05rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .contact-icon-link {
         font-size: 2.5rem;
-    }
-    .text-lg, .text-xl {
-        font-size: 1rem;
-    }
-    .btn-primary {
-        width: 100%; /* Full width buttons on tiny screens */
-    }
-    .flex.flex-col.items-center.space-y-4 > div.flex.space-x-4 {
-        justify-content: center; /* Center icons if they wrap */
     }
 }
