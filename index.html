@@ -8,54 +8,196 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="font-open-sans">
-    <div class="container max-w-3xl mx-auto my-8 md:my-20 p-8 md:p-12 rounded-xl border-primary-accent"
-          style="
-            /* Background gradient for depth, mimicking a magical portal or old library interior */
-            background: radial-gradient(circle at center, var(--color-container-bg) 0%, var(--color-bg-light) 100%);
-            /* Complex box-shadow for a 'magic door' or ancient tome effect: outer glow + inner depth */
-            box-shadow:
-                0 0 30px var(--color-shadow-light), /* General light shadow for overall depth */
-                0 0 60px rgba(0, 0, 0, 0.1), /* Wider, softer light shadow for a more pronounced lift */
-                inset 0 0 20px rgba(0, 0, 0, 0.05), /* Subtle inner darkness from within the container */
-                inset 0 0 40px rgba(255, 255, 255, 0.8); /* Deep inner lightness for a sense of enclosure */
-            /* Border to frame the content, like an ornate book cover or door frame */
-            border: 3px solid var(--color-primary-accent);
-            border-left-width: 15px; /* Thicker left border for emphasis, suggesting a spine or a heavy door frame */
-        ">
-        <img
-            src="./assets/images/sannaan.png"
-            alt="Profile picture of Sannaan Khan"
-            class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-primary-accent mx-auto mb-8 transition-transform duration-300 hover:scale-105"
-            style="
-                /* Box shadow for the profile picture, giving it a subtle magical glow and depth */
-                box-shadow: 0 0 15px var(--color-primary-accent), /* Subtle magical glow around the image */
-                                0 0 30px rgba(0, 0, 0, 0.1); /* Lighter shadow for added depth and prominence */
-            "
-            onerror="this.onerror=null;this.src='https://placehold.co/160x160/E0E0E0/333333?text=Sannaan';"
-        />
+    <div class="container max-w-3xl mx-auto my-8 md:my-12 p-8 md:p-12 rounded-xl main-container animate-fadeInScale">
+        
+        <header class="text-center mb-10">
+            <img
+                src="./assets/images/sannaan.png"
+                alt="Profile picture of Sannaan Khan"
+                class="profile-pic block w-40 h-40 rounded-full object-cover border-4 border-primary-accent mx-auto mb-8"
+                onerror="this.onerror=null;this.src='https://placehold.co/160x160/E0E0E0/333333?text=Sannaan';"
+            />
 
-        <h1 class="font-merriweather font-bold text-4xl md:text-5xl mb-1 text-headline-text text-center tracking-wide">
-            Hi, I'm Sannaan
-        </h1>
-    <div class="headline-underline"></div>
+            <h1 class="font-merriweather font-bold text-4xl md:text-5xl mb-1 text-headline-text tracking-wide">
+                Hi, I'm Sannaan
+            </h1>
+            <div class="headline-underline"></div>
 
-        <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-body-text leading-relaxed px-1 text-justify">
-                My research interests lie at the intersection of deep learning theory, computer vision, and interpretability, 
-                with a focus on causal representation learning and the emergence of shared structure across vision, language, sound, and thought.
+            <p class="font-open-sans text-lg md:text-xl max-w-2xl mx-auto text-body-text leading-relaxed px-1 text-justify">
+                My research interests lie at the intersection of <strong class="text-strong-text">deep learning theory</strong>, <strong class="text-strong-text">computer vision</strong>, and <strong class="text-strong-text">interpretability</strong>, 
+                with a focus on <strong class="text-strong-text">causal representation learning</strong> and the emergence of shared structure across vision, language, sound, and thought.
                 I’m driven by a fundamental curiosity about how high-level abstractions arise in deep models, 
                 and how such representations might reveal the computational principles underlying intelligence.
-        <br><br>
+                <br><br>
                 While my intellectual pursuits are strongly grounded in theoretical inquiry, particularly the mechanisms that enable deep models to generalize,
                 compose, and align, I’m guided by the conviction that such understanding can, over time, reshape how we approach real-world challenges
                 in high-stakes domains such as healthcare.
-        <br><br>
-                In parallel, I’m deeply committed to the long-term safety of AI systems. I’m especially interested in the problem of scalable oversight:
+                <br><br>
+                In parallel, I’m deeply committed to the <strong class="text-strong-text">long-term safety of AI systems</strong>. I’m especially interested in the problem of scalable oversight:
                 how we can build models whose reasoning remains understandable and steerable, even as their capabilities grow. Ultimately, 
                 I aim to help develop AI systems that are not only powerful but also transparent, trustworthy, and aligned with human values.
-        </p>
+            </p>
 
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#publications" class="btn-primary">
+                    <i class="fas fa-book mr-2"></i> My Publications
+                </a>
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-envelope mr-2"></i> Contact Me
+                </a>
+            </div>
+        </header>
+
+        <hr class="my-12 border-secondary-accent" />
+
+        <section id="publications" class="mb-12">
+            <h2 class="section-title">Recent Publications</h2>
+            <div class="space-y-6">
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary-accent">
+                    <h3 class="font-merriweather text-xl font-semibold text-headline-text mb-2">
+                        Deconstructing Latent Spaces: A Causal Approach to Interpretability
+                    </h3>
+                    <p class="text-sm text-body-text mb-2">
+                        <span class="font-semibold">Authors:</span> Sannaan Khan, J. Doe, A. Smith
+                    </p>
+                    <p class="text-sm text-body-text mb-3">
+                        <span class="font-semibold">Journal/Conference:</span> NeurIPS 2024
+                    </p>
+                    <p class="text-body-text text-justify mb-4">
+                        This paper proposes a novel framework for causally identifying and disentangling latent factors within deep neural networks,
+                        offering a new perspective on model interpretability. We demonstrate its effectiveness in various computer vision tasks.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="link-academic flex items-center">
+                            <i class="fas fa-file-pdf mr-1"></i> PDF
+                        </a>
+                        <a href="#" class="link-academic flex items-center">
+                            <i class="fas fa-flask mr-1"></i> Code
+                        </a>
+                        <a href="#" class="link-academic flex items-center">
+                            <i class="fas fa-video mr-1"></i> Presentation
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary-accent">
+                    <h3 class="font-merriweather text-xl font-semibold text-headline-text mb-2">
+                        Emergent Representations in Self-Supervised Models for Multi-Modal Data
+                    </h3>
+                    <p class="text-sm text-body-text mb-2">
+                        <span class="font-semibold">Authors:</span> M. Lee, Sannaan Khan, P. Green
+                    </p>
+                    <p class="text-sm text-body-text mb-3">
+                        <span class="font-semibold">Journal/Conference:</span> CVPR 2023
+                    </p>
+                    <p class="text-body-text text-justify mb-4">
+                        We investigate how deep models learn shared, high-level representations across diverse data modalities
+                        (e.g., images, text, audio) when trained with self-supervised objectives, shedding light on principles of general intelligence.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="link-academic flex items-center">
+                            <i class="fas fa-file-pdf mr-1"></i> PDF
+                        </a>
+                        <a href="#" class="link-academic flex items-center">
+                            <i class="fas fa-link mr-1"></i> Project Page
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-list-alt mr-2"></i> View All Publications
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-secondary-accent" />
+
+        <section id="interests" class="mb-12">
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md">
+                    <h3 class="font-merriweather text-lg font-semibold text-primary-accent mb-2">
+                        <i class="fas fa-brain mr-2"></i> Deep Learning Theory
+                    </h3>
+                    <p class="text-body-text">
+                        Focus on generalization, robustness, and the theoretical underpinnings of neural networks.
+                    </p>
+                </div>
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md">
+                    <h3 class="font-merriweather text-lg font-semibold text-primary-accent mb-2">
+                        <i class="fas fa-eye mr-2"></i> Computer Vision
+                    </h3>
+                    <p class="text-body-text">
+                        Image recognition, object detection, generative models, and visual representation learning.
+                    </p>
+                </div>
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md">
+                    <h3 class="font-merriweather text-lg font-semibold text-primary-accent mb-2">
+                        <i class="fas fa-lightbulb mr-2"></i> Model Interpretability
+                    </h3>
+                    <p class="text-body-text">
+                        Causal inference, explainable AI (XAI), and understanding model decision-making processes.
+                    </p>
+                </div>
+                <div class="p-6 rounded-lg bg-container-bg border border-secondary-accent shadow-sm transition-all duration-300 hover:shadow-md">
+                    <h3 class="font-merriweather text-lg font-semibold text-primary-accent mb-2">
+                        <i class="fas fa-shield-alt mr-2"></i> AI Safety & Alignment
+                    </h3>
+                    <p class="text-body-text">
+                        Scalable oversight, value alignment, and robust AI system development.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-secondary-accent" />
+
+        <section id="contact" class="mb-10 text-center">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="text-lg text-body-text mb-6">
+                Feel free to connect for collaborations, inquiries, or discussions on research!
+            </p>
+            <div class="flex flex-col items-center space-y-4">
+                <a href="mailto:sannaankhan@example.com" class="btn-primary flex items-center justify-center w-full md:w-auto px-6 py-3">
+                    <i class="fas fa-paper-plane mr-2"></i> Email Sannaan
+                </a>
+                <div class="flex space-x-4">
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" class="text-primary-accent hover:text-interactive-hover transition-colors duration-200 text-3xl">
+                        <i class="fas fa-graduation-cap" title="Google Scholar"></i>
+                    </a>
+                    <a href="https://github.com/Sannaan" target="_blank" rel="noopener noreferrer" class="text-primary-accent hover:text-interactive-hover transition-colors duration-200 text-3xl">
+                        <i class="fab fa-github" title="GitHub"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sannaankhan/" target="_blank" rel="noopener noreferrer" class="text-primary-accent hover:text-interactive-hover transition-colors duration-200 text-3xl">
+                        <i class="fab fa-linkedin" title="LinkedIn"></i>
+                    </a>
+                    </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-sm text-secondary-accent mt-12 pt-6 border-t border-secondary-accent">
+            &copy; <span id="current-year"></span> Sannaan Khan. All rights reserved.
+        </footer>
     </div>
+
+    <script>
+        // Update copyright year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Optional: Smooth scroll for internal links (already handled by scroll-behavior: smooth in CSS, but this is a JS fallback/enhancement)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
