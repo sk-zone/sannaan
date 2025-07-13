@@ -3,219 +3,191 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Royal Roman Scroll Theme Palette */
+/* Royal Illuminated Scroll Theme Palette */
 :root {
-    --color-scroll-bg-light: #F7F3EB; /* Light parchment */
-    --color-scroll-bg-dark: #E4D9C7; /* Darker parchment texture */
-    --color-text-primary: #3B2F2F; /* Deep sepia/ink color for main text */
+    --color-text-dark: #2F323A; /* Deep sepia/ink color for main text */
     --color-text-secondary: #6B5B5B; /* Lighter sepia for subtle details */
     --color-gold-accent: #B8860B; /* Deep gold */
     --color-bronze-accent: #8A4F1D; /* Rich bronze */
-    --color-royal-blue-accent: #2C3E50; /* Deep, academic blue */
-    --color-shadow-scroll: rgba(0, 0, 0, 0.25); /* Shadow for scroll depth */
-    --color-border-ornate: #A58133; /* Gold for ornate borders */
+    --color-royal-blue-accent: #2C3E50; /* Deep, academic blue for specific elements */
     --color-interactive-hover: #D4AF37; /* Brighter gold for hover */
+    --color-border-subtle: rgba(0,0,0,0.1); /* Subtle internal borders */
 }
 
-/* Custom fonts from Google Fonts */
+/* Custom fonts for classical elegance */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
 
-html {
-    scroll-behavior: smooth;
-    background-color: var(--color-royal-blue-accent); /* Deep blue background for the "outside" of the scroll */
+
+html, body {
+    height: 100%; /* Ensure full height for positioning */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #202020; /* Dark background behind the scroll image */
 }
 
 body {
-    background-color: var(--color-royal-blue-accent); /* Match html background */
-    color: var(--color-text-primary);
-    line-height: 1.8; /* Increased line height for readability on scroll */
-    font-family: 'Crimson Text', serif; /* Elegant, readable serif for body */
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the entire scroll container */
+    font-family: 'Crimson Text', serif;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+/* Main Scroll Wrapper - This contains the background image and positions content */
+.scroll-wrapper {
+    width: 90vw; /* Responsive width based on viewport */
+    height: 90vh; /* Responsive height based on viewport */
+    max-width: 1000px; /* Max size for large screens */
+    max-height: 1000px; /* Max height to maintain aspect ratio, adjust as needed */
+    position: relative; /* Crucial for absolute positioning of content */
+    background-image: url('royal-scroll-unfurled-stockcake.jpg');
+    background-size: contain; /* Scale image to fit within the wrapper */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    display: flex; /* Use flex to center content within the available image space */
+    flex-direction: column;
+    justify-content: flex-start; /* Start content from the top of the central area */
+    align-items: center;
+    padding: 0; /* No padding on the wrapper itself */
+    overflow: hidden; /* Hide anything that overflows the central area of the image */
+}
+
+/* Inner content area - this will be where the text and elements sit */
+/* We need to define this area relative to the background image's "clear" zone */
+.content-area {
+    position: absolute;
+    /* These values need fine-tuning based on the image's proportions and borders */
+    /* Estimated percentages for the clear central area of the scroll image */
+    top: 22%; /* Adjust this to move content down from the top ornate border */
+    left: 24%; /* Adjust this to move content right from the left ornate border */
+    width: 52%; /* Adjust this to define the width of the central content area */
+    height: 56%; /* Adjust this to define the height of the central content area */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    margin: 0;
-    padding: 0;
+    justify-content: flex-start; /* Content starts from the top of its box */
+    padding: 2% 0; /* Small vertical padding within the content box */
+    overflow-y: auto; /* Allow scrolling for content that overflows this specific area */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    line-height: 1.6;
+    text-align: center; /* Default text alignment */
+    /* Optional: background-color: rgba(255, 255, 255, 0.1); for debugging positioning */
 }
-
-/* The Scroll Container - This is the magic! */
-.scroll-container {
-    width: 90%; /* Max width of the scroll */
-    max-width: 960px; /* Limit for large screens */
-    background-color: var(--color-scroll-bg-light);
-    box-shadow: 0 15px 50px var(--color-shadow-scroll); /* Deep shadow for scroll effect */
-    border-left: 2px solid var(--color-gold-accent); /* Subtle border for definition */
-    border-right: 2px solid var(--color-gold-accent);
-    padding: 4rem 3rem; /* Generous padding within the scroll */
-    margin: 3rem auto; /* Spacing from viewport edges */
-    position: relative; /* For scroll ends */
-    z-index: 10;
-    overflow: hidden; /* Crucial for initial hidden state */
-    transform-origin: top center;
-    animation: unfoldScroll 3s ease-out forwards; /* Unfold animation */
-
-    /* Subtle texture for the scroll */
-    background-image:
-        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 50px 50px; /* Smaller pattern for fine detail */
-}
-
-/* Scroll Top and Bottom Edges - rolled effect */
-.scroll-container::before,
-.scroll-container::after {
-    content: '';
-    position: absolute;
-    left: -20px; /* Extend slightly beyond the scroll body */
-    right: -20px;
-    height: 60px; /* Height of the rolled edge */
-    background: linear-gradient(to bottom, var(--color-scroll-bg-dark) 0%, var(--color-scroll-bg-light) 100%);
-    border: 1px solid var(--color-bronze-accent);
-    border-radius: 50%; /* Creates the rounded, rolled effect */
-    box-shadow: inset 0 5px 15px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1); /* Inner and outer shadows */
-    z-index: 5; /* Below main scroll content */
-}
-
-.scroll-container::before {
-    top: -30px; /* Position above the top of the scroll */
-    transform: rotateX(15deg); /* Slight 3D roll */
-}
-
-.scroll-container::after {
-    bottom: -30px; /* Position below the bottom of the scroll */
-    transform: rotateX(-15deg); /* Slight 3D roll */
-    background: linear-gradient(to top, var(--color-scroll-bg-dark) 0%, var(--color-scroll-bg-light) 100%);
-}
-
 
 /* Profile Section */
 .profile-section {
+    width: 90%; /* Take up most of content-area width */
+    margin-bottom: 2%; /* Percentage-based margin for responsiveness */
     text-align: center;
-    margin-bottom: 3rem;
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 25%; /* Responsive width for profile picture */
+    max-width: 120px; /* Max size for desktop */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--color-gold-accent); /* Golden halo */
-    box-shadow: 0 0 25px var(--color-gold-accent), 0 0 50px rgba(0,0,0,0.2); /* Glowing effect */
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    border: 3px solid var(--color-gold-accent);
+    box-shadow: 0 0 15px var(--color-gold-accent);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    margin: 0 auto 1.5%; /* Centered margin */
 }
-
 .profile-pic:hover {
-    transform: scale(1.08) rotate(3deg);
-    box-shadow: 0 0 35px var(--color-interactive-hover), 0 0 70px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--color-interactive-hover);
 }
 
 .main-title {
-    font-family: 'Playfair Display', serif; /* Elegant, classical display font */
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 3.5rem; /* Large, commanding title */
+    font-size: clamp(1.8rem, 4vw, 2.8rem); /* Fluid font size for main title */
     color: var(--color-royal-blue-accent);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.08em; /* Spaced out for grandeur */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 0.5%;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .one-liner {
-    font-family: 'Old Standard TT', serif; /* Philosophical, classic feel */
+    font-family: 'Old Standard TT', serif;
     font-style: italic;
-    font-size: 1.3rem; /* Small but elegant */
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem); /* Fluid font size for one-liner */
     color: var(--color-text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5%;
 }
 
 .underline-ornate {
-    width: 150px;
-    height: 3px;
+    width: 30%; /* Responsive width */
+    max-width: 100px; /* Max width */
+    height: 2px;
     background: linear-gradient(to right, var(--color-bronze-accent), var(--color-gold-accent), var(--color-bronze-accent));
-    margin: 0 auto 3rem auto;
-    border-radius: 2px;
-    animation: fadeInUnderline 1.5s ease-out forwards;
+    margin: 0 auto 2.5%;
+    border-radius: 1px;
 }
 
 /* Main Body Text (no bolding) */
 .main-text {
-    font-size: 1.15rem; /* Slightly larger for readability */
-    line-height: 2; /* More generous line height for a manuscript feel */
+    font-size: clamp(0.85rem, 1.6vw, 1.05rem); /* Fluid font size for body text */
     text-align: justify;
-    padding: 0 1rem; /* Inner padding for text within scroll */
-    color: var(--color-text-primary);
+    padding: 0 1%; /* Small horizontal padding to prevent text from touching edges */
+    margin-bottom: 2%;
+    color: var(--color-text-dark);
 }
 
 /* Philosophical Divisor */
 .philosophical-divisor {
     height: 1px;
     background: linear-gradient(to right, transparent, var(--color-bronze-accent) 20%, var(--color-gold-accent) 50%, var(--color-bronze-accent) 80%, transparent);
-    width: 70%;
-    margin: 4rem auto;
+    width: 60%;
+    margin: 3% auto;
     opacity: 0.7;
 }
 
 /* Areas of Investigation - Philosophical Pillars */
 .investigation-section {
-    margin-bottom: 4rem;
+    width: 90%;
+    margin-bottom: 3%;
 }
 
 .section-heading {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     color: var(--color-royal-blue-accent);
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2%;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    letter-spacing: 0.08em;
 }
 
 .investigation-pillars {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 2.5rem; /* Wider gap between pillars */
-    padding: 0 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); /* 2 columns initially */
+    gap: 1.5%; /* Percentage-based gap */
+    padding: 0 1%;
 }
 
 .pillar-item {
-    background-color: var(--color-scroll-bg-light);
-    border: 2px solid var(--color-bronze-accent); /* Bronze border for aged look */
-    padding: 2rem;
-    border-radius: 8px;
+    background-color: transparent; /* Make background transparent to show scroll texture */
+    border: 1px solid var(--color-border-subtle); /* Subtle border for definition */
+    padding: 5% 2%; /* Responsive padding */
+    border-radius: 4px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Soft shadow */
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden; /* For pseudo-element background */
-}
-
-.pillar-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--color-scroll-bg-dark) 0%, transparent 100%); /* Subtle diagonal texture */
-    opacity: 0.1;
-    pointer-events: none;
+    transition: all 0.2s ease-in-out;
 }
 
 .pillar-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     border-color: var(--color-gold-accent);
 }
 
 .pillar-item .pillar-icon {
-    font-size: 3.8rem; /* Larger, more symbolic icons */
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem); /* Fluid icon size */
     color: var(--color-royal-blue-accent);
-    margin-bottom: 1rem;
-    transition: color 0.3s ease;
+    margin-bottom: 0.5%;
+    transition: color 0.2s ease;
 }
 
 .pillar-item:hover .pillar-icon {
@@ -223,51 +195,49 @@ body {
 }
 
 .pillar-item .pillar-text {
-    font-family: 'Old Standard TT', serif; /* Philosophical text */
-    font-size: 1.15rem;
+    font-family: 'Old Standard TT', serif;
+    font-size: clamp(0.8rem, 1.5vw, 1.0rem); /* Fluid text size */
     font-weight: 600;
-    color: var(--color-text-primary);
-    line-height: 1.5;
+    color: var(--color-text-dark);
+    line-height: 1.3;
 }
 
 /* Contact Section */
 .contact-section {
+    width: 90%;
+    margin-top: 3%;
     text-align: center;
-    margin-top: 4rem;
 }
 
 .contact-icons {
     display: flex;
     justify-content: center;
-    gap: 3rem; /* More space between icons */
-    margin-top: 2rem;
+    gap: 3%; /* Responsive gap */
+    margin-top: 2%;
 }
 
 .contact-link {
     color: var(--color-royal-blue-accent);
-    font-size: 4.8rem; /* Very large icons, like ancient symbols */
-    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    font-size: clamp(2rem, 5vw, 3rem); /* Fluid icon size */
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .contact-link:hover {
     color: var(--color-interactive-hover);
-    transform: scale(1.15);
-    text-shadow: 0 0 18px var(--color-interactive-hover), 0 0 30px rgba(0,0,0,0.4);
+    transform: scale(1.1);
 }
 
 .message-box {
     background-color: var(--color-royal-blue-accent);
-    color: var(--color-text-light);
-    padding: 0.8rem 1.8rem;
-    border-radius: 8px;
-    font-size: 1.05rem;
+    color: white; /* Use simple white for clear contrast on blue */
+    padding: 0.5% 1%;
+    border-radius: 4px;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    border: 1px solid var(--color-gold-accent);
-    margin-top: 2.5rem;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    margin-top: 1.5%;
 }
 
 .message-box.show {
@@ -275,147 +245,197 @@ body {
     visibility: visible;
 }
 
-/* Footer - Classical and Understated */
+/* Footer */
 .scroll-footer {
+    width: 90%;
     text-align: center;
-    margin-top: 5rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--color-bronze-accent); /* Subtle sepia line */
+    margin-top: 4%;
+    padding-top: 2%;
+    border-top: 1px solid var(--color-bronze-accent);
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
 }
 
-/* Animations */
-@keyframes unfoldScroll {
-    from {
-        max-height: 0; /* Start completely rolled up */
-        padding-top: 0;
-        padding-bottom: 0;
-        opacity: 0;
-        transform: scaleY(0); /* Start flat */
-    }
-    to {
-        max-height: 2000px; /* Allow content to dictate height, but set a max */
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        opacity: 1;
-        transform: scaleY(1); /* Fully unfolded */
-    }
-}
+/* ---------------------------------------------------- */
+/* Responsive Adjustments using Media Queries */
+/* ---------------------------------------------------- */
 
-@keyframes fadeInUnderline {
-    from { width: 0; opacity: 0; }
-    to { width: 150px; opacity: 1; }
-}
+/* Adjusting content positioning for different aspect ratios/sizes */
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .scroll-container {
-        width: 95%;
-        padding: 3rem 1.5rem;
-        margin: 2rem auto;
+/* Tablet Portrait & Landscape / Smaller Desktops */
+@media (max-width: 992px) {
+    .scroll-wrapper {
+        width: 95vw;
+        height: 95vh;
     }
-    .scroll-container::before,
-    .scroll-container::after {
-        left: -10px;
-        right: -10px;
-        height: 40px;
-        top: -20px;
-        bottom: -20px;
+    .content-area {
+        top: 20%; /* Adjusted top */
+        left: 23%;
+        width: 54%;
+        height: 58%; /* Adjusted height */
     }
     .profile-pic {
-        width: 130px;
-        height: 130px;
-    }
-    .main-title {
-        font-size: 2.5rem;
-    }
-    .one-liner {
-        font-size: 1.1rem;
+        width: 30%;
+        max-width: 100px;
     }
     .main-text {
-        font-size: 1rem;
-        line-height: 1.8;
-    }
-    .section-heading {
-        font-size: 1.8rem;
-        letter-spacing: 0.08em;
-    }
-    .pillar-item {
-        padding: 1.5rem;
-    }
-    .pillar-item .pillar-icon {
-        font-size: 3rem;
-    }
-    .pillar-item .pillar-text {
-        font-size: 1rem;
-    }
-    .contact-link {
-        font-size: 3.5rem;
-    }
-    .message-box {
-        font-size: 0.9rem;
-    }
-    .scroll-footer {
-        margin-top: 3rem;
-        padding-top: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .scroll-container {
-        padding: 2rem 1rem;
-        margin: 1rem auto;
-    }
-    .scroll-container::before,
-    .scroll-container::after {
-        height: 30px;
-        top: -15px;
-        bottom: -15px;
-    }
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
-    .main-title {
-        font-size: 2rem;
-        letter-spacing: 0.05em;
-    }
-    .one-liner {
-        font-size: 0.95rem;
-    }
-    .main-text {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
-    .underline-ornate {
-        width: 100px;
-        margin-bottom: 2rem;
-    }
-    .section-heading {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
+        padding: 0 1.5%;
     }
     .investigation-pillars {
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Slightly wider columns */
+        gap: 2%;
+    }
+}
+
+/* Mobile Landscape & Tablet Small */
+@media (max-width: 768px) {
+    .scroll-wrapper {
+        width: 98vw;
+        height: 98vh;
+        /* For very short/wide screens, ensure image covers or contains appropriately */
+        background-size: contain; /* Stick to contain to ensure image always fits */
+    }
+    .content-area {
+        top: 18%; /* Further adjustment for smaller top margins on scroll image */
+        left: 20%;
+        width: 60%;
+        height: 62%;
+        padding: 3% 0;
+    }
+    .profile-pic {
+        width: 35%;
+        max-width: 80px;
+    }
+    .main-text {
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+        padding: 0 2%;
+    }
+    .investigation-pillars {
+        grid-template-columns: 1fr; /* Stack pillars vertically on smaller screens */
+        gap: 3%;
     }
     .pillar-item {
-        padding: 1rem;
+        padding: 4% 2%;
     }
-    .pillar-item .pillar-icon {
-        font-size: 2.5rem;
-    }
-    .pillar-item .pillar-text {
-        font-size: 0.9rem;
+    .philosophical-divisor {
+        margin: 4% auto;
     }
     .contact-icons {
-        gap: 2rem;
+        gap: 4%;
+    }
+    .scroll-footer {
+        margin-top: 5%;
+        padding-top: 2.5%;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start; /* Align to top to better fit content if image aspect ratio is problematic */
+        padding-top: 1vh; /* Small top padding */
+    }
+    .scroll-wrapper {
+        width: 98vw;
+        height: 95vh; /* Keep height constrained to allow for scrollability if content is long */
+        margin: 1vh auto; /* Adjust top margin */
+        background-size: contain;
+    }
+    .content-area {
+        top: 18%; /* These percentages become more critical */
+        left: 18%;
+        width: 64%;
+        height: 62%; /* May need to be slightly taller */
+        padding: 4% 0;
+        overflow-y: auto; /* Ensure content is scrollable within its fixed window */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+    .profile-pic {
+        width: 40%;
+        max-width: 70px;
+    }
+    .main-title {
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+        letter-spacing: 0.03em;
+    }
+    .one-liner {
+        font-size: clamp(0.7rem, 1.5vw, 1.0rem);
+    }
+    .underline-ornate {
+        width: 25%;
+        max-width: 80px;
+    }
+    .main-text {
+        font-size: clamp(0.75rem, 1.7vw, 0.9rem);
+        padding: 0 3%;
+    }
+    .section-heading {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        letter-spacing: 0.05em;
+    }
+    .investigation-pillars {
+        gap: 4%;
+        padding: 0 2%;
+    }
+    .pillar-item {
+        padding: 5% 3%;
+    }
+    .pillar-item .pillar-icon {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+    }
+    .pillar-item .pillar-text {
+        font-size: clamp(0.7rem, 1.3vw, 0.9rem);
     }
     .contact-link {
-        font-size: 2.8rem;
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
     }
     .message-box {
-        font-size: 0.8rem;
-        padding: 0.6rem 1.2rem;
+        font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+    }
+    .scroll-footer {
+        margin-top: 6%;
+        padding-top: 3%;
+        font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+    }
+}
+
+/* Specific adjustments for very wide/short screens where height is limited */
+@media (min-aspect-ratio: 16/9) and (max-height: 700px) {
+    .scroll-wrapper {
+        width: auto;
+        height: 98vh; /* Prioritize height */
+        background-size: auto 100%; /* Make background image fill height */
+        background-position: center;
+        max-width: 100vw; /* Allow wider */
+    }
+    /* Content area might need adjustment if the image scales differently */
+    .content-area {
+         /* These percentages might shift as the background-image scales differently */
+         /* You'll need to test this on actual devices. */
+         top: 20%;
+         left: 25%;
+         width: 50%;
+         height: 55%;
+    }
+}
+
+
+/* Specific adjustments for very tall/narrow screens where width is limited */
+@media (max-aspect-ratio: 9/16) and (max-width: 500px) {
+    .scroll-wrapper {
+        width: 98vw;
+        height: auto; /* Allow height to adjust */
+        background-size: 100% auto; /* Make background image fill width */
+        background-position: center;
+        max-height: 100vh; /* Don't let it overflow viewport height */
+    }
+    /* Content area might need adjustment if the image scales differently */
+    .content-area {
+        /* These percentages might shift as the background-image scales differently */
+        /* You'll need to test this on actual devices. */
+        top: 20%;
+        left: 20%;
+        width: 60%;
+        height: 55%; /* Could be taller if image allows */
     }
 }
